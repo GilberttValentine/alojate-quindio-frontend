@@ -1,0 +1,9 @@
+<div class="{{ context.class }}-banner">
+  <div class="banner-bg-gradient-{{ context.class }} container-fluid">
+    <div class="col-md-4">
+      <p class="title">{{ context.title }}</p>
+      <p class="description">{{ context.description }}</p>
+      <button class="btn btn-primary-action w-100" type="button" [routerLink]="[context.action.route]">{{context.action.text}}</button>
+    </div>
+  </div>
+</div>

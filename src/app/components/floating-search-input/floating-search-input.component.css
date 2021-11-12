@@ -1,0 +1,47 @@
+.search-lodgings {
+  background: #fff;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  position: relative;
+  margin-top: -2.3rem;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+label {
+  font-weight: 600;
+}
+
+label, .form-control {
+  font-size: 0.813rem;
+}
+
+.search-btn {
+  border-radius: 50%;
+  background-color: #58CBC0;
+  border: 1px solid #58CBC0;
+  color: #FFFFFF;
+  width: 3.125rem;
+  height: 3.125rem;
+}
+
+.search-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-btn:hover {
+  background-color: #52bdb2;
+  border: 0.063rem solid #52bdb2;
+}
+
+.form-control {
+  border: none;
+  background: none;
+  font-weight: 100;
+  padding-left: 0;
+}
+
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}

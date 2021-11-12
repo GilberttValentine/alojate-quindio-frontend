@@ -1,0 +1,62 @@
+.municipalities-title {
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  font-size: 1.563rem;
+  line-height: 2.5rem;
+  cursor: default;
+}
+
+.municipalities {
+  overflow: hidden;
+}
+
+.img-municipality{ 
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.municipality {
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.municipal-lodgings {
+  width: 200px;
+}
+
+.municipality:last-child {
+  margin-right: 0px;
+}
+
+.municipality-content {
+  padding-left: 1rem;
+  font-size: 12px;
+}
+
+/*
+.municipalities {
+  overflow: hidden;
+  cursor: grab;
+  width: 100%;
+  min-width: 410px;
+}
+
+
+.municipality {
+  font-size: 13px;
+  min-width: 270px;
+  margin-right: 62px!important;
+  cursor: pointer;
+}
+
+.municipality-content p {
+  padding-left: 1rem!important;
+}
+
+.img-municipality {
+  width: 75px;
+  height: 75px;
+  border-radius: .5rem;
+}*/

@@ -1,0 +1,42 @@
+.welcome-banner {
+  background: url(https://c1.wallpaperflare.com/preview/316/916/954/salento-quind%C3%ADo-colombia-street.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: cover;
+}
+
+.welcome-banner, .host-banner, .banner-bg-gradient-welcome, .banner-bg-gradient-host {
+  border-radius: 2rem;
+}
+
+.banner-bg-gradient-welcome {
+  background: linear-gradient(98deg, #292929 0%, rgba(88, 114, 205, 0.5) 100%);
+  backdrop-filter: blur(4px);
+}
+
+.banner-bg-gradient-host {
+  background: linear-gradient(98deg, #292929 0.54%, #463726 100%);
+}
+
+.banner-bg-gradient-welcome {
+  padding: 3.3rem 3.5rem 4.2rem 3.5rem;
+  color: #FFFFFF;
+}
+
+.banner-bg-gradient-host {
+  padding: 95px 3.5rem 95px 3.5rem;
+  color: #FFFFFF;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.563rem;
+  line-height: 2.5rem;
+}
+
+.description {
+  margin-top: 1.125rem;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
