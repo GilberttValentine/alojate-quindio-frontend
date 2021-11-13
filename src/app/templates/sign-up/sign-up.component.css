@@ -1,0 +1,63 @@
+.bg-sign-up {
+  background: linear-gradient(-98deg, #292929 0%, rgba(88, 114, 205, 0.5) 100%);
+  backdrop-filter: blur(4px);
+  padding-top: 8rem;
+}
+
+.bg-sign-up, a {
+  color: #FFFFFF;
+}
+
+.sign-up-form {
+  min-height: 93.2vh;
+  padding-bottom: 4.5rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.563rem;
+  line-height: 2.5rem;
+  margin-top: 15px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+div[class^='col-'] {
+  margin-bottom: 15px;
+}
+
+div[class^='col-']:last-child {
+  margin-bottom: 0;
+}
+
+input::placeholder {
+  color: #00000071;
+}
+
+label, .form-control, .sign-in-info {
+  font-size: 14px;
+}
+
+.form-control {
+  height: 45px;
+  font-weight: normal;
+}
+
+.sign-in-info {
+  margin-top: 15px;
+}
+
+a:hover {
+  color: #dfdede;
+}
+
+.btn-primary-action {
+  margin-top: 10px;
+}
+
+.error {
+  font-size: 12px;
+  margin-top: 0.25rem;
+}

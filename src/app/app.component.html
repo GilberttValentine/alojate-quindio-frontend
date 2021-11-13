@@ -1,2 +1,3 @@
-<router-outlet></router-outlet>
+<app-navbar [changeNavbar]="changeNavbar"></app-navbar>
+<router-outlet (activate)="changeRoute()"></router-outlet>
 <app-footer></app-footer>

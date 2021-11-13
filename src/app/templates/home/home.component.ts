@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
       class: "welcome",
       action: {
         text: "Iniciar sesión",
-        route: "/login"
+        route: "/sign-in"
       }
     }
 
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
       class: "host",
       action: {
         text: "Hazte anfitrión",
-        route: "/login"
+        route: "/sign-in"
       }
     }
   }

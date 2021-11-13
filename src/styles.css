@@ -12,6 +12,7 @@ html, body {
 
 body {
   box-sizing: border-box;
+  padding-top: 96px;
 }
 
 .btn-primary-action {
@@ -19,8 +20,7 @@ body {
   border: none;
   height: 3rem;
   color: #FFFFFF;
-  font-weight: 600;
-  font-size: 0.813rem;
+  font-size: 13px;
 }
 
 .btn-primary-action:focus {
@@ -31,4 +31,14 @@ body {
 .btn-primary-action:hover {
   background: linear-gradient(91.5deg, #4d63b4 0%, #53c2b5 100%);
   color: #FFFFFF;
+}
+
+.sign-in, .sign-up {
+  background-image: url(https://c1.wallpaperflare.com/preview/316/916/954/salento-quind%C3%ADo-colombia-street.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(248, 249, 250, 1);
+  padding-top: 0rem;
 }

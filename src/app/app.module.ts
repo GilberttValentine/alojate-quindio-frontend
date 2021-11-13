@@ -16,6 +16,7 @@ import { FilterMunicipalitiesComponent } from './components/filter-municipalitie
 import { FilterBestLodgingsComponent } from './components/filter-best-lodgings/filter-best-lodgings.component';
 import { FilterTypesLodgingsComponent } from './components/filter-types-lodgings/filter-types-lodgings.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FilterMunicipalitiesComponent,
     FilterBestLodgingsComponent,
     FilterTypesLodgingsComponent,
-    FooterComponent
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -34,29 +34,3 @@
   padding-left: 1rem;
   font-size: 12px;
 }
-
-/*
-.municipalities {
-  overflow: hidden;
-  cursor: grab;
-  width: 100%;
-  min-width: 410px;
-}
-
-
-.municipality {
-  font-size: 13px;
-  min-width: 270px;
-  margin-right: 62px!important;
-  cursor: pointer;
-}
-
-.municipality-content p {
-  padding-left: 1rem!important;
-}
-
-.img-municipality {
-  width: 75px;
-  height: 75px;
-  border-radius: .5rem;
-}*/

@@ -11,6 +11,8 @@ import { filter, map } from "rxjs/operators";
 export class AppComponent implements OnInit {
   title = '';
   
+  changeNavbar: Boolean = false;
+
   constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -30,6 +32,14 @@ export class AppComponent implements OnInit {
       return this.getChild(activatedRoute.firstChild);
     } else {
       return activatedRoute;
+    }
+  }
+
+  changeRoute() {
+    if (this.router.url === '/sign-in' || this.router.url === '/sign-up') {
+      this.changeNavbar = true;
+    } else {
+      this.changeNavbar = false;
     }
   }
 

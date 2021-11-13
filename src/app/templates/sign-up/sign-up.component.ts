@@ -12,4 +12,11 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewInit() {
+    document.querySelector('body')!.classList.add('sign-up');
+  }
+
+  ngOnDestroy() {
+    document.querySelector('body')!.classList.remove('sign-up');
+  }
 }

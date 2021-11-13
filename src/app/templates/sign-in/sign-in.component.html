@@ -1,1 +1,38 @@
-<p>sign-in works!</p>
+<div class="bg-sign-in">
+  <div class="container">
+    <form class="sign-in-form d-flex align-items-center">
+      <div class="d-block col-12 col-xl-4 col-lg-6 col-md-7 col-sm-10">
+        <h3 class="title">Bienvenido de nuevo</h3>
+        <div class="row">
+          <div class="col-12">
+            <label for="email">Correo electrónico</label>
+            <input class="form-control shadow-none" placeholder="Ingresa tu correo electrónico">
+            <div class="error text-danger" id="email-error"></div>
+          </div>
+          <div class="col-12">
+            <label for="password">Contraseña</label>
+            <input class="form-control shadow-none" placeholder="Ingresa tu contraseña">
+            <div class="error text-danger" id="password-error"></div>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Recordarme
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary-action w-100">Iniciar sesión</button>
+          </div>
+          <div class="col-12">
+            <div class="sign-up-info d-flex flex-wrap justify-content-center">
+              <p class="me-2">¿Eres nuevo?</p>
+              <a [routerLink]="['/sign-up']">Registrate aquí</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
