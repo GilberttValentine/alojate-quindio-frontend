@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +16,16 @@ import { FilterBestLodgingsComponent } from './components/filter-best-lodgings/f
 import { FilterTypesLodgingsComponent } from './components/filter-types-lodgings/filter-types-lodgings.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ImgsLodgingComponent } from './components/lodging/view-mode/imgs-lodging/imgs-lodging.component';
+import { OwnerLodgingInfoComponent } from './components/lodging/view-mode/owner-lodging-info/owner-lodging-info.component';
+import { FloatingPerformReservationComponent } from './components/lodging/view-mode/floating-perform-reservation/floating-perform-reservation.component';
+import { LodgingNameInfoComponent } from './components/lodging/view-mode/lodging-name-info/lodging-name-info.component';
+import { AboutLodgingComponent } from './components/lodging/view-mode/about-lodging/about-lodging.component';
+import { ServicesLodgingComponent } from './components/lodging/view-mode/services-lodging/services-lodging.component';
+import { ServicesModalComponent } from './components/lodging/view-mode/modals/services-modal/services-modal.component';
+import { ReviewComponent } from './components/lodging/view-mode/modals/review/review.component';
+import { LodgingAccessibilityComponent } from './components/lodging/view-mode/lodging-accessibility/lodging-accessibility.component';
+import { LodgingLocationComponent } from './components/lodging/view-mode/lodging-location/lodging-location.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +42,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FilterBestLodgingsComponent,
     FilterTypesLodgingsComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ImgsLodgingComponent,
+    OwnerLodgingInfoComponent,
+    FloatingPerformReservationComponent,
+    LodgingNameInfoComponent,
+    AboutLodgingComponent,
+    ServicesLodgingComponent,
+    ServicesModalComponent,
+    ReviewComponent,
+    LodgingAccessibilityComponent,
+    LodgingLocationComponent
   ],
   imports: [
     BrowserModule,

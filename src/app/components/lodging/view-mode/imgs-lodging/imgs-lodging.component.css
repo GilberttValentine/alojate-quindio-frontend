@@ -1,0 +1,101 @@
+.lodging-imgs {
+  margin-bottom: 30px;
+}
+
+.lodging-img {
+  width: 330px;
+  height: 190px;
+}
+
+.lodging-img-first {
+  width: 604px;
+  height: 395.6px;
+  border-radius: 20px 0 0 20px;
+}
+
+.lodging-img-second {
+  border-radius: 0 20px 0 0;
+}
+
+.lodging-img-four {
+  border-radius: 0 0 20px 0;
+}
+
+.lodging-imgs img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .lodging-img-first {
+    border-radius: 20px 20px 0 0;
+  }
+  .lodging-img {
+    width: 100%!important;
+  }
+  .lodging-img, .lodging-img-first {
+    height: 250px!important;
+  }
+  .lodging-img-four {
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lodging-img-first {
+    border-radius: 20px 20px 0 0;
+    margin: 0!important;
+  }
+  .lodging-img {
+    width: 604px!important;
+    margin: 0!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+
+  .lodging-img, .lodging-img-first {
+    height: 350px!important;
+  }
+
+  .lodging-img-second {
+    border-radius: 0!important;
+  }
+
+  .lodging-imgs .d-flex {
+    margin: 0!important;
+  }
+
+  .lodging-img-four {
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .lodging-img-first {
+    border-radius: 20px 20px 0 0;
+    width: 500px;
+    margin: 0!important;
+  }
+  .lodging-img {
+    width: 500px!important;
+    margin: 0!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+
+  .lodging-img, .lodging-img-first {
+    height: 350px!important;
+  }
+
+  .lodging-img-second {
+    border-radius: 0!important;
+  }
+
+  .lodging-imgs .d-flex {
+    margin: 0!important;
+  }
+
+  .lodging-img-four {
+    border-radius: 0 0 20px 20px;
+  }
+}

@@ -25,12 +25,6 @@
   }
 }
 
-.bg-blured {
-  color: white;
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.096);
-}
-
 .navbar-nav .nav-link {
   color: #292929;
 }
@@ -45,5 +39,22 @@
 
 .btn-primary-action {
   font-weight: normal;
-  height: 35.2px;
+  height: 40px;
+}
+
+.bg-nav-auth {
+  background: rgba(41, 41, 41, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.bg-nav-auth .navbar-toggler {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bg-nav-auth .navbar-toggler:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bg-nav-auth .nav-link {
+  color: #FFFFFF;
 }

@@ -1,7 +1,7 @@
 .bg-sign-up {
   background: linear-gradient(-98deg, #292929 0%, rgba(88, 114, 205, 0.5) 100%);
   backdrop-filter: blur(4px);
-  padding-top: 8rem;
+  padding-top: 6rem;
 }
 
 .bg-sign-up, a {
@@ -10,7 +10,7 @@
 
 .sign-up-form {
   min-height: 93.2vh;
-  padding-bottom: 4.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .title {
@@ -60,4 +60,5 @@ a:hover {
 .error {
   font-size: 12px;
   margin-top: 0.25rem;
+  text-shadow: 1px 1px 3px #292929;
 }

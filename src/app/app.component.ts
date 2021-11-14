@@ -35,7 +35,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  changeRoute() {
+  onActivate() {
+    window.scroll(0,0);
+
     if (this.router.url === '/sign-in' || this.router.url === '/sign-up') {
       this.changeNavbar = true;
     } else {

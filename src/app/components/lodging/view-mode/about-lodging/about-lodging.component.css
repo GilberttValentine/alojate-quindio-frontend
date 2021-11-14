@@ -1,0 +1,28 @@
+.title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.hide-text {
+  max-height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.btn-without-bg {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.btn-without-bg:hover {
+  background: rgba(180, 180, 180, 0.1);
+}
