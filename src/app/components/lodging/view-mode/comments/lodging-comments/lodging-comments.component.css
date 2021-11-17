@@ -1,0 +1,58 @@
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.icon {
+  color: #58CDBF;
+  font-size: 15px;
+}
+
+.separator-point {
+  font-weight: 600;
+  margin: 8px 8px 0px;
+}
+
+.total-reviews {
+  font-size: 1rem;
+}
+
+.comments-list {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .comments-list {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: rgb(94, 94, 94);
+}
+
+.pagination {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.dropdown-menu {
+  font-size: 13px;
+}
+
+.btn-without-bg {
+  margin: 0;
+}
+
+.dropdown, .dropdown-item {
+  cursor: pointer;
+}

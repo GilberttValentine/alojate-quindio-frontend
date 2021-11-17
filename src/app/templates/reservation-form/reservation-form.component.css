@@ -1,0 +1,38 @@
+.card {
+  border-radius: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 60px;
+}
+
+.btn-back {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
+
+.btn-back:hover {
+  background: rgba(180, 180, 180, 0.1);
+}
+
+.container {
+  margin-bottom: 42px;
+}
+
+.details {
+  font-size: 14px;
+}
+
+hr {
+  margin: 0;
+  color: rgba(0, 0, 0, .4);
+  margin-bottom: 30px;
+}
+
+.lodging-details {
+  position: sticky;
+  top: 150px;
+}

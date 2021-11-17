@@ -5,4 +5,9 @@
 hr {
   margin-top: 0;
   margin-bottom: 48px;
+  color: rgb(94, 94, 94);
+}
+
+.perform-reservation {
+  margin-bottom: 48px;
 }

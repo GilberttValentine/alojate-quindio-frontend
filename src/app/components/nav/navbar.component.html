@@ -1,0 +1,8 @@
+
+<app-normal-navbar *ngIf="nav === 'normal';else loginNavbar"></app-normal-navbar>
+<ng-template #loginNavbar>
+  <app-sign-signup-navbar *ngIf="nav === 'sign-in-sign-up';else panelHostNavbar"></app-sign-signup-navbar>
+</ng-template>
+<ng-template #panelHostNavbar>
+  <app-panel-host-navbar *ngIf="nav === 'panel-host'"></app-panel-host-navbar>
+</ng-template>

@@ -1,0 +1,68 @@
+.navbar-brand {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav-link, .btn {
+  font-size: 13px;
+}
+
+.navbar-toggler {
+  font-size: 16px;
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+  color: #292929;
+}
+
+.navbar-nav .nav-link:hover {
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+  font-weight: 600;
+}
+
+.user-profile {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.dropdown .nav-link {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown .nav-link:hover {
+  font-weight: normal;
+}
+
+.user-role{
+  color: #8D8D8D;
+}
+
+.username, .user-role {
+  font-size: 12px;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.dropdown-toggle::after {
+  margin-left: 1.5rem;
+  vertical-align: 1em;
+}
+
+.dropdown-menu {
+  font-size: 13px;
+}
+
+.navbar {
+}

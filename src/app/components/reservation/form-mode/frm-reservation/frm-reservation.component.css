@@ -1,0 +1,57 @@
+.card {
+  border-radius: 20px;
+}
+
+.payment-method-form {
+  font-size: 14px;
+}
+
+.title-text {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.title-text, .title-sm-text, label {
+  font-weight: 600;
+}
+
+hr {
+  margin: 0;
+  color: rgba(0, 0, 0, .4);
+}
+
+.title-md-text, hr, .card-security, .card-number, .payment-method-form, .stay-util-info {
+  margin-bottom: 30px;
+}
+
+.title-sm-text {
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+}
+
+.form-control {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.expiration-date .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cvv .form-control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.stay-util-info .title-md-text {
+  margin-bottom: 20px;
+}
+
+.icon {
+  color: #58CDBF;
+}

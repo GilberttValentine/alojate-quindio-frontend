@@ -1,0 +1,33 @@
+li {
+  list-style:none;
+}
+.comment-item {
+  margin-bottom: 10px;
+}
+
+.user-profile-picture {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.icon {
+  color: #58CDBF;
+  font-size: 12px;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.comment-header, .comment-body {
+  padding: 1rem;
+}
+
+.comment-body {
+  padding-top: 0.5rem;
+}
+
+.user-review, .date, .comment-body {
+  font-size: 13px;
+}

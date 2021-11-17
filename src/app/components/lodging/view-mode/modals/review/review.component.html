@@ -1,1 +1,56 @@
-<p>review works!</p>
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title">¿Cómo fue tu estadia en Cabaño Corocoro?</h5>
+        <form>
+          <div class="d-flex flex-wrap justify-content-between mb-3">
+            <div class="flex-fill pe-5">
+              <div class="d-flex justify-content-between align-items-center">
+                <label for="quality">Calidad</label>
+                <span id="quality-value">1.0</span>
+              </div>
+              <input type="range" class="form-range" id="quality" min="1.0" max="5" step="0.1" value="1.0"
+                (input)="setValue($event)">
+            </div>
+            <div class="flex-fill">
+              <div class="d-flex justify-content-between align-items-center">
+                <label for="veracity">Veracidad</label>
+                <span id="veracity-value">1.0</span>
+              </div>
+              <input type="range" class="form-range" id="veracity" min="1" max="5" step="0.1" value="1.0"
+                (input)="setValue($event)">
+            </div>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between mb-3">
+            <div class="flex-fill pe-5">
+              <div class="d-flex justify-content-between align-items-center">
+                <label for="cleaning">Limpieza</label>
+                <span id="cleaning-value">1.0</span>
+              </div>
+              <input type="range" class="form-range" id="cleaning" min="1" max="5" step="0.1" value="1.0"
+                (input)="setValue($event)">
+            </div>
+            <div class="flex-fill">
+              <div class="d-flex justify-content-between align-items-center">
+                <label for="ubication">Ubicación</label>
+                <span id="ubication-value">1.0</span>
+              </div>
+              <input type="range" class="form-range" id="ubication" min="1" max="5" step="0.1" value="1.0"
+                (input)="setValue($event)">
+            </div>
+          </div>
+          <label for="comment" class="mb-1">Describe tu experiencia durante la estadia</label>
+          <textarea (input)="getValue($event)" class="form-control shadow-none"></textarea>
+          <div class="d-flex justify-content-end mt-3">
+            <button class="btn btn-without-bg border me-2 py-2 shadow-none">Cancelar</button>
+            <button class="btn btn-primary-action  px-4 py-2 shadow-none">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

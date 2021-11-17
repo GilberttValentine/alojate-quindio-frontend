@@ -15,7 +15,7 @@ import { FilterMunicipalitiesComponent } from './components/filter-municipalitie
 import { FilterBestLodgingsComponent } from './components/filter-best-lodgings/filter-best-lodgings.component';
 import { FilterTypesLodgingsComponent } from './components/filter-types-lodgings/filter-types-lodgings.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/nav/navbar.component';
 import { ImgsLodgingComponent } from './components/lodging/view-mode/imgs-lodging/imgs-lodging.component';
 import { OwnerLodgingInfoComponent } from './components/lodging/view-mode/owner-lodging-info/owner-lodging-info.component';
 import { FloatingPerformReservationComponent } from './components/lodging/view-mode/floating-perform-reservation/floating-perform-reservation.component';
@@ -26,6 +26,24 @@ import { ServicesModalComponent } from './components/lodging/view-mode/modals/se
 import { ReviewComponent } from './components/lodging/view-mode/modals/review/review.component';
 import { LodgingAccessibilityComponent } from './components/lodging/view-mode/lodging-accessibility/lodging-accessibility.component';
 import { LodgingLocationComponent } from './components/lodging/view-mode/lodging-location/lodging-location.component';
+import { LodgingCommentsComponent } from './components/lodging/view-mode/comments/lodging-comments/lodging-comments.component';
+import { LodgingCommentComponent } from './components/lodging/view-mode/comments/lodging-comment/lodging-comment.component';
+import { LodgingOwnerComponent } from './components/lodging/view-mode/lodging-owner/lodging-owner.component';
+import { FormsModule } from '@angular/forms';
+import { ReservationFormComponent } from './templates/reservation-form/reservation-form.component';
+import { FloatingLodgingComponent } from './components/reservation/form-mode/floating-lodging/floating-lodging.component';
+import { FrmReservationComponent } from './components/reservation/form-mode/frm-reservation/frm-reservation.component';
+import { StayDetailComponent } from './components/reservation/form-mode/stay-detail/stay-detail.component';
+import { HostHomeComponent } from './templates/host-panel/host-home/host-home.component';
+import { RouterService } from './services/router/router.service';
+import { SignSignupNavbarComponent } from './components/nav/sign-signup-navbar/sign-signup-navbar.component';
+import { NormalNavbarComponent } from './components/nav/normal-navbar/normal-navbar.component';
+import { PanelHostNavbarComponent } from './components/nav/panel-host-navbar/panel-host-navbar.component';
+import { SidebarPanelHostComponent } from './components/panel-host/sidebar-panel-host/sidebar-panel-host.component';
+import { FilterBestLodgingsPanelHostComponent } from './components/panel-host/filter-best-lodgings-panel-host/filter-best-lodgings-panel-host.component';
+import { FilterRecentBookingsComponent } from './components/panel-host/filter-recent-bookings/filter-recent-bookings.component';
+import { FeedStatsComponent } from './components/panel-host/feed-stats/feed-stats.component';
+import { RecentCardBookingComponent } from './components/panel-host/filter-recent-bookings/recent-card-booking/recent-card-booking.component';
 
 @NgModule({
   declarations: [
@@ -52,14 +70,32 @@ import { LodgingLocationComponent } from './components/lodging/view-mode/lodging
     ServicesModalComponent,
     ReviewComponent,
     LodgingAccessibilityComponent,
-    LodgingLocationComponent
+    LodgingLocationComponent,
+    LodgingCommentsComponent,
+    LodgingCommentComponent,
+    LodgingOwnerComponent,
+    ReservationFormComponent,
+    FloatingLodgingComponent,
+    FrmReservationComponent,
+    StayDetailComponent,
+    HostHomeComponent,
+    SignSignupNavbarComponent,
+    NormalNavbarComponent,
+    PanelHostNavbarComponent,
+    SidebarPanelHostComponent,
+    FilterBestLodgingsPanelHostComponent,
+    FilterRecentBookingsComponent,
+    FeedStatsComponent,
+    RecentCardBookingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
-    Title
+    Title,
+    RouterService
   ],
   bootstrap: [AppComponent]
 })

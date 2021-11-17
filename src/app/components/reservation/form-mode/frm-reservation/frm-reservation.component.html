@@ -1,0 +1,31 @@
+<form class="payment-method-form">
+  <h6 class="title-text">Paga con</h6>
+  <div class="card-number">
+    <label for="card-number">Número de tarjeta</label>
+    <input class="form-control shadow-none" placeholder="xxxx xxxx xxxx xxxx">
+  </div>
+  <div class="card-security">
+    <div class="d-flex flex-wrap">
+      <div class="expiration-date flex-fill">
+        <label for="expiration-date">Expira</label>
+        <input class="form-control shadow-none" placeholder="MM/YY" onblur="(this.type='text')">
+      </div>
+      <div class="cvv flex-fill">
+        <label for="cvv">Código de seguridad</label>
+        <input class="form-control shadow-none" placeholder="CVV">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h6 class="title-text">Información para tu estadía</h6>
+  <div class="stay-util-info">
+    <p class="title-sm-text">Comunícate con el anfitrión</p>
+    <p class="title-md-text">Cuéntale al anfitrión por qué te alojas y cuándo llegas</p>
+    <p class="title-md-text">
+      <i class="bi bi-telephone-fill me-1 icon"></i>
+      312 000 0000
+    </p>
+  </div>
+  <hr>
+  <button class="btn btn-primary-action px-4">Confirma y paga</button>
+</form>

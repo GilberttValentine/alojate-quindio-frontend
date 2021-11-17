@@ -4,7 +4,7 @@
   margin-bottom: 20px;
 }
 
-ul {
+.services-list {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
@@ -13,16 +13,19 @@ ul {
   margin-bottom: 15px;
 }
 
-li {
+@media (max-width: 1200px) {
+  .services-list {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
+
+.service-item {
   font-size: 14px;
   margin-bottom: 15px;
 }
 
-.btn-without-bg {
-  font-size: 13px;
-  margin-bottom: 30px;
-}
-
-.btn-without-bg:hover {
-  background: rgba(180, 180, 180, 0.1);
+.no-more-services {
+  margin-bottom: 60px;
 }

@@ -19,7 +19,7 @@
 .lodging {
   font-size: 16px;
   font-weight: 800;
-  margin-right: 50px;
+  margin-right: 25px;
 }
 
 .img-qualification {
@@ -27,14 +27,14 @@
 }
 
 .lodging-img {
-  width: 336px;
-  height: 220.44px;
+  width: 300px;
+  height: 200px;
   border-radius: 1.25rem;
 }
 
 .view-more {
-  width: 336px;
-  height: 220.44px;
+  width: 325px;
+  height:  200.44px;
   border-radius: 1.25rem;
   color: #FFFFFF;
   background: linear-gradient(98deg, #292929 0%, #2929296e 100%);
@@ -56,7 +56,7 @@
   border-radius: 50%;
   position: absolute;
   z-index: 100;
-  margin-top: -210px;
+  margin-top: -190px;
   margin-left: 10px;
   color: #FFFFFF;
   font-size: 13px;

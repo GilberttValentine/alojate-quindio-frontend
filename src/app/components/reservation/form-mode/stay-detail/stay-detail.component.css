@@ -1,0 +1,39 @@
+.details {
+  font-size: 14px;
+}
+
+.title-text {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.title-text, .title-sm-text {
+  font-weight: 600;
+}
+
+hr {
+  margin: 0;
+  color: rgba(0, 0, 0, .4);
+}
+
+.title-md-text, hr {
+  margin-bottom: 30px;
+}
+
+.title-sm-text {
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+}
+
+.card-payment-method {
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+}
+
+.card-payment-method .title-md-text {
+  margin-bottom: 0;
+}

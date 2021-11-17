@@ -1,0 +1,53 @@
+.modal-content {
+  border-radius: 20px;
+}
+
+.btn-close {
+  border-radius: 50%;
+  opacity: 1;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/0.8em auto no-repeat;
+}
+
+.btn-close:hover {
+  background-color: rgba(175, 175, 175, 0.192);
+  opacity: 1;
+}
+
+.modal-header {
+  border-bottom: 0;
+}
+
+.modal-title, .sub-title {
+  font-weight: 600;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.modal-body {
+  font-size: 13px;
+  padding-top: 0;
+}
+
+.modal-header .btn-close {
+    margin: 0;
+}
+
+.btn-without-bg {
+  margin-bottom: 0;
+}
+
+.btn-primary-action {
+  height: 37.5px;
+}
+
+textarea {
+  min-height: 125px;
+  max-height: 125px;
+}
+
+.form-control {
+  font-size: 13px;
+}
