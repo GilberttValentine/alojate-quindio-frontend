@@ -11,3 +11,9 @@ hr {
 .perform-reservation {
   margin-bottom: 48px;
 }
+
+@media (max-width: 768px) {
+  .justify-content-between {
+    justify-content: center!important;
+  }
+}

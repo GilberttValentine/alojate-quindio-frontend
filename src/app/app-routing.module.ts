@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './templates/home/home.component';
 import { HostHomeComponent } from './templates/host-panel/host-home/host-home.component';
+import { HostLodgingComponent } from './templates/host-panel/host-lodging/host-lodging.component';
+import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host-lodgings.component';
 import { LodgingComponent } from './templates/lodging/lodging.component';
 import { LodgingsComponent } from './templates/lodgings/lodgings.component';
 import { PageNotFoundComponent } from './templates/page-not-found/page-not-found.component';
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'lodgings/:id', component: LodgingComponent, data: { title: "Alojamiento - Alójate Quindío" } },
   { path: 'lodgings/:id/reservation', component: ReservationFormComponent, data: { title: "Realizar reserva - Alójate Quindío" } },
   { path: 'host/home', component: HostHomeComponent, data: { title: "Home - Anfitrión - Alójate Quindío", nav: "panel-host" } },
+  { path: 'host/lodgings', component: HostLodgingsComponent, data: { title: "Mis alojamientos - Anfitrión - Alójate Quindío", nav: "panel-host" } },
+  { path: 'host/lodgings/:id', component: HostLodgingComponent, data: { title: "Alojamiento - Anfitrión - Alójate Quindío", nav: "panel-host" } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, data: { title: "Page not found", nav: "error" } }
 ];

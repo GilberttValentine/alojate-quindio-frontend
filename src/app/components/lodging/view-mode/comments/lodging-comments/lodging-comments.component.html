@@ -11,7 +11,7 @@
   </div>
 </div>
 <button class="btn btn-without-bg border px-5 py-2 mt-3 mb-4 shadow-none" data-bs-toggle="modal"
-  data-bs-target="#commentModal">Realizar reseña</button>
+  data-bs-target="#commentModal" *ngIf="nav !== 'panel-host'">Realizar reseña</button>
 
 <ul class="comments-list">
   <app-lodging-comment></app-lodging-comment>

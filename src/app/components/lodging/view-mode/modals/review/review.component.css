@@ -39,6 +39,10 @@
   margin-bottom: 0;
 }
 
+.btn-primary-action, .btn-without-bg {
+  font-size: 12px;
+}
+
 .btn-primary-action {
   height: 37.5px;
 }

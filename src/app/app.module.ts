@@ -44,6 +44,10 @@ import { FilterBestLodgingsPanelHostComponent } from './components/panel-host/fi
 import { FilterRecentBookingsComponent } from './components/panel-host/filter-recent-bookings/filter-recent-bookings.component';
 import { FeedStatsComponent } from './components/panel-host/feed-stats/feed-stats.component';
 import { RecentCardBookingComponent } from './components/panel-host/filter-recent-bookings/recent-card-booking/recent-card-booking.component';
+import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host-lodgings.component';
+import { HostLodgingComponent } from './templates/host-panel/host-lodging/host-lodging.component';
+import { FloatingLodgingInfoComponent } from './components/lodging/view-mode/floating-lodging-info/floating-lodging-info.component';
+import { ButtonsComponent } from './components/lodging/host-actions/buttons/buttons.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +90,11 @@ import { RecentCardBookingComponent } from './components/panel-host/filter-recen
     FilterBestLodgingsPanelHostComponent,
     FilterRecentBookingsComponent,
     FeedStatsComponent,
-    RecentCardBookingComponent
+    RecentCardBookingComponent,
+    HostLodgingsComponent,
+    HostLodgingComponent,
+    FloatingLodgingInfoComponent,
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,10 @@
   border-radius: 20px;
 }
 
+.floating-form {
+  width: 336px;
+}
+
 .card-header, .card-footer, .card-body {
   font-size: 14px;
   padding: 1rem 30px 1rem 30px;
@@ -49,13 +53,14 @@ hr {
   background: transparent;
 }
 
-.card-form label, .price, .card-footer {
+.card-form label, .total {
   font-weight: 600;
 }
 
+/*
 .first-date {
   border-right: 1px solid rgba(0, 0, 0, .125);
-}
+}*/
 
 .first-date, .second-date {
   border-bottom: 1px solid rgba(0, 0, 0, .125);

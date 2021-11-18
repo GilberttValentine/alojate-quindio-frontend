@@ -1,0 +1,25 @@
+<div class="ps-md-6 col-md-12">
+  <main class="container">
+    <app-lodging-name-info [nav]="nav"></app-lodging-name-info>
+    <app-imgs-lodging></app-imgs-lodging>
+    <div class="d-flex flex-wrap justify-content-between">
+      <div class="lodging-information col-md-7">
+        <app-owner-lodging-info [nav]="nav"></app-owner-lodging-info>
+        <hr>
+        <app-about-lodging></app-about-lodging>
+        <hr>
+        <app-services-lodging></app-services-lodging>
+        <hr>
+        <app-lodging-accessibility></app-lodging-accessibility>
+      </div>
+      <div class="floating-lodging-information">
+        <app-floating-lodging-info></app-floating-lodging-info>
+      </div>
+    </div>
+    <hr>
+    <app-lodging-comments [nav]="nav"></app-lodging-comments>
+    <hr>
+    <app-lodging-owner [nav]="nav"></app-lodging-owner>
+  </main>
+  <app-footer></app-footer>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-lodging-owner',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lodging-owner.component.css']
 })
 export class LodgingOwnerComponent implements OnInit {
+
+  @Input() nav!: string;
 
   constructor() { }
 

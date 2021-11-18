@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { RouterService } from 'src/app/services/router/router.service';
 
 @Component({
   selector: 'app-owner-lodging-info',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerLodgingInfoComponent implements OnInit {
 
+  @Input() nav!: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

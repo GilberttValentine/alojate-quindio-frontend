@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-lodging-name-info',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lodging-name-info.component.css']
 })
 export class LodgingNameInfoComponent implements OnInit {
+
+  @Input() nav!: string;
 
   constructor() { }
 
