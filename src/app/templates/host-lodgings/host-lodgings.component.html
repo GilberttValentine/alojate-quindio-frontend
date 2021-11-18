@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="d-block">
+    <div class="d-flex flex-wrap justify-content-between card-body">
+      <div class="d-flex flex-column">
+        <h2 class="fw-bold title font-26">Alojamientos de Juan Manuel</h2>
+        <div class="font-14">
+          <small>Descubre mas de 1000 alojamientos a nivel departamental</small>
+        </div>
+        <div class="font-14">
+          <small class="fw-bold">Búsqueda: </small><small>Parámetro de búsqueda</small>
+        </div>
+      </div>
+      <div class="d-flex">
+        <form>
+          <div class="d-flex filter-options">
+            <div class="mb-3 me-3 input-search">
+              <input type="text" class="form-control filter-info font-13" id="searchInput" aria-describedby="searchHelp"
+                placeholder="Buscar...">
+            </div>
+            <div class="dropdown me-3">
+              <button class="btn dropdown-toggle px-5 py-2 font-13" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Estado
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item font-13" href="#">Activo</a></li>
+                <li><a class="dropdown-item font-13" href="#">Inactivo</a></li>
+              </ul>
+            </div>
+            <button type="submit" class="btn btn-primary px-5 py-2 filter-info font-13">Agregar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-lodging-card [host]=true *ngFor="let i of [1,2,3,4,5,6,7,8,9, 10]"></app-lodging-card>

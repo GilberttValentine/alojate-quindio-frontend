@@ -1,0 +1,23 @@
+.cancel-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
+
+.cancel-icon:hover {
+  background-color: #e5e5e57c;
+}
+
+hr {
+  margin-bottom: 30px;
+}
+
+@media (max-width:990px) {
+  .information-card {
+    width: 100% !important;
+    order: 1;
+  }
+}

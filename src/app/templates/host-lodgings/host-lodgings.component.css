@@ -1,0 +1,40 @@
+.lodging-info {
+  margin-left: 10%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media (max-width: 991px) {
+  .title-card{
+    width: 100%;
+  }
+  .card-body{
+    justify-content: center;
+  }
+  .input-search{
+    width: 100%;
+  }
+  .filter-options{
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+}
+
+.dropdown-toggle{
+  border: 1px solid #1b1f2428;
+  background-color: #e5e5e57c;
+}
+
+.filter-info{
+  height: 37px;
+}
+
+.card-body{
+  justify-content: start;
+}
+
+.title {
+  max-width: 640px;
+}

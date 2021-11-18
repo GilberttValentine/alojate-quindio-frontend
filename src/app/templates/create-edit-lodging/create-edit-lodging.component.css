@@ -1,0 +1,30 @@
+@media (max-width:990px) {
+  .info-cont{
+    width: 100% !important;
+  }
+  .form-info-cont{
+    justify-content: center !important;
+  }
+  .form-container{
+    width: 100%;
+  }
+}
+
+.info-cont {
+  width: 55%;
+}
+
+
+.btn {
+  height: 41px;
+}
+
+
+@media (max-width: 991px) {
+  .title-div{
+    width: 100% !important;
+  }
+  .button-div {
+    margin-top: 20px;
+  }
+}

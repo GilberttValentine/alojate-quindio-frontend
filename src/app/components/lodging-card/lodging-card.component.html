@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="d-block">
+    <div class="d-flex flex-wrap card-body">
+      <div class="img-card">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="lodging-img" draggable="false"
+                src="https://a0.muscache.com/im/pictures/b15a0d34-06e0-43a0-af27-96cac9cdddaa.jpg?im_w=720">
+            </div>
+            <div class="carousel-item">
+              <img class="lodging-img" draggable="false"
+                src="https://a0.muscache.com/im/pictures/2f13349d-879d-43c6-83e3-8e5679291d53.jpg?im_w=720">
+            </div>
+            <div class="carousel-item">
+              <img class="lodging-img" draggable="false"
+                src="https://a0.muscache.com/im/pictures/7d82ca14-56e5-4465-8218-dcfa7d69b6ac.jpg?im_w=720">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="qualification d-flex justify-content-center align-items-center">
+          4.5
+        </div>
+      </div>
+      <div class="d-flex flex-wrap flex-column flex-fill">
+        <div class="d-flex justify-content-between">
+          <small class="d-block">Tipo de Alojamiento</small>
+          <small><a class="text-reset" href="" *ngIf="host">Ver Reservas</a></small>
+        </div>
+        <div class="d-block lodging-name">Nombre Alojamiento</div>
+        <hr class="hr-name">
+        <small class="d-block">2 huespedes · 1 habitacion · 2 camas · 1 baño</small>
+        <small class="d-block mt-3">wifi · cocina · estacionamiento gratuito · lavadora</small>
+        <div class="d-flex mt-3">
+          <img class="user-img" draggable="false"
+            src="https://cdn.discordapp.com/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg">
+          <div class="d-flex flex-column ms-2 align-self-center">
+            <small class="form-text">Anfitrión</small>
+            <small>Juan Manuel Villanueva Aristizabal</small>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap mt-3 justify-content-between">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+              viewBox="0 0 16 16" class="qualification-icon">
+              <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+            <small class="ms-2">4,5</small>
+            <small class="form-text">(8000 reseñas)</small>
+          </div>
+          <div>
+            <small>{{150000|currency}} COP/noche</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="mb-5">
+</div>

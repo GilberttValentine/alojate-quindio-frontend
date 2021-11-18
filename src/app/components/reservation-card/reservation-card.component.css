@@ -1,0 +1,45 @@
+.card {
+  width: 310px;
+  height: 325px;
+  border-radius: 20px;
+}
+
+.text-state {
+  color: #32D583;
+}
+
+.lodging-img {
+  width: 134px;
+  height: 93px;
+  border-radius: 10px;
+}
+
+.qualification-icon{
+  margin-top: -2.2px;
+  margin-right: -5px;
+}
+
+.lodging-name {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.user-img {
+  width: 40px;
+  height: 40px;
+  border-radius:50%; /*1*/
+  border:3px solid transparent; /*2*/
+  background:linear-gradient(91.5deg, #5872CD 0%, #58CDBF 100%) border-box; /*3*/
+  mask-composite: exclude; /*5*/
+}
+
+.user-info {
+  max-width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.lodging-info {
+  max-width: 126px;
+}

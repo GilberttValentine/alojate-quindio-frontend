@@ -50,6 +50,32 @@ import { FloatingLodgingInfoComponent } from './components/lodging/view-mode/flo
 import { ButtonsComponent } from './components/lodging/host-actions/buttons/buttons.component';
 import { LodgingServiceService } from './services/lodging/lodging-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LodgingCardComponent } from './components/lodging-card/lodging-card.component';
+import { LodgingReservationsComponent } from './templates/lodging-reservations/lodging-reservations.component';
+import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
+import { UserReservationsComponent } from './templates/user-reservations/user-reservations.component';
+import { AccountComponent } from './templates/account/account.component';
+import { UserInformationComponent } from './components/account/user-information/user-information.component';
+import { HostInformationComponent } from './components/account/host-information/host-information.component';
+import { GuestInformationComponent } from './components/account/guest-information/guest-information.component';
+import { LanguageChipComponent } from './components/account/language-chip/language-chip.component';
+import { ViewReservationComponent } from './templates/view-reservation/view-reservation.component';
+import { ViewReservationCardComponent } from './components/view-reservation/view-reservation-card/view-reservation-card.component';
+import { YourStayComponent } from './components/view-reservation/your-stay/your-stay.component';
+import { PaymentMethodComponent } from './components/view-reservation/payment-method/payment-method.component';
+import { ReservationHostInformationComponent } from './components/view-reservation/reservation-host-information/reservation-host-information.component';
+import { ReservationGuestInformationComponent } from './components/view-reservation/reservation-guest-information/reservation-guest-information.component';
+import { CancelReservationComponent } from './components/view-reservation/cancel-reservation/cancel-reservation.component';
+import { CancelAccountComponent } from './components/account/cancel-account/cancel-account.component';
+import { CreateEditLodgingComponent } from './templates/create-edit-lodging/create-edit-lodging.component';
+import { HeaderTitleComponent } from './components/lodging/create-edit-mode/header-title/header-title.component';
+import { LodgingImagesComponent } from './components/lodging/create-edit-mode/lodging-images/lodging-images.component';
+import { LodgingFormComponent } from './components/lodging/create-edit-mode/lodging-form/lodging-form.component';
+import { AboutLodgingCreateEditComponent } from './components/lodging/create-edit-mode/about-lodging/about-lodging.component';
+import { LodgingServiceComponent } from './components/lodging/create-edit-mode/lodging-service/lodging-service.component';
+import { LodgingAccessibilityCreateEditComponent } from './components/lodging/create-edit-mode/lodging-accessibility/lodging-accessibility.component';
+import { ServiceChipComponent } from './components/lodging/create-edit-mode/service-chip/service-chip.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -96,13 +122,40 @@ import { HttpClientModule } from '@angular/common/http';
     HostLodgingsComponent,
     HostLodgingComponent,
     FloatingLodgingInfoComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    LodgingCardComponent,
+    HostLodgingsComponent,
+    LodgingReservationsComponent,
+    ReservationCardComponent,
+    UserReservationsComponent,
+    AccountComponent,
+    UserInformationComponent,
+    HostInformationComponent,
+    GuestInformationComponent,
+    LanguageChipComponent,
+    ViewReservationComponent,
+    ViewReservationCardComponent,
+    YourStayComponent,
+    PaymentMethodComponent,
+    ReservationHostInformationComponent,
+    ReservationGuestInformationComponent,
+    CancelReservationComponent,
+    CancelAccountComponent,
+    CreateEditLodgingComponent,
+    HeaderTitleComponent,
+    LodgingImagesComponent,
+    LodgingFormComponent,
+    AboutLodgingCreateEditComponent,
+    LodgingServiceComponent,
+    LodgingAccessibilityCreateEditComponent,
+    ServiceChipComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     Title,

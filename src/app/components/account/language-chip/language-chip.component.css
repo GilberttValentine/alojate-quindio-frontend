@@ -1,0 +1,32 @@
+.closebtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  width: 7.88px;
+  height: 7.88px;
+}
+
+.closebtn:hover {
+  color: #000;
+}
+
+.chip {
+  display: inline-flex;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+  font-size: 13px;
+  background: linear-gradient(91.43deg, rgba(56, 148, 255, 0.1) 0%, rgba(30, 189, 141, 0.1) 100%);
+  border: linear-gradient(91.43deg, rgba(56, 148, 255, 0.1) 0%, rgba(30, 189, 141, 0.1) 100%);
+  border-radius: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
