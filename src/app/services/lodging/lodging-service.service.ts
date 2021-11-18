@@ -24,7 +24,7 @@ export class LodgingServiceService {
   }
 
   getLodging(lodgingId: number): Observable<Lodging> {
-    return this.http.get<Lodging>(`${environment.baseUrl}/lodgings/${lodgingId}`)
+    return this.http.get<Lodging>(`${environment.baseUrl}/lodgings/${lodgingId}`);
   }
 
   deactivateLodging(userId: number, lodgingId: number): Observable<object> {

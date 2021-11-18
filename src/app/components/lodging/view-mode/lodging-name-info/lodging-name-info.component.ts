@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Lodging } from 'src/app/models/lodging';
 
 @Component({
   selector: 'app-lodging-name-info',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LodgingNameInfoComponent implements OnInit {
 
   @Input() nav!: string;
+  @Input() lodging!: Lodging;
 
   constructor() { }
 

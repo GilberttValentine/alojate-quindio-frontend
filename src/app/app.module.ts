@@ -49,6 +49,7 @@ import { HostLodgingComponent } from './templates/host-panel/host-lodging/host-l
 import { FloatingLodgingInfoComponent } from './components/lodging/view-mode/floating-lodging-info/floating-lodging-info.component';
 import { ButtonsComponent } from './components/lodging/host-actions/buttons/buttons.component';
 import { LodgingServiceService } from './services/lodging/lodging-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { LodgingServiceService } from './services/lodging/lodging-service.servic
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     Title,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Lodging } from 'src/app/models/lodging';
 import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.service';
 
 @Component({
@@ -9,17 +10,18 @@ import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.
 })
 export class LodgingComponent implements OnInit {
 
-  lodgingId!:number;
+  lodgingId!: number;
+  lodging!: Lodging;
 
-  constructor(private route: ActivatedRoute, private lodgingService: LodgingServiceService) {
+  constructor(private router: Router, private route: ActivatedRoute, private lodgingService: LodgingServiceService) {
     this.lodgingId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.route.snapshot.paramMap.get('id'));
-   }
-
-  ngOnInit(): void {
-    const lodging = this.lodgingService.getLodging(1);
-
-    console.log(lodging);
   }
 
+  async ngOnInit(): Promise<void> {
+    this.lodging = await this.getLodging();
+  }
+
+  async getLodging() {
+    return await this.lodgingService.getLodging(this.lodgingId).toPromise();
+  }
 }
