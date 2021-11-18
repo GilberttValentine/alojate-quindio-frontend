@@ -13,7 +13,7 @@
       <div class="d-flex">
         <form>
           <div class="d-flex filter-options">
-            <div class="mb-3 me-3 input-search">
+            <div class="mb-3 me-md-3 input-search">
               <input type="text" class="form-control filter-info font-13" id="searchInput" aria-describedby="searchHelp"
                 placeholder="Buscar...">
             </div>
@@ -27,11 +27,11 @@
                 <li><a class="dropdown-item font-13" href="#">Inactivo</a></li>
               </ul>
             </div>
-            <button type="submit" class="btn btn-primary px-5 py-2 filter-info font-13">Agregar</button>
+            <button type="submit" class="btn btn-primary px-5 py-2 filter-info font-13 add-button">Agregar</button>
           </div>
         </form>
       </div>
     </div>
   </div>
+    <app-lodging-card [host]=true *ngFor="let i of [1,2,3,4,5,6,7,8,9, 10]"></app-lodging-card>
 </div>
-<app-lodging-card [host]=true *ngFor="let i of [1,2,3,4,5,6,7,8,9, 10]"></app-lodging-card>

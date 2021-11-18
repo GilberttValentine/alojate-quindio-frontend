@@ -2,6 +2,11 @@
   border-radius: 20px;
 }
 
+.lodging-card {
+  position: sticky;
+  top: 80px;
+}
+
 .card-body{
   padding: 25px;
 }

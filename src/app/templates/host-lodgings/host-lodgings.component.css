@@ -6,7 +6,7 @@
   font-weight: bold;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .title-card{
     width: 100%;
   }
@@ -19,6 +19,12 @@
   .filter-options{
     flex-wrap: wrap;
     justify-content: start;
+  }
+}
+
+@media (max-width: 379px) {
+  .add-button {
+    margin-top: 5px;
   }
 }
 

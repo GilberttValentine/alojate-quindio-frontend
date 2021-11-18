@@ -21,7 +21,8 @@ export class LodgingImagesComponent implements OnInit {
       this.handleFiles(file, `img${pos}`);
     }else {
       this.img[pos] = "";
-      this.handleFiles(file, `img${pos}`);
+      var img = document.getElementById(`img${pos}`) as HTMLImageElement;
+      img.src = "";
     }
   }
 
@@ -31,7 +32,7 @@ export class LodgingImagesComponent implements OnInit {
     var reader = new FileReader();
     reader.onload = (function (aImg) { 
       return function (e: any) { 
-        aImg.src = e.target.result; 
+        aImg.src = e.target.result;
       }; 
     })(img);
     reader.readAsDataURL(file);

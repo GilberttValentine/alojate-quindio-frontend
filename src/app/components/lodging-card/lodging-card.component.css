@@ -1,11 +1,11 @@
 .lodging-img {
-  width: 390px;
+  width: 360px;
   height: 260.44px;
   border-radius: 1.25rem;
 }
 
 .carousel {
-  width: 390px;
+  width: 360px;
 }
 
 .user-img {
@@ -36,10 +36,6 @@
   margin-top: -4px;
 }
 
-.lodging-name {
-  font-size: 25px;
-}
-
 .hr-name {
   width: 150px;
 }
@@ -48,7 +44,7 @@
   justify-content: start;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .card-body{
     justify-content: center;
   }
@@ -56,6 +52,18 @@
   .img-card {
     margin-bottom: 15px;
     margin-right: 0px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .img-card {
+    width: 100%;
+  }
+  .carousel{
+    width: 100%;
+  }
+  .lodging-img {
+    width: 100%;
   }
 }
 

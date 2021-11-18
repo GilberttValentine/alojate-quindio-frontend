@@ -12,10 +12,11 @@
 }
 
 .user-img {
-  width: 350px;
-  height: 350px;
+  width: 340px;
+  height: 340px;
   border-radius:50%;
-  position: fixed;
+  position: sticky;
+  top: 100px;
 }
 
 @media (max-width: 990px) {
@@ -23,9 +24,7 @@
     width: 100% !important;
     margin-bottom: 20px;
   }
-  .user-img{
-    position: relative;
-  }
+
   .user-img-container{
     order: -1;
     margin-bottom: 30px;
