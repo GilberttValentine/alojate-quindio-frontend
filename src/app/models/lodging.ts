@@ -14,5 +14,5 @@ export class Lodging{
     actual_state!: boolean;
     night_value!: number;
     qualification!: number;
-    services!: Array<string>;
+    services!: Array<any>;
 }
