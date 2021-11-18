@@ -1,8 +1,8 @@
 <main class="container">
-  <app-lodging-name-info [lodging]="lodging"></app-lodging-name-info>
+  <app-lodging-name-info [lodging]="{name:lodging.name}"></app-lodging-name-info>
   <app-imgs-lodging></app-imgs-lodging>
-  <div class="d-flex flex-wrap justify-content-between" >
-    <div class="lodging-information col-md-7" >
+  <div class="d-flex flex-wrap justify-content-between">
+    <div class="lodging-information col-md-7">
       <app-owner-lodging-info></app-owner-lodging-info>
       <hr>
       <app-about-lodging></app-about-lodging>

@@ -9,7 +9,7 @@ import { Lodging } from 'src/app/models/lodging';
 export class LodgingNameInfoComponent implements OnInit {
 
   @Input() nav!: string;
-  @Input() lodging!: Lodging;
+  @Input() lodging: Lodging = {};
 
   constructor() { }
 

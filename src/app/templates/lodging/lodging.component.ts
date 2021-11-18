@@ -11,7 +11,7 @@ import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.
 export class LodgingComponent implements OnInit {
 
   lodgingId!: number;
-  lodging!: Lodging;
+  lodging: Lodging = {};
 
   constructor(private router: Router, private route: ActivatedRoute, private lodgingService: LodgingServiceService) {
     this.lodgingId = Number(this.route.snapshot.paramMap.get('id'));
