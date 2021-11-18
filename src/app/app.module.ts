@@ -48,6 +48,7 @@ import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host
 import { HostLodgingComponent } from './templates/host-panel/host-lodging/host-lodging.component';
 import { FloatingLodgingInfoComponent } from './components/lodging/view-mode/floating-lodging-info/floating-lodging-info.component';
 import { ButtonsComponent } from './components/lodging/host-actions/buttons/buttons.component';
+import { LodgingServiceService } from './services/lodging/lodging-service.service';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { ButtonsComponent } from './components/lodging/host-actions/buttons/butt
   ],
   providers: [
     Title,
-    RouterService
+    RouterService,
+    LodgingServiceService
   ],
   bootstrap: [AppComponent]
 })
