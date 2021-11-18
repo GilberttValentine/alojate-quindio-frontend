@@ -1,0 +1,20 @@
+<div class="d-flex flex-wrap justify-content-between">
+  <div class="owner-info-estate">
+    <div class="owner" *ngIf="nav !== 'panel-host'">
+      <b>Propietario</b> - Juan Manuel Villanueva
+    </div>
+    <div class="estates">
+      <span class="guests">2 huéspedes</span>
+      <span class="separator-point mt-auto mb-auto">·</span>
+      <span class="rooms">1 habitación</span>
+      <span class="separator-point mt-auto mb-auto">·</span>
+      <span class="beds">1 cama</span>
+      <span class="separator-point mt-auto mb-auto">·</span>
+      <span class="bathrooms">1 baño</span>
+    </div>
+  </div>
+  <div *ngIf="nav !== 'panel-host'">
+    <img class="owner-profile-picture"
+      src="https://media.discordapp.net/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg?width=580&height=580">
+  </div>
+</div>

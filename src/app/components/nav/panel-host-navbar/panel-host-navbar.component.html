@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-white border-bottom">
+  <div class="container-fluid px-4 px-lg-5">
+    <a class="navbar-brand me-4">Alójate
+      Quindío</a>
+    <div class="d-flex">
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mt-auto mb-auto me-4">
+          <a class="nav-link" aria-current="page" [routerLink]="['/home']">Modo viajero</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="user-profile-picture">
+              <img class="user-profile"
+                src="https://media.discordapp.net/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg?width=580&height=580">
+            </div>
+            <div class="user-information ms-3">
+              <div class="user-role">
+                Anfitrión
+              </div>
+              <div class="username">
+                Manuelito
+              </div>
+            </div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

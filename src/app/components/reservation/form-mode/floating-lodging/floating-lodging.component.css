@@ -1,0 +1,86 @@
+.card {
+  border-radius: 20px;
+  width: 325px;
+}
+
+.title-sm-text, .card-footer {
+  font-weight: 600;
+}
+
+hr {
+  color: rgba(0, 0, 0, .4);
+}
+
+.title-md-text, .iva-total, .card-body .title-sm-text {
+  margin-bottom: 20px;
+}
+
+.iva-total {
+  font-size: 13px;
+}
+
+.title-sm-text {
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+}
+
+.card-header, .card-footer, .card-body {
+  font-size: 14px;
+  padding: 1rem 25px 1rem 25px;
+  background: transparent;
+  border: none;
+}
+
+.card-footer {
+  padding-top: 10px;
+}
+
+.card-header {
+  padding-top: 28px;
+}
+
+.card-footer {
+  padding-bottom: 28px;
+}
+
+.img-lodging {
+  border-radius: 10px;
+  width: 134.38px;
+  height: 93.8px;
+}
+
+.type-lodging, .utils-lodging {
+  color: #717171;
+}
+
+.name-lodging {
+  font-size: 12px;
+}
+
+.icon {
+  color: #58CDBF;
+}
+
+.type-lodging, .utils-lodging, .icon-star, .rate {
+  font-size: 11px;
+}
+
+.separator-point {
+  margin: 5px 3px 0px;
+}
+
+.type-lodging, .name-lodging, .utils-lodging {
+  margin-bottom: 3px;
+}
+
+.card-body .title-sm-text {
+  font-size: 18px;
+}
+
+.card-body hr {
+  margin-top: 25px;
+  margin-bottom: 0;
+}

@@ -1,0 +1,19 @@
+.name-lodging {
+  font-weight: 600;
+  font-size: 1.563rem;
+  margin-bottom: 15px;
+}
+
+.separator-point {
+  font-weight: 600;
+  margin: 8px 8px 0px;
+}
+
+.little-info-lodging {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.icon {
+  color: #58CDBF;
+}

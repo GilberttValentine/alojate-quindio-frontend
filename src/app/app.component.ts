@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router, RouterState } from '@angular/router';
-import { filter, map } from "rxjs/operators";
+import { RouterService } from './services/router/router.service';
 
 @Component({
   selector: 'app-root',
@@ -10,37 +8,26 @@ import { filter, map } from "rxjs/operators";
 })
 export class AppComponent implements OnInit {
   title = '';
-  
-  changeNavbar: Boolean = false;
 
-  constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute) { }
+  nav: string = "normal";
+
+  constructor(private routerService: RouterService) { }
 
   ngOnInit() {
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd)
-    ).subscribe((event) => {
-      const route = this.getChild(this.activatedRoute);
+    this.routerService.setTitle();
+  }
+
+  onActivate() {
+    window.scroll(0, 0);
+
+    const navigation = this.routerService.navigation;
+    
+    navigation.subscribe((event: any) => {
+      const route = this.routerService.getChild(this.routerService.route);
 
       route.data.subscribe((data: any) => {
-        this.titleService.setTitle(data.title);
+        this.nav = data.nav ? data.nav : "normal";
       });
     });
   }
-
-  getChild(activatedRoute: ActivatedRoute): ActivatedRoute {
-    if (activatedRoute.firstChild) {
-      return this.getChild(activatedRoute.firstChild);
-    } else {
-      return activatedRoute;
-    }
-  }
-
-  changeRoute() {
-    if (this.router.url === '/sign-in' || this.router.url === '/sign-up') {
-      this.changeNavbar = true;
-    } else {
-      this.changeNavbar = false;
-    }
-  }
-
 }

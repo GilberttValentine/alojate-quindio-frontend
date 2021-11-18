@@ -1,0 +1,75 @@
+.floating-form {
+  position: sticky;
+  top: 80px;
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.floating-form {
+  width: 336px;
+}
+
+.card-header, .card-footer, .card-body {
+  font-size: 14px;
+  padding: 1rem 30px 1rem 30px;
+  background: transparent;
+  border: none;
+}
+
+.card-header {
+  padding-top: 30px;
+}
+
+.card-footer {
+  padding-bottom: 30px;
+}
+
+hr {
+  margin-top: 30px;
+  color: rgba(0, 0, 0, .4);
+  margin-bottom: 0;
+}
+
+.icon {
+  color: #58CDBF;
+  font-size: 10px;
+}
+
+.total-reviews {
+  color: #717171;
+}
+
+.card-form {
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.card-form .form-control, .card-form label {
+  font-size: 12px;
+  border: 0;
+  padding-left: 0;
+  background: transparent;
+}
+
+.card-form label, .total {
+  font-weight: 600;
+}
+
+/*
+.first-date {
+  border-right: 1px solid rgba(0, 0, 0, .125);
+}*/
+
+.first-date, .second-date {
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.first-date, .second-date, .guests {
+  padding: 5px 5px 5px 15px;
+}
+
+.btn-primary-action {
+  margin-bottom: 30px;
+}

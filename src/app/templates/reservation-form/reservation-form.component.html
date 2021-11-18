@@ -1,0 +1,24 @@
+<main class="container">
+  <div class="title">
+    <div class="d-flex align-items-center">
+      <button class="btn btn-back d-flex align-items-center justify-content-center me-3"
+        [routerLink]="['/lodgings', lodgingId]">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      Confirma y paga
+    </div>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="flex-fill">
+      <app-stay-detail></app-stay-detail>
+      <hr>
+      <app-frm-reservation></app-frm-reservation>
+    </div>
+    <div class="ms-md-5 ps-md-3">
+      <div class="lodging-details">
+
+      <app-floating-lodging></app-floating-lodging>
+      </div>
+    </div>
+  </div>
+</main>

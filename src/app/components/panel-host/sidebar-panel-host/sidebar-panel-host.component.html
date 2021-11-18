@@ -1,0 +1,38 @@
+<nav id="navbarCollapse" class="d-md-block bg-white sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column text-md-center">
+      <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Home">
+        <a class="nav-link" [routerLink]="['/host/home']" routerLinkActive="active">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-house"></i>
+            <span class="text d-sm-none">Home</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Mis alojamientos">
+        <a class="nav-link" [routerLink]="['/host/lodgings']" routerLinkActive="active">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-box-seam"></i>
+            <span class="text d-sm-none">Mis alojamientos</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reservas">
+        <a class="nav-link" [routerLink]="['/host/bookings']" routerLinkActive="active">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-clock-history"></i>
+            <span class="text d-sm-none">Reservas</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Reportes estadísticos">
+        <a class="nav-link" href="#">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-graph-up-arrow"></i>
+            <span class="text d-sm-none">Reportes estadísticos</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

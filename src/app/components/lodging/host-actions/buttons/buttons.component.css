@@ -1,0 +1,41 @@
+.btn {
+  border-radius: 5px;
+  font-size: 13px;
+  width: 140px;
+  height: 40px;
+}
+
+.btn-switch-red {
+  background: rgba(255, 67, 67, 0.1);
+  border: 1px solid #FF4343;
+  color: #FF4343;
+}
+
+.btn-switch-green {
+  background: rgba(50, 213, 131, 0.1);
+  border: 1px solid #32D583;
+  color: #2bb871;
+}
+
+.btn-niggermai {
+  background: #292929;
+  color: #FFFFFF;
+}
+
+.btn-switch-red:hover {
+  background: rgba(255, 67, 67, 0.25);
+}
+
+.btn-switch-green:hover {
+  background: rgba(50, 213, 131, 0.25);
+}
+
+.btn-niggermai:hover {
+  background: rgb(29, 29, 29, 0.8);
+}
+
+@media (max-width:768px) {
+  .btn {
+    margin-bottom: 20px;
+  }
+}

@@ -1,1 +1,24 @@
-<p>lodging works!</p>
+<main class="container">
+  <app-lodging-name-info [lodging]="{name:lodging.name}"></app-lodging-name-info>
+  <app-imgs-lodging></app-imgs-lodging>
+  <div class="d-flex flex-wrap justify-content-between">
+    <div class="lodging-information col-md-7">
+      <app-owner-lodging-info></app-owner-lodging-info>
+      <hr>
+      <app-about-lodging></app-about-lodging>
+      <hr>
+      <app-services-lodging></app-services-lodging>
+      <hr>
+      <app-lodging-accessibility></app-lodging-accessibility>
+      <hr>
+      <app-lodging-location></app-lodging-location>
+    </div>
+    <div class="perform-reservation">
+      <app-floating-perform-reservation></app-floating-perform-reservation>
+    </div>
+  </div>
+  <hr>
+  <app-lodging-comments></app-lodging-comments>
+  <hr>
+  <app-lodging-owner></app-lodging-owner>
+</main>

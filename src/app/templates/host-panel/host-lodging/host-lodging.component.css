@@ -1,0 +1,27 @@
+.container {
+  min-height: 79.6vh;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .ps-md-6 {
+    padding-left: 52px!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .justify-content-between {
+    justify-content: center!important;
+  }
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 48px;
+  color: rgb(94, 94, 94);
+}
+
+
+.floating-lodging-information {
+  margin-bottom: 48px;
+}

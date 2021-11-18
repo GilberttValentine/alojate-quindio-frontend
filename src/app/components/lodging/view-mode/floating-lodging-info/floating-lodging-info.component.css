@@ -1,0 +1,25 @@
+.floating-form {
+  position: sticky;
+  top: 80px;
+}
+
+.card {
+  width: 336px;
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.card-body {
+  font-size: 14px;
+  padding: 1rem 30px 1rem 30px;
+  background: transparent;
+  border: none;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 15px;
+}

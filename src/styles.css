@@ -3,6 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
 * {
   font-family: 'Poppins', sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html, body {
@@ -18,7 +24,7 @@ body {
 .btn-primary-action {
   background: linear-gradient(91.5deg, #5872CD 0%, #58CDBF 100%);
   border: none;
-  height: 3rem;
+  height: 2.8rem;
   color: #FFFFFF;
   font-size: 13px;
 }
@@ -41,4 +47,13 @@ body {
   background-size: cover;
   background-color: rgba(248, 249, 250, 1);
   padding-top: 0rem;
+}
+
+.btn-without-bg {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.btn-without-bg:hover {
+  background: rgba(180, 180, 180, 0.1);
 }
