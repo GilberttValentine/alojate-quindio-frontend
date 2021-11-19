@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="d-block">
+    <div class="d-flex flex-wrap justify-content-between card-body">
+      <div class="d-flex flex-column">
+        <h2 class="fw-bold title font-26">Reservas Realizadas</h2>
+        <div class="font-14">
+          <small>Has realizado 1000 reservas</small>
+        </div>
+        <div class="font-14">
+          <small class="fw-bold">Búsqueda: </small><small>Parámetro de búsqueda</small>
+        </div>
+      </div>
+      <div class="d-flex">
+        <form>
+          <div class="d-flex filter-options">
+            <div class="mb-3 me-3 input-search">
+              <input type="text" class="form-control filter-info font-13" id="searchInput" aria-describedby="searchHelp"
+                placeholder="Buscar por código...">
+            </div>
+            <div class="dropdown me-3 mb-3">
+              <button class="btn dropdown-toggle px-5 py-2 font-13" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Estado
+              </button>
+              <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Activo</a></li>
+                <li><a class="dropdown-item" href="#">Inactivo</a></li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle px-4 py-2 font-13" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                En los ultimos
+              </button>
+              <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">7 días</a></li>
+                <li><a class="dropdown-item" href="#">15 días</a></li>
+                <li><a class="dropdown-item" href="#">30 días</a></li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mb-5">
+  <div class="d-block">
+    <div class="d-flex flex-wrap justify-content-center">
+      <app-reservation-card *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]" [host]="false"></app-reservation-card>
+    </div>
+  </div>
+  <div class="mt-4 d-flex justify-content-between align-items-center">
+    <div class="font-13">
+      Página <small>01</small> de 100
+    </div>
+    <div>
+      <button type="submit" class="btn me-3 filter-info">Atrás</button>
+      <button type="submit" class="btn me-3 filter-info">Siguiente</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+form {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 28px;
+  width: 372px;
+}
+
+@media (max-width:990px) {
+  form {
+    width: 100%;
+  }
+}
+
+.form-text {
+  color: #FF4343;
+}

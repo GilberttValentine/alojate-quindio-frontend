@@ -1,1 +1,56 @@
-<main class="container"></main>
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap">
+    <div class="d-flex flex-column title-card">
+      <h2 class="fw-bold font-26">Estadía en Armenia</h2>
+      <div class="font-14">
+        <small>Descubre mas de 1000 alojamientos en Armenia</small>
+      </div>
+      <div class="font-14">
+        <small class="fw-bold">Tipos de alojamientos: </small><small>Todos</small> -
+        <small class="fw-bold">Huéspedes: </small><small>5</small> -
+        <small class="fw-bold">Habitaciones: </small><small>5</small> -
+        <small class="fw-bold">Camas: </small><small>5</small> -
+        <small class="fw-bold">Baños: </small><small>5</small> -
+        <small><a class="text-reset" href="">Otros parámetros</a></small>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="dropdown me-3 mb-3">
+        <button class="btn dropdown-toggle font-13 px-5 py-2" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Tipo de alojamiento
+        </button>
+        <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown me-3 mb-3">
+        <button class="btn dropdown-toggle font-13 px-5 py-2" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Precio
+        </button>
+        <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle font-13 px-5 py-2" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Más filtros
+        </button>
+        <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  
+<app-lodging-card *ngFor="let i of [1,2,3,4,5,6,7,8,9, 10]"></app-lodging-card>
+</div>

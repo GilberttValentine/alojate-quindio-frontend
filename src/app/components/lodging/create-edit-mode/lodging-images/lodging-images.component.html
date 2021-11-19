@@ -1,0 +1,101 @@
+<form [formGroup]="imagesForm">
+  <div class="d-flex flex-row flex-wrap mb-5">
+    <div class="w-50 image-container">
+      <button type="input" class="d-flex flex-column justify-content-center align-items-center image-selector font-13"
+        (click)="fileInput.click();">
+        <div *ngIf="img[0]==''" class="d-flex flex-column align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+          </svg>
+          Selecciona una foto de tu ordenador
+        </div>
+        <input #fileInput type="file" (change)="onFileSelect($event, 0)" style="display:none;" accept="image/*"
+          name="image1" formControlName="image1">
+        <img [hidden]="img[0]==''" id="img0" class="big-img-lodging" src="" alt="">
+      </button>
+    </div>
+
+    <div class="sub-image-div">
+
+      <div class="sub-image-container">
+        <button type="input" class="d-flex flex-column justify-content-center align-items-center image-selector font-13"
+          (click)="fileInput1.click();">
+          <div *ngIf="img[1]==''" class="d-flex flex-column align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-lg"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg>
+            Selecciona una foto de tu ordenador
+          </div>
+          <input #fileInput1 type="file" (change)="onFileSelect($event, 1)" style="display:none;" accept="image/*"
+            name="image2" formControlName="image2">
+          <img [hidden]="img[1]==''" id="img1" class="img-lodging" src="" alt="">
+        </button>
+      </div>
+
+      <div class="sub-image-container">
+        <button type="input" class="d-flex flex-column justify-content-center align-items-center image-selector font-13"
+          (click)="fileInput2.click();">
+          <div *ngIf="img[2]==''" class="d-flex flex-column align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-lg"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg>
+            Selecciona una foto de tu ordenador
+          </div>
+          <input #fileInput2 type="file" (change)="onFileSelect($event, 2)" style="display:none;" accept="image/*"
+            name="image3" formControlName="image3">
+          <img [hidden]="img[2]==''" id="img2" class="img-lodging" src="" alt="">
+        </button>
+      </div>
+
+    </div>
+
+    <div class="sub-image-div">
+      <div class="sub-image-container">
+        <button type="input" class="d-flex flex-column justify-content-center align-items-center image-selector font-13"
+          (click)="fileInput3.click();">
+          <div *ngIf="img[3]==''" class="d-flex flex-column align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-lg"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg>
+            Selecciona una foto de tu ordenador
+          </div>
+          <input #fileInput3 type="file" (change)="onFileSelect($event, 3)" style="display:none;" accept="image/*"
+            name="image4" formControlName="image4">
+          <img [hidden]="img[3]==''" id="img3" class="img-lodging" src="" alt="">
+        </button>
+      </div>
+
+      <div class="sub-image-container">
+        <button type="input" class="d-flex flex-column justify-content-center align-items-center image-selector font-13"
+          (click)="fileInput4.click();">
+          <div *ngIf="img[4]==''" class="d-flex flex-column align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-lg"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg>
+            Selecciona una foto de tu ordenador
+          </div>
+          <input #fileInput4 type="file" (change)="onFileSelect($event, 4)" style="display:none;" accept="image/*"
+            name="image5" formControlName="image5">
+          <img [hidden]="img[4]==''" id="img4" class="img-lodging" src="" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-text mb-5" style="color: #FF4343; margin-top: -50px;"
+  *ngIf="imagesForm.get('image1').hasError('required')
+  || imagesForm.get('image2').hasError('required')
+  || imagesForm.get('image3').hasError('required')
+  || imagesForm.get('image4').hasError('required')
+  || imagesForm.get('image5').hasError('required')">
+  Por favor ingrese todas la imagenes</div>
+</form>

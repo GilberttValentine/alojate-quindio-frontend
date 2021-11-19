@@ -1,0 +1,37 @@
+<div class="d-flex flex-column">
+  <div class="font-20 fw-bold">Información de Anfitrión</div>
+  <div class="mb-3">
+    <form [formGroup]="hostForm">
+      <div class="mb-3 mt-2">
+        <label for="languages" class="form-label font-14 fw-bold">Idiomas</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text bg-white" id="basic-addon1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </span>
+          <input list="showTypeLodgingList" class="form-control shadow-none h-53 search-input" id="languages"
+            placeholder="Escribe el nombre del idioma que hablas" name="languages" formControlName="languages" (change)="selectLanguage($event)">
+        </div>
+        <datalist id="showTypeLodgingList">
+          <option value="Español"></option>
+          <option value="Ingles"></option>
+          <option value="Aleman"></option>
+          <option value="Frances"></option>
+          <option value="Chino"></option>
+          <option value="Japones"></option>
+          <option value="Italiano"></option>
+          <option value="Ruso"></option>
+        </datalist>
+      </div>
+    </form>
+    <div class="language-container" id="languagesList">
+      <app-language-chip *ngFor="let item of language" [idioma]="item"></app-language-chip>
+    </div>
+    <div class="form-text mb-2" style="color: #FF4343;" *ngIf="hostForm.get('languages').hasError('required') && hostForm.get('languages').touched">Por favor
+      seleccione por lo menos un idioma</div>
+  </div>
+  <button type="submit" class="btn btn-guardar" [disabled]="hostForm.invalid">Guardar cambios</button>
+</div>
