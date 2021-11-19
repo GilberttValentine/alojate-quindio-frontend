@@ -29,7 +29,7 @@ import { LodgingLocationComponent } from './components/lodging/view-mode/lodging
 import { LodgingCommentsComponent } from './components/lodging/view-mode/comments/lodging-comments/lodging-comments.component';
 import { LodgingCommentComponent } from './components/lodging/view-mode/comments/lodging-comment/lodging-comment.component';
 import { LodgingOwnerComponent } from './components/lodging/view-mode/lodging-owner/lodging-owner.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationFormComponent } from './templates/reservation-form/reservation-form.component';
 import { FloatingLodgingComponent } from './components/reservation/form-mode/floating-lodging/floating-lodging.component';
 import { FrmReservationComponent } from './components/reservation/form-mode/frm-reservation/frm-reservation.component';
@@ -44,7 +44,6 @@ import { FilterBestLodgingsPanelHostComponent } from './components/panel-host/fi
 import { FilterRecentBookingsComponent } from './components/panel-host/filter-recent-bookings/filter-recent-bookings.component';
 import { FeedStatsComponent } from './components/panel-host/feed-stats/feed-stats.component';
 import { RecentCardBookingComponent } from './components/panel-host/filter-recent-bookings/recent-card-booking/recent-card-booking.component';
-import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host-lodgings.component';
 import { HostLodgingComponent } from './templates/host-panel/host-lodging/host-lodging.component';
 import { FloatingLodgingInfoComponent } from './components/lodging/view-mode/floating-lodging-info/floating-lodging-info.component';
 import { ButtonsComponent } from './components/lodging/host-actions/buttons/buttons.component';
@@ -71,11 +70,11 @@ import { CreateEditLodgingComponent } from './templates/create-edit-lodging/crea
 import { HeaderTitleComponent } from './components/lodging/create-edit-mode/header-title/header-title.component';
 import { LodgingImagesComponent } from './components/lodging/create-edit-mode/lodging-images/lodging-images.component';
 import { LodgingFormComponent } from './components/lodging/create-edit-mode/lodging-form/lodging-form.component';
-import { AboutLodgingCreateEditComponent } from './components/lodging/create-edit-mode/about-lodging/about-lodging.component';
 import { LodgingServiceComponent } from './components/lodging/create-edit-mode/lodging-service/lodging-service.component';
-import { LodgingAccessibilityCreateEditComponent } from './components/lodging/create-edit-mode/lodging-accessibility/lodging-accessibility.component';
-import { ServiceChipComponent } from './components/lodging/create-edit-mode/service-chip/service-chip.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ServiceChipComponent } from './components/lodging/create-edit-mode/service-chip/service-chip.component'; 
+import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host-lodgings.component';
+import { AboutLodgingCreateEditComponent } from './components/lodging/create-edit-mode/about-lodging-create-edit/about-lodging-create-edit.component';
+import { AccessibilityLodgingCreateEditComponent } from './components/lodging/create-edit-mode/accessibility-lodging-create-edit/accessibility-lodging-create-edit.component';
 
 @NgModule({
   declarations: [
@@ -119,12 +118,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     FilterRecentBookingsComponent,
     FeedStatsComponent,
     RecentCardBookingComponent,
-    HostLodgingsComponent,
     HostLodgingComponent,
     FloatingLodgingInfoComponent,
     ButtonsComponent,
     LodgingCardComponent,
-    HostLodgingsComponent,
     LodgingReservationsComponent,
     ReservationCardComponent,
     UserReservationsComponent,
@@ -145,10 +142,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderTitleComponent,
     LodgingImagesComponent,
     LodgingFormComponent,
-    AboutLodgingCreateEditComponent,
     LodgingServiceComponent,
-    LodgingAccessibilityCreateEditComponent,
-    ServiceChipComponent
+    ServiceChipComponent,
+    HostLodgingsComponent,
+    AboutLodgingCreateEditComponent,
+    AccessibilityLodgingCreateEditComponent
   ],
   imports: [
     BrowserModule,

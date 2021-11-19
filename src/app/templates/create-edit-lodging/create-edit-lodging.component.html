@@ -13,11 +13,11 @@
       <app-lodging-images [imagesForm]="lodgingForm.get('images')"></app-lodging-images>
       <div class="d-flex flex-row justify-content-between flex-wrap form-info-cont">
         <div class="d-flex flex-column info-cont">
-          <app-about-lodging [aboutForm]="lodgingForm.get('about')"></app-about-lodging>
+          <app-about-lodging-create-edit [aboutForm]="lodgingForm.get('about')"></app-about-lodging-create-edit>
           <hr class="mb-5">
           <app-lodging-service [serviceForm]="lodgingForm.get('service')"></app-lodging-service>
           <hr class="mb-5">
-          <app-lodging-accessibility [accessibilityForm]="lodgingForm.get('accessibility')"></app-lodging-accessibility>
+          <app-accessibility-lodging-create-edit [accessibilityForm]="lodgingForm.get('accessibility')"></app-accessibility-lodging-create-edit>
         </div>
         <div class="d-flex flex-column form-container">
           <app-lodging-form [lodgingForm]="lodgingForm.get('lodging')"></app-lodging-form>
