@@ -39,6 +39,7 @@ hr {
 
 .total-reviews {
   color: #717171;
+  cursor: pointer;
 }
 
 .card-form {

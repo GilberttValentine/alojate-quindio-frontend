@@ -76,6 +76,8 @@ import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host
 import { AboutLodgingCreateEditComponent } from './components/lodging/create-edit-mode/about-lodging-create-edit/about-lodging-create-edit.component';
 import { AccessibilityLodgingCreateEditComponent } from './components/lodging/create-edit-mode/accessibility-lodging-create-edit/accessibility-lodging-create-edit.component';
 import { NumberSuffixPipe } from './utils/pipes/number-suffix.pipe';
+import { CommentServiceService } from './services/comment/comment-service.service';
+import { LanguageServiceService } from './services/language/language-service.service';
 
 @NgModule({
   declarations: [
@@ -160,7 +162,9 @@ import { NumberSuffixPipe } from './utils/pipes/number-suffix.pipe';
   providers: [
     Title,
     RouterService,
-    LodgingServiceService
+    LodgingServiceService,
+    CommentServiceService,
+    LanguageServiceService
   ],
   bootstrap: [AppComponent]
 })

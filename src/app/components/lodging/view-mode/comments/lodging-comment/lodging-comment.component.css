@@ -1,7 +1,9 @@
 li {
   list-style:none;
 }
+
 .comment-item {
+  width: 629.2px;
   margin-bottom: 10px;
 }
 
@@ -30,4 +32,10 @@ li {
 
 .user-review, .date, .comment-body {
   font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .comment-item {
+    width: 459.2px;
+  }
 }

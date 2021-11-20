@@ -1,8 +1,8 @@
 import { Municipality } from "../municipality";
 import { Service } from "../service";
 import { TypeLodging } from "../typeLodging";
-import { CommentResponse } from "./comment";
-import { UserResponse } from "./user";
+import { CommentResponse } from "./commentResponse";
+import { UserResponse } from "./userResponse";
 
 export interface LodgingResponse {
   id: number;
@@ -13,12 +13,14 @@ export interface LodgingResponse {
   persons_amount: number;
   accesibility: string;
   direction: string;
+  description: string;
   room_quantity: number;
   bed_quantity: number;
   bathroom_quantity: number;
-  nigth_value: number;
+  night_value: number;
   services: Array<Service>;
   url_pictures: string;
   actual_state: boolean;
   comments: CommentResponse;
+  created_at: string;
 }

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { CommentResponse } from 'src/app/models/response/comment';
-import { LodgingResponse } from 'src/app/models/response/lodging';
-import { NumberSuffixPipe } from 'src/app/utils/pipes/number-suffix.pipe';
+import { CommentResponse } from 'src/app/models/response/commentResponse';
+import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
 
 @Component({
   selector: 'app-lodging-name-info',
@@ -40,5 +39,11 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
       const type = this.lodging.type.name;
       this.type = type.charAt(0).toUpperCase() + type.slice(1);
     }
+  }
+
+  scrollTo() {
+    const element = document.getElementById('comments');
+    
+    element!.scrollIntoView({block: "center", behavior: "smooth"});
   }
 }

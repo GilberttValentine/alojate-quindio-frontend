@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { LodgingResponse } from 'src/app/models/response/lodging';
+import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
 
 @Injectable({
   providedIn: 'root'

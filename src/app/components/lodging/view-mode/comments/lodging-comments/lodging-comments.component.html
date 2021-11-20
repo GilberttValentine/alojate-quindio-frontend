@@ -1,12 +1,12 @@
-<div class="title">
+<div class="title" id="comments">
   <div class="d-flex align-items-end">
     <div class="d-flex align-items-center justify-content-between">
       <span class="icon mb-1 me-2 mt-auto mb-auto">
         <i class="bi bi-star-fill"></i>
       </span>
-      <span class="total-rating">4.5</span>
+      <span class="total-rating">{{ lodgingRate }}</span>
       <span class="separator-point mt-auto mb-auto">·</span>
-      <span class="total-reviews">8k reseñas</span>
+      <span class="total-reviews">{{totalComments | numberSuffix:limitNumber}} reseñas</span>
     </div>
   </div>
 </div>
@@ -14,16 +14,7 @@
   data-bs-target="#commentModal" *ngIf="nav !== 'panel-host'">Realizar reseña</button>
 
 <ul class="comments-list">
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
-  <app-lodging-comment></app-lodging-comment>
+  <app-lodging-comment *ngFor="let comment of commentsLodging" [comment]="comment"></app-lodging-comment>
 </ul>
 <hr>
 <div class="pagination">
@@ -31,21 +22,19 @@
     <div class="actual-page d-flex flex-wrap">
       <span class="me-1">Página</span>
       <div class="dropdown">
-        <span id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><u>01</u></span>
+        <span id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <u *ngIf="actualPage <= 9">0{{ actualPage }}</u>
+          <u *ngIf="actualPage > 9">{{ actualPage }}</u>
+        </span>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item active">1</a></li>
-          <li><a class="dropdown-item">2</a></li>
-          <li><a class="dropdown-item">3</a></li>
-          <li><a class="dropdown-item">4</a></li>
-          <li><a class="dropdown-item">5</a></li>
-          <li><a class="dropdown-item">6</a></li>
+          <li *ngFor="let page of pagesAvailable"><a class="dropdown-item" [ngClass]="actualPage === page ? 'active':''" (click)="changePage(page)">{{ page }}</a></li>
         </ul>
       </div>
-      <span class="ms-1">de 100</span>
+      <span class="ms-1">de {{ totalPages }}</span>
     </div>
     <div class="action-buttons">
-      <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none ">Atrás</button>
-      <button class="btn btn-without-bg border px-5 py-2 shadow-none ">Siguiente</button>
+      <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" id="back" (click)="back()">Atrás</button>
+      <button class="btn btn-without-bg border px-5 py-2 shadow-none" id="next" (click)="next()">Siguiente</button>
     </div>
   </div>
 </div>

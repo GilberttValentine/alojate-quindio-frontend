@@ -27,7 +27,7 @@ export class CommentServiceService {
     return this.http.delete<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}/comments/${commentId}`)
   }
 
-  listCommentByLodging(lodgingId: number): Observable<object> {
-    return this.http.get<object>(`${environment.baseUrl}/lodgings/${lodgingId}/comments`)
+  listCommentByLodging(lodgingId: number, page: number): Observable<object> {
+    return this.http.get<object>(`${environment.baseUrl}/lodgings/${lodgingId}/comments?page=${page}`)
   }
 }
