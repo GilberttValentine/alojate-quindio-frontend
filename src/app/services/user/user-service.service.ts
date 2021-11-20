@@ -49,7 +49,7 @@ export class UserServiceService {
   }
 
   findUserById(userId: number): Observable<User> {
-    return this.http.get<User>(`${environment.baseUrl}/users/${userId}/deactivate`)
+    return this.http.get<User>(`${environment.baseUrl}/users/${userId}`)
   }
 
   findAllUsers(userId: number): Observable<object> {

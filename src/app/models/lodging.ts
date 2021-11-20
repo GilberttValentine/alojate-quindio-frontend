@@ -15,4 +15,5 @@ export interface Lodging{
     night_value: number;
     qualification: number;
     services: Array<number>;
+    url_pictures?: string;
 }

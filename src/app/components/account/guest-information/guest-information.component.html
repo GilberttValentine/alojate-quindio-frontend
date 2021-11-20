@@ -15,10 +15,9 @@
         <select class="form-select h-53" aria-label="Default select example" name="civilStatusId"
           formControlName="civilStatusId">
           <option value="" disabled>Estado Civil</option>
-          <option value="0">Soltero/a</option>
-          <option value="1">Casado/a</option>
-          <option value="2">Viudo/a</option>
-          <option value="3">Divorciado/a</option>
+          <option value="1">Soltero/a</option>
+          <option value="2">Casado/a</option>
+          <option value="3">Ninguno</option>
         </select>
         <div class="error text-danger mb-2" 
           *ngIf="guestForm.get('civilStatusId').hasError('required') && guestForm.get('civilStatusId').touched">Por
@@ -31,9 +30,9 @@
           formControlName="studyLevelId">
           <option value="" disabled>Nivel de estudio</option>
           <option value="1">Bachiller</option>
-          <option value="2">Tecnico</option>
-          <option value="3">Tecnogolo</option>
-          <option value="3">profesional</option>
+          <option value="2">Pregrado</option>
+          <option value="3">Posgrado</option>
+          <option value="4">Ninguno</option>
         </select>
         <div class="error text-danger mb-2"
           *ngIf="guestForm.get('studyLevelId').hasError('required') && guestForm.get('studyLevelId').touched">Por favor
