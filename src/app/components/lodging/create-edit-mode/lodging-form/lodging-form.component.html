@@ -3,7 +3,7 @@
     <label for="nightValue" class="form-label font-20 fw-bold">Noche</label>
     <input type="number" class="form-control font-13" name="nightValue" formControlName="nightValue"
       placeholder="¿Cuál es el precio por noche?">
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('nightValue').hasError('required') && lodgingForm.get('nightValue').touched">Por favor ingresar el valor de la noche</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('nightValue').hasError('required') || lodgingForm.get('nightValue').hasError('nonZero')) && lodgingForm.get('nightValue').touched">Por favor ingresar el valor de la noche</div>
   </div>
   <div class="mb-3">
     <label for="municipality" class="form-label font-20 fw-bold">Municipio:</label>
@@ -14,7 +14,7 @@
       <option value="2">Two</option>
       <option value="3">Three</option>
     </select>
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('municipality').hasError('required') && lodgingForm.get('municipality').touched">Por favor seleccione un municipio</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="lodgingForm.get('municipality').hasError('required') && lodgingForm.get('municipality').touched">Por favor seleccione un municipio</div>
   </div>
   <div class="mb-3">
     <label for="lodgingType" class="form-label font-20 fw-bold">Tipo alojamiento:</label>
@@ -25,36 +25,36 @@
       <option value="2">Two</option>
       <option value="3">Three</option>
     </select>
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('lodgingType').hasError('required') && lodgingForm.get('lodgingType').touched">Por favor seleccione un tipo de alojamiento</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="lodgingForm.get('lodgingType').hasError('required') && lodgingForm.get('lodgingType').touched">Por favor seleccione un tipo de alojamiento</div>
   </div>
   <div class="mb-3">
     <label for="direction" class="form-label font-20 fw-bold">Dirección:</label>
     <input type="text" class="form-control font-13" name="direction" formControlName="direction"
       placeholder="¿Cuál es la dirección de tu alojamiento?">
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('direction').hasError('required') && lodgingForm.get('direction').touched">Por favor ingresar la direccion del alojamiento</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="lodgingForm.get('direction').hasError('required') && lodgingForm.get('direction').touched">Por favor ingresar la direccion del alojamiento</div>
   </div>
   <div class="mb-3">
     <label for="peopleAmount" class="form-label font-20 fw-bold">Huéspedes:</label>
     <input type="number" class="form-control font-13" name="peopleAmount" formControlName="peopleAmount"
       placeholder="Maximo de personas que se pueden alojar">
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('peopleAmount').hasError('required') && lodgingForm.get('peopleAmount').touched">Por favor ingresar la cantidad maxima de huespedes</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('peopleAmount').hasError('required') || lodgingForm.get('peopleAmount').hasError('nonZero')) && lodgingForm.get('peopleAmount').touched">Por favor ingresar la cantidad maxima de huespedes</div>
   </div>
   <div class="mb-3">
     <label for="roomAmount" class="form-label font-20 fw-bold">Habitaciones:</label>
     <input type="number" class="form-control font-13" name="roomAmount" formControlName="roomAmount"
       placeholder="¿Cuántas habitaciones hay?">
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('roomAmount').hasError('required') && lodgingForm.get('roomAmount').touched">Por favor ingresar la cantidad de habitaciones</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('roomAmount').hasError('required') || lodgingForm.get('roomAmount').hasError('nonZero')) && lodgingForm.get('roomAmount').touched">Por favor ingresar la cantidad de habitaciones</div>
   </div>
   <div class="mb-3">
     <label for="bedAmount" class="form-label font-20 fw-bold">Camas:</label>
     <input type="number" class="form-control font-13" name="bedAmount" formControlName="bedAmount"
       placeholder="¿Cuántas camas hay?">
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('bedAmount').hasError('required') && lodgingForm.get('bedAmount').touched">Por favor ingresar la cantidad de camas</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('bedAmount').hasError('required') || lodgingForm.get('bedAmount').hasError('nonZero')) && lodgingForm.get('bedAmount').touched">Por favor ingresar la cantidad de camas</div>
   </div>
   <div class="mb-3">
     <label for="bathroomAmount" class="form-label font-20 fw-bold">Baños:</label>
     <input type="number" class="form-control font-13" name="bathroomAmount" formControlName="bathroomAmount"
       placeholder="¿Cuántas baños hay?">
-    <div id="emailHelp" class="form-text" *ngIf="lodgingForm.get('bathroomAmount').hasError('required') && lodgingForm.get('bathroomAmount').touched">Por favor ingresar la cantidad de baños</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('bathroomAmount').hasError('required') || lodgingForm.get('bathroomAmount').hasError('nonZero')) && lodgingForm.get('bathroomAmount').touched">Por favor ingresar la cantidad de baños</div>
   </div>
 </form>

@@ -1,18 +1,24 @@
-<form class="payment-method-form">
+<form class="payment-method-form" [formGroup]="reservationForm" #formDir="ngForm">
   <h6 class="title-text">Paga con</h6>
   <div class="card-number">
-    <label for="card-number">Número de tarjeta</label>
-    <input class="form-control shadow-none" placeholder="xxxx xxxx xxxx xxxx">
+    <label for="cardNumber">Número de tarjeta</label>
+    <input class="form-control shadow-none" placeholder="xxxx xxxx xxxx xxxx" formControlName="cardNumber" name="cardNumber">
+    <div class="error text-danger"
+    *ngIf="formDir.submitted && (reservationForm.get('cardNumber')?.hasError('required') || reservationForm.get('cardNumber')?.hasError('minlength') || reservationForm.get('cardNumber')?.hasError('maxlength'))">Por favor ingrese el numero de la tarjeta</div>
   </div>
   <div class="card-security">
     <div class="d-flex flex-wrap">
       <div class="expiration-date flex-fill">
         <label for="expiration-date">Expira</label>
-        <input class="form-control shadow-none" placeholder="MM/YY" onblur="(this.type='text')">
+        <input class="form-control shadow-none" placeholder="MM/YY" onblur="(this.type='text')" formControlName="expDate" name="expDate">
+        <div class="error text-danger"
+        *ngIf="formDir.submitted && reservationForm.get('expDate')?.hasError('required')">Por favor ingrese la fecha de expiración</div>
       </div>
       <div class="cvv flex-fill">
-        <label for="cvv">Código de seguridad</label>
-        <input class="form-control shadow-none" placeholder="CVV">
+        <label for="securityCode">Código de seguridad</label>
+        <input class="form-control shadow-none" placeholder="CVV" formControlName="securityCode" name="securityCode">
+        <div class="error text-danger"
+        *ngIf="formDir.submitted && (reservationForm.get('securityCode')?.hasError('required') || reservationForm.get('securityCode')?.hasError('minlength') || reservationForm.get('securityCode')?.hasError('maxlength'))">Por favor ingrese el codigo de seguridad</div>
       </div>
     </div>
   </div>
@@ -27,5 +33,5 @@
     </p>
   </div>
   <hr>
-  <button class="btn btn-primary-action px-4">Confirma y paga</button>
+  <button class="btn btn-primary-action px-4" type="submit">Confirma y paga</button>
 </form>

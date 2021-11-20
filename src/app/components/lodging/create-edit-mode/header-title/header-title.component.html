@@ -4,7 +4,7 @@
       <input type="text" class="form-control" aria-label="Sizing example input" name="name" formControlName="name" aria-describedby="inputGroup-sizing-lg"
         placeholder="¿Cuál es el nombre de tu alojamiento?">
     </div>
-    <div class="form-text mb-2" style="color: #FF4343;" *ngIf="titleForm.get('name').hasError('required') && titleForm.get('name').touched">Por favor ingrese el nombre del hospedaje</div>
+    <div class="error text-danger mb-2" *ngIf="titleForm.get('name').hasError('required') && titleForm.get('name').touched">Por favor ingrese el nombre del hospedaje</div>
     <div class="d-flex align-items-center">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#58CDBF" class="bi bi-geo-alt-fill me-1"
         viewBox="0 0 16 16">

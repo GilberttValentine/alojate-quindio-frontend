@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +31,6 @@ import { LodgingLocationComponent } from './components/lodging/view-mode/lodging
 import { LodgingCommentsComponent } from './components/lodging/view-mode/comments/lodging-comments/lodging-comments.component';
 import { LodgingCommentComponent } from './components/lodging/view-mode/comments/lodging-comment/lodging-comment.component';
 import { LodgingOwnerComponent } from './components/lodging/view-mode/lodging-owner/lodging-owner.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationFormComponent } from './templates/reservation-form/reservation-form.component';
 import { FloatingLodgingComponent } from './components/reservation/form-mode/floating-lodging/floating-lodging.component';
 import { FrmReservationComponent } from './components/reservation/form-mode/frm-reservation/frm-reservation.component';
@@ -48,7 +49,6 @@ import { HostLodgingComponent } from './templates/host-panel/host-lodging/host-l
 import { FloatingLodgingInfoComponent } from './components/lodging/view-mode/floating-lodging-info/floating-lodging-info.component';
 import { ButtonsComponent } from './components/lodging/host-actions/buttons/buttons.component';
 import { LodgingServiceService } from './services/lodging/lodging-service.service';
-import { HttpClientModule } from '@angular/common/http';
 import { LodgingCardComponent } from './components/lodging-card/lodging-card.component';
 import { LodgingReservationsComponent } from './templates/lodging-reservations/lodging-reservations.component';
 import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
@@ -71,10 +71,11 @@ import { HeaderTitleComponent } from './components/lodging/create-edit-mode/head
 import { LodgingImagesComponent } from './components/lodging/create-edit-mode/lodging-images/lodging-images.component';
 import { LodgingFormComponent } from './components/lodging/create-edit-mode/lodging-form/lodging-form.component';
 import { LodgingServiceComponent } from './components/lodging/create-edit-mode/lodging-service/lodging-service.component';
-import { ServiceChipComponent } from './components/lodging/create-edit-mode/service-chip/service-chip.component'; 
+import { ServiceChipComponent } from './components/lodging/create-edit-mode/service-chip/service-chip.component';
 import { HostLodgingsComponent } from './templates/host-panel/host-lodgings/host-lodgings.component';
 import { AboutLodgingCreateEditComponent } from './components/lodging/create-edit-mode/about-lodging-create-edit/about-lodging-create-edit.component';
 import { AccessibilityLodgingCreateEditComponent } from './components/lodging/create-edit-mode/accessibility-lodging-create-edit/accessibility-lodging-create-edit.component';
+import { NumberSuffixPipe } from './utils/pipes/number-suffix.pipe';
 
 @NgModule({
   declarations: [
@@ -146,7 +147,8 @@ import { AccessibilityLodgingCreateEditComponent } from './components/lodging/cr
     ServiceChipComponent,
     HostLodgingsComponent,
     AboutLodgingCreateEditComponent,
-    AccessibilityLodgingCreateEditComponent
+    AccessibilityLodgingCreateEditComponent,
+    NumberSuffixPipe
   ],
   imports: [
     BrowserModule,

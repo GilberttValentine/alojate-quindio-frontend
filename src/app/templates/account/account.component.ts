@@ -28,7 +28,7 @@ export class AccountComponent implements OnInit {
          urlPicture: [''],
        }),
        guest: this.fb.group({
-         stratum: ['', Validators.required],
+         stratum: ['', [Validators.required, this.nonZero]],
          civilStatusId: ['', [Validators.required]],
          studyLevelId: ['', Validators.required]
        }),
@@ -36,6 +36,14 @@ export class AccountComponent implements OnInit {
          languages: ['',Validators.required]
        })
     })
+  }
+
+  nonZero(control:AbstractControl):{ [key: string]: any} | null {
+    if (Number(control.value) <= 0) {
+      return {nonZero: true};
+    } else {
+      return null;
+    }
   }
 
 }

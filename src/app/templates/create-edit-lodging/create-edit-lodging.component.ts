@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-edit-lodging',
@@ -18,14 +18,14 @@ export class CreateEditLodgingComponent implements OnInit {
   createForm() {
     this.lodgingForm = this.fb.group({
        lodging: this.fb.group({
-        nightValue: ['', Validators.required],
+        nightValue: ['',[Validators.required, this.nonZero]],
         municipality: ['', Validators.required],
         lodgingType: ['', Validators.required],
         direction: ['', Validators.required],
-        peopleAmount: ['', Validators.required],
-        roomAmount: ['', Validators.required],
-        bedAmount: ['', Validators.required],
-        bathroomAmount: ['', Validators.required]
+        peopleAmount: ['', [Validators.required, this.nonZero]],
+        roomAmount: ['', [Validators.required, this.nonZero]],
+        bedAmount: ['', [Validators.required, this.nonZero]],
+        bathroomAmount: ['', [Validators.required, this.nonZero]]
        }),
        title: this.fb.group({
          name: ['', Validators.required]
@@ -47,6 +47,14 @@ export class CreateEditLodgingComponent implements OnInit {
          image5: ['', Validators.required]
        })
     })
+  }
+  
+  nonZero(control:AbstractControl):{ [key: string]: any} | null {
+    if (Number(control.value) <= 0) {
+      return {nonZero: true};
+    } else {
+      return null;
+    }
   }
 
 }

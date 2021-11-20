@@ -1,4 +1,4 @@
-export class CivilStatus {
-    id?: number;
-    name!: string
+export interface CivilStatus {
+    id: number;
+    name: string
 }

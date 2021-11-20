@@ -51,9 +51,3 @@ label, .form-control, .sign-up-info {
 a:hover {
   color: #dfdede;
 }
-
-.error {
-  font-size: 12px;
-  margin-top: 0.25rem;
-  text-shadow: 1px 1px 3px #292929;
-}

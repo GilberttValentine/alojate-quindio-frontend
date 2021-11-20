@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import * as moment from 'moment';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -10,25 +11,54 @@ import { switchMap } from 'rxjs/operators';
 })
 export class FloatingPerformReservationComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  reservationForm!: FormGroup;
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.createForm()
   }
 
-  bookLodging(form: NgForm) {
+  bookLodging() {
+    const startDate = moment(this.reservationForm.get('startDate')?.value)
+    const endDate = moment(this.reservationForm.get('endDate')?.value)
+    const dif = endDate.diff(startDate, 'days');
+    
     const reservation = {
-      start_date: '26-11-2021',
-      end_date: '25-12-2021',
-      guests: 5,
-      total_value: 5
+      startDate: this.reservationForm.get('startDate')?.value,
+      endDate: this.reservationForm.get('endDate')?.value,
+      peopleAmount: this.reservationForm.get('peopleAmount')?.value,
+      total_value: dif
     }
     const navigationExtras: NavigationExtras = {
       state: {
         reservation
       }
     }
+
     const lodgingId = this.route.snapshot.paramMap.get('id');
 
     this.router.navigate([`/lodgings/${lodgingId}/reservation`], navigationExtras);
+  }
+
+  createForm() {
+    this.reservationForm = this.fb.group({
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      peopleAmount: ['', [Validators.required, this.nonZero]]
+    })
+  }
+
+  nonZero(control: AbstractControl): { [key: string]: any } | null {
+    if (Number(control.value) <= 0) {
+      return { nonZero: true };
+    } else {
+      return null;
+    }
+  }
+
+  onSubmit() {
+    if (this.reservationForm.valid) {
+      this.bookLodging();
+    }
   }
 }
