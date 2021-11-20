@@ -32,5 +32,5 @@
     <app-service-chip *ngFor="let item of services"></app-service-chip>
   </ng-template>
 </div>
-<div class="form-text mb-2" style="color: #FF4343;" *ngIf="serviceForm.get('services').hasError('required') && serviceForm.get('services').touched">Por favor seleccione por lo menos un servicio</div>
+<div class="error text-danger mb-2" *ngIf="serviceForm.get('services').hasError('required') && serviceForm.get('services').touched">Por favor seleccione por lo menos un servicio</div>
 </div>

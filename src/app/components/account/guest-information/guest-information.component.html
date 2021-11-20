@@ -5,34 +5,41 @@
       <div class="mb-3 mt-2">
         <label for="stratum" class="form-label font-14 fw-bold">Estrato</label>
         <input type="text" class="form-control h-53" name="stratum" formControlName="stratum">
-        <div class="form-text mb-2" style="color: #FF4343;" *ngIf="guestForm.get('stratum').hasError('required') && guestForm.get('stratum').touched">Por favor ingrese su estrato</div>
+        <div class="error text-danger mb-2"
+          *ngIf="(guestForm.get('stratum').hasError('required') || guestForm.get('stratum').hasError('nonZero')) && guestForm.get('stratum').touched">
+          Por favor ingrese su estrato valido</div>
       </div>
-      
+
       <div class="mb-3 mt-2">
-        <label for="civilStatusId" class="form-label font-14 fw-bold" >Estado civil</label>
-        <select class="form-select h-53" aria-label="Default select example" name="civilStatusId" formControlName="civilStatusId">
+        <label for="civilStatusId" class="form-label font-14 fw-bold">Estado civil</label>
+        <select class="form-select h-53" aria-label="Default select example" name="civilStatusId"
+          formControlName="civilStatusId">
           <option value="" disabled>Estado Civil</option>
           <option value="0">Soltero/a</option>
           <option value="1">Casado/a</option>
           <option value="2">Viudo/a</option>
           <option value="3">Divorciado/a</option>
         </select>
-        <div class="form-text mb-2" style="color: #FF4343;" *ngIf="guestForm.get('civilStatusId').hasError('required') && guestForm.get('civilStatusId').touched">Por favor seleccione su estado civil</div>
+        <div class="error text-danger mb-2" 
+          *ngIf="guestForm.get('civilStatusId').hasError('required') && guestForm.get('civilStatusId').touched">Por
+          favor seleccione su estado civil</div>
       </div>
 
       <div class="mb-3 mt-2">
-        <label for="studyLevelId" class="form-label font-14 fw-bold" >Nivel de estudio</label>
-        <select class="form-select h-53" aria-label="Default select example"  name="studyLevelId" formControlName="studyLevelId">
+        <label for="studyLevelId" class="form-label font-14 fw-bold">Nivel de estudio</label>
+        <select class="form-select h-53" aria-label="Default select example" name="studyLevelId"
+          formControlName="studyLevelId">
           <option value="" disabled>Nivel de estudio</option>
           <option value="1">Bachiller</option>
           <option value="2">Tecnico</option>
           <option value="3">Tecnogolo</option>
           <option value="3">profesional</option>
         </select>
-        <div class="form-text mb-2" style="color: #FF4343;" *ngIf="guestForm.get('studyLevelId').hasError('required') && guestForm.get('studyLevelId').touched">Por favor seleccione su nivel de estudio</div>
+        <div class="error text-danger mb-2"
+          *ngIf="guestForm.get('studyLevelId').hasError('required') && guestForm.get('studyLevelId').touched">Por favor
+          seleccione su nivel de estudio</div>
       </div>
     </form>
   </div>
   <button type="submit" class="btn btn-guardar" [disabled]="guestForm.invalid">Guardar cambios</button>
 </div>
-

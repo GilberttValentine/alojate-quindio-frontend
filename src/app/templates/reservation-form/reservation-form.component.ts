@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,9 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ReservationFormComponent implements OnInit {
 
-  resevation: any;
+  reservation: any;
   lodgingId!: number;
-
   constructor(private router: Router, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
     const reservation = navigation?.extras.state?.reservation;
@@ -22,11 +22,12 @@ export class ReservationFormComponent implements OnInit {
     }
     
     this.lodgingId = lodgingId;
-    this.resevation = reservation;
+    this.reservation = reservation;
   }
 
   ngOnInit(): void {
-
   }
+  
+
 
 }

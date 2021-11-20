@@ -15,8 +15,8 @@ export class SecurityServiceService {
 
   constructor(private http: HttpClient) { }
 
-  login(body: { email: string, password: string }): Observable<string> {
-    return this.http.post<string>(`${environment.baseUrl}/security/login`, body, this.httpOptions)
+  login(body: { email: string, password: string }): Observable<any> {
+    return this.http.post<any>(`${environment.baseUrl}/security/login`, body, this.httpOptions)
   }
 
   validateToken(body: { token: string }): Observable<object> {
