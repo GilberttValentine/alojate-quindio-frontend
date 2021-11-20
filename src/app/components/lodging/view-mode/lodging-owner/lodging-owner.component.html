@@ -2,14 +2,14 @@
   <div class="d-flex flex-wrap align-items-center justify-content-center flex-fill mb-3" *ngIf="nav !== 'panel-host'">
     <div class="user-img">
       <img class="owner-profile-picture"
-        src="https://media.discordapp.net/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg?width=580&height=580">
+        src="{{ photo }}">
     </div>
     <div class="flex-fill ms-3">
       <div class="d-flex flex-wrap justify-content-between">
-        <span class="owner-name"><b>Propietario</b> - Juan Manuel Villanueva</span>
+        <span class="owner-name"><b>Propietario</b> - {{ name }}</span>
       </div>
       <div class="date">
-        <span>Se registró en 9 mayo de 2021</span>
+        <span>{{ createdAt }}</span>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
         <span>¿Qué idiomas habla?</span>
       </div>
       <div class="languages">
-        <span>English, Español</span>
+        <span>{{ languages }}</span>
       </div>
     </div>
   </div>

@@ -6,4 +6,5 @@ export interface UserResponse {
   email: string;
   photo: string;
   languages: Array<Language>;
+  created_at: string;
 }

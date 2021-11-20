@@ -1,28 +1,27 @@
-<li class="comment-item">
+<li class="comment-item flex-fill">
   <div class="comment-header">
     <div class="d-flex flex-wrap align-items-center justify-content-center">
       <div class="user-img">
         <img class="user-profile-picture"
-          src="https://media.discordapp.net/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg?width=580&height=580">
+          src="{{ user_photo }}">
       </div>
       <div class="flex-fill ms-3">
         <div class="d-flex flex-wrap justify-content-between user-review">
-          <span class="user-name">Juan</span>
+          <span class="user-name">{{ name }}</span>
           <div class="total-rating d-flex align-items-center">
             <span class="icon mb-1 me-2 mt-auto mb-auto">
               <i class="bi bi-star-fill"></i>
             </span>
-            <span>4.5</span>
+            <span>{{ total }}</span>
           </div>
         </div>
         <div class="date">
-          <span>noviembre de 2021</span>
+          <span>{{ createdAt }}</span>
         </div>
       </div>
     </div>
   </div>
   <div class="comment-body">
-    <p>Un espacio muy bien ubicado, totalmente equipado. Juan es un excelente anfitrión.
-      Volveré.</p>
+    <p>{{ description }}</p>
   </div>
 </li>

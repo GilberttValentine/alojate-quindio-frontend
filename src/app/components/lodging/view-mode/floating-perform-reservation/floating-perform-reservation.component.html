@@ -2,15 +2,15 @@
   <div class="card-header">
     <div class="d-flex flex-wrap align-items-center justify-content-between">
       <div class="nigth-value">
-        <span class="price">$624,286</span>
+        <span class="price">{{ nightValue | currency }}</span>
         <span>/noche</span>
       </div>
       <div class="d-flex align-items-center">
         <span class="icon mb-1 me-2 mt-auto mb-auto">
           <i class="bi bi-star-fill"></i>
         </span>
-        <span class="total-rating">4.5</span>
-        <span class="total-reviews ms-1">(<u>8k reseñas</u>)</span>
+        <span class="total-rating">{{ totalRate }}</span>
+        <span class="total-reviews ms-1">(<u (click)="scrollTo()">{{totalReviews | numberSuffix:limitNumber}} reseñas</u>)</span>
       </div>
     </div>
   </div>
@@ -21,21 +21,23 @@
           <div class="d-flex flex-wrap">
             <div class="first-date flex-fill">
               <label for="startDate">Llegada</label>
-              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')" onblur="(this.type='text')" formControlName="startDate" name="startDate">
+              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')"
+                onblur="(this.type='text')" formControlName="startDate" name="startDate">
             </div>
             <div class="second-date flex-fill">
               <label for="endDate">Salida</label>
-              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')" onblur="(this.type='text')" formControlName="endDate" name="endDate">
+              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')"
+                onblur="(this.type='text')" formControlName="endDate" name="endDate">
             </div>
           </div>
         </div>
         <div class="guests">
           <label for="peopleAmount">Huéspedes</label>
-          <input class="form-control shadow-none" placeholder="Cantidad de huéspedes" formControlName="peopleAmount" name="peopleAmount">
+          <input class="form-control shadow-none" placeholder="Cantidad de huéspedes" formControlName="peopleAmount"
+            name="peopleAmount">
         </div>
       </div>
-      <div class="error text-danger mb-3" style="margin-top: -25px;"
-      *ngIf="formDir.submitted && (
+      <div class="error text-danger mb-3" style="margin-top: -25px;" *ngIf="formDir.submitted && (
         reservationForm.get('startDate')?.hasError('required') ||
         reservationForm.get('endDate')?.hasError('required') ||
         reservationForm.get('peopleAmount')?.hasError('required') ||
@@ -44,9 +46,16 @@
       <button class="btn btn-primary-action w-100">Reservar</button>
     </form>
     <div class="d-flex flex-wrap justify-content-between">
-      <span>$624,286 x 7 noches</span>
+      <span *ngIf="totalNights <= 1">{{ nightValue | currency }} x {{totalNights}} noche</span>
+      <span *ngIf="totalNights > 1">{{ nightValue | currency }} x {{totalNights}} noches</span>
       <div class="total-nights">
-        <span>$4,370,000</span>
+        <span>{{ totalValueByNights | currency }}</span>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap justify-content-between">
+      <span>IVA</span>
+      <div class="total-nights">
+        <span>19%</span>
       </div>
     </div>
     <hr>
@@ -54,7 +63,7 @@
   <div class="card-footer">
     <div class="d-flex flex-wrap align-items-center justify-content-between">
       <span class="total">Total</span>
-      <span class="total-price">$4'991,071</span>
+      <span class="total-price">{{ total | currency}}</span>
     </div>
   </div>
 </div>

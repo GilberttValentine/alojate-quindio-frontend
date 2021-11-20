@@ -11,9 +11,12 @@
     </span>
     <span class="reviews">
       {{qualification}}
-      <span>
-        ({{count | numberSuffix:limitNumber}} reseñas)
+      (
+      <span (click)="scrollTo()">
+        <u>
+        {{count | numberSuffix:limitNumber}} reseñas</u>
       </span>
+      )
     </span>
     <span class="separator-point mt-auto mb-auto">·</span>
     <span class="icon mb-1 me-1 mt-auto mb-auto d-flex align-items-center">

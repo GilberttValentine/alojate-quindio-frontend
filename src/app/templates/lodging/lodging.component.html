@@ -1,26 +1,26 @@
 <main class="container">
-  <app-lodging-name-info
-    [lodging]="componentInfo.appLodgingNameInfo">
+  <app-lodging-name-info [lodging]="componentInfo.appLodgingNameInfo">
   </app-lodging-name-info>
   <app-imgs-lodging></app-imgs-lodging>
   <div class="d-flex flex-wrap justify-content-between">
     <div class="lodging-information col-md-7">
       <app-owner-lodging-info [ownerLodgingInfo]="componentInfo.appOwnerLodgingInfo"></app-owner-lodging-info>
       <hr>
-      <app-about-lodging></app-about-lodging>
+      <app-about-lodging [aboutLodging]="componentInfo.appAboutLodging"></app-about-lodging>
       <hr>
-      <app-services-lodging></app-services-lodging>
+      <app-services-lodging [services]="componentInfo.appServicesLodging"></app-services-lodging>
       <hr>
-      <app-lodging-accessibility></app-lodging-accessibility>
+      <app-lodging-accessibility [accesibility]="componentInfo.appLodgingAccessibility"></app-lodging-accessibility>
       <hr>
-      <app-lodging-location></app-lodging-location>
+      <app-lodging-location [location]="componentInfo.appLodgingLocation"></app-lodging-location>
     </div>
     <div class="perform-reservation">
-      <app-floating-perform-reservation></app-floating-perform-reservation>
+      <app-floating-perform-reservation [lodgingNightRate]="componentInfo.appFloatingPerformReservation">
+      </app-floating-perform-reservation>
     </div>
   </div>
   <hr>
-  <app-lodging-comments></app-lodging-comments>
+  <app-lodging-comments [commentsInfo]="componentInfo.appLodgingComments"></app-lodging-comments>
   <hr>
-  <app-lodging-owner></app-lodging-owner>
+  <app-lodging-owner [ownerInfo]="componentInfo.appLodgingOwner"></app-lodging-owner>
 </main>
