@@ -101,3 +101,9 @@ body {
 .h-53 {
   height: 53px;
 }
+
+.error {
+  font-size: 12px;
+  margin-top: 0.25rem;
+  text-shadow: 1px 1px 3px #292929ad;
+}

@@ -6,7 +6,7 @@
       </div>
       <div class="modal-body">
         <h5 class="modal-title">¿Cómo fue tu estadia en Cabaño Corocoro?</h5>
-        <form>
+        <form [formGroup]="reviewForm" #formDir="ngForm">
           <div class="d-flex flex-wrap justify-content-between mb-3">
             <div class="flex-fill pe-5">
               <div class="d-flex justify-content-between align-items-center">
@@ -44,10 +44,15 @@
             </div>
           </div>
           <label for="comment" class="mb-1">Describe tu experiencia durante la estadia</label>
-          <textarea (input)="getValue($event)" class="form-control shadow-none"></textarea>
+          <textarea (input)="getValue($event)" class="form-control shadow-none" formControlName="description"
+            name="description"></textarea>
+          <div class="error text-danger"
+            *ngIf="formDir.submitted && reviewForm.get('description')?.hasError('required')">Por favor ingrese el
+            comentario que desea realizar</div>
           <div class="d-flex justify-content-end mt-3">
-            <button class="btn btn-without-bg border me-2 py-2 shadow-none" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-            <button class="btn btn-primary-action  px-4 py-2 shadow-none">Guardar cambios</button>
+            <button class="btn btn-without-bg border me-2 py-2 shadow-none" data-bs-dismiss="modal"
+              aria-label="Close">Cancelar</button>
+            <button class="btn btn-primary-action  px-4 py-2 shadow-none" type="submit">Guardar cambios</button>
           </div>
         </form>
       </div>

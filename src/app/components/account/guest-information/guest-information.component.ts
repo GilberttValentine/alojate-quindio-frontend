@@ -13,5 +13,4 @@ export class GuestInformationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

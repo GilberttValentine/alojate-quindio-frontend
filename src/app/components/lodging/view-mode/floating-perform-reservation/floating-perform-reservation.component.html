@@ -15,25 +15,32 @@
     </div>
   </div>
   <div class="card-body">
-    <form (ngSubmit)="bookLodging(formLogin)" #formLogin="ngForm">
+    <form #formDir="ngForm" [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
       <div class="card card-form">
         <div class="dates">
           <div class="d-flex flex-wrap">
             <div class="first-date flex-fill">
-              <label for="start-date">Llegada</label>
-              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+              <label for="startDate">Llegada</label>
+              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')" onblur="(this.type='text')" formControlName="startDate" name="startDate">
             </div>
             <div class="second-date flex-fill">
-              <label for="finish-date">Salida</label>
-              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+              <label for="endDate">Salida</label>
+              <input class="form-control shadow-none" placeholder="Agrega una fecha" onfocus="(this.type='date')" onblur="(this.type='text')" formControlName="endDate" name="endDate">
             </div>
           </div>
         </div>
         <div class="guests">
-          <label for="guests">Huéspedes</label>
-          <input class="form-control shadow-none" placeholder="Cantidad de huéspedes">
+          <label for="peopleAmount">Huéspedes</label>
+          <input class="form-control shadow-none" placeholder="Cantidad de huéspedes" formControlName="peopleAmount" name="peopleAmount">
         </div>
       </div>
+      <div class="error text-danger mb-3" style="margin-top: -25px;"
+      *ngIf="formDir.submitted && (
+        reservationForm.get('startDate')?.hasError('required') ||
+        reservationForm.get('endDate')?.hasError('required') ||
+        reservationForm.get('peopleAmount')?.hasError('required') ||
+        reservationForm.get('peopleAmount')?.hasError('nonZero')
+      )">Por favor toda la informacion solicitada</div>
       <button class="btn btn-primary-action w-100">Reservar</button>
     </form>
     <div class="d-flex flex-wrap justify-content-between">

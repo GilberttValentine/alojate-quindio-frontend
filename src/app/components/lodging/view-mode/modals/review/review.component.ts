@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-review',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewComponent implements OnInit {
 
-  constructor() { }
+  reviewForm!: FormGroup;
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.showModalCommentDialog();
-
+    this.createForm()
   }
 
   showModalCommentDialog() {
@@ -30,5 +32,11 @@ export class ReviewComponent implements OnInit {
     const value = event.target.value;
 
     console.log(value);
+  }
+
+  createForm(){
+    this.reviewForm = this.fb.group({
+      description: ['', Validators.required]
+    })
   }
 }
