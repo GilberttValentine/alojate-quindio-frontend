@@ -9,6 +9,7 @@ export class LodgingImagesComponent implements OnInit {
 
   @Input() img!: Array<string>;
   @Input('imagesForm') imagesForm!: any;
+  @Input() files!: Array<File>;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class LodgingImagesComponent implements OnInit {
   onFileSelect(evt: any, pos: number) {
     var file = evt.target.files[0];
     if (file) {
+      this.files[pos] = file;
       this.img[pos] = file.name;
       this.handleFiles(file, `img${pos}`);
     } else {
@@ -25,7 +27,7 @@ export class LodgingImagesComponent implements OnInit {
       img.src = "";
     }
     this.imagesForm.setValue({
-      image: `${this.img[0]},${this.img[1]},${this.img[2]},${this.img[3]},${this.img[4]}`
+      url_pictures: `${this.img[0]},${this.img[1]},${this.img[2]},${this.img[3]},${this.img[4]}`
     })
   }
 

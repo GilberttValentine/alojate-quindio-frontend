@@ -19,9 +19,7 @@
     <select class="form-select font-13" aria-label="Default select example" name="type_id"
       formControlName="type_id">
       <option value="" disabled>¿Qué es tu alojamiento?</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option *ngFor="let item of lodgingType" [value]="item.id">{{item.name}}</option>
     </select>
     <div id="emailHelp" class="error text-danger" *ngIf="lodgingForm.get('type_id').hasError('required') && lodgingForm.get('type_id').touched">Por favor seleccione un tipo de alojamiento</div>
   </div>
@@ -50,9 +48,9 @@
     <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('bed_quantity').hasError('required') || lodgingForm.get('bed_quantity').hasError('nonZero')) && lodgingForm.get('bed_quantity').touched">Por favor ingresar la cantidad de camas</div>
   </div>
   <div class="mb-3">
-    <label for="bathroom_amount" class="form-label font-20 fw-bold">Baños:</label>
-    <input type="number" class="form-control font-13" name="bathroom_amount" formControlName="bathroom_amount"
+    <label for="bathroom_quantity" class="form-label font-20 fw-bold">Baños:</label>
+    <input type="number" class="form-control font-13" name="bathroom_quantity" formControlName="bathroom_quantity"
       placeholder="¿Cuántas baños hay?">
-    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('bathroom_amount').hasError('required') || lodgingForm.get('bathroom_amount').hasError('nonZero')) && lodgingForm.get('bathroom_amount').touched">Por favor ingresar la cantidad de baños</div>
+    <div id="emailHelp" class="error text-danger" *ngIf="(lodgingForm.get('bathroom_quantity').hasError('required') || lodgingForm.get('bathroom_quantity').hasError('nonZero')) && lodgingForm.get('bathroom_quantity').touched">Por favor ingresar la cantidad de baños</div>
   </div>
 </form>

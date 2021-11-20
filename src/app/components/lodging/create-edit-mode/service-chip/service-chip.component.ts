@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-service-chip',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceChipComponent implements OnInit {
 
+  @Input() service!:string;
   constructor() { }
 
   ngOnInit(): void {

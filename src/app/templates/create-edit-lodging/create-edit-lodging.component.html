@@ -10,7 +10,7 @@
           <button type="button" class="btn btn-dark font-13 py-2 px-5" [disabled]="lodgingForm.invalid" type="submit">Guardar</button>
         </form>
       </div>
-      <app-lodging-images [imagesForm]="lodgingForm.get('images')" [img]="img"></app-lodging-images>
+      <app-lodging-images [imagesForm]="lodgingForm.get('images')" [img]="img" [files]="files"></app-lodging-images>
       <div class="d-flex flex-row justify-content-between flex-wrap form-info-cont">
         <div class="d-flex flex-column info-cont">
           <app-about-lodging-create-edit [aboutForm]="lodgingForm.get('about')"></app-about-lodging-create-edit>

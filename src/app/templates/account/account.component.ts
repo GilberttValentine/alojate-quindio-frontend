@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,12 +14,16 @@ import Swal from 'sweetalert2';
 export class AccountComponent implements OnInit {
   userForm!: FormGroup;
   user!: User;
+  CLOUDINARY_PROFILE_URL = environment.CLOUDINARY_PROFILE_URL
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
   ngOnInit(): void {
     this.createForm();
+    this.getUser();
+  }
 
+  getUser(){
     Swal.fire({
       allowOutsideClick: false,
       text: 'Espere un momento...',
@@ -70,6 +75,10 @@ export class AccountComponent implements OnInit {
 
   cargarForm() {
     const role = localStorage.getItem('role');
+
+    const profileImg = document.getElementById('profileImg') as HTMLImageElement
+    profileImg.src = `${environment.CLOUDINARY_PROFILE_URL}/${this.user.url_picture}`;
+
     this.userForm.get('user')!.setValue({
       firstName: this.user.first_name,
       secondName: this.user.second_name,

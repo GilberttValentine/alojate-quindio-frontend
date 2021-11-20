@@ -8,17 +8,10 @@
         </svg>
       </span>
       <input list="showTypeLodgingList" class="form-control shadow-none h-53 search-input"
-        placeholder="Escribe el nombre del idioma que hablas" id="services" name="services" formControlName="services"  (change)="selectService($event)">
+        placeholder="Escribe el nombre del idioma que hablas" id="services" (change)="selectService($event)">
     </div>
     <datalist id="showTypeLodgingList">
-      <option value="Servicio1"></option>
-      <option value="Servicio2"></option>
-      <option value="Servicio3"></option>
-      <option value="Servicio4"></option>
-      <option value="Servicio5"></option>
-      <option value="Servicio6"></option>
-      <option value="Servicio7"></option>
-      <option value="Servicio8"></option>
+      <option *ngFor="let item of services" [value]="item.name"></option>
     </datalist>
   </div>
 </form>
@@ -29,8 +22,8 @@
     <div>Ejemplo: Wi-Fi, Cocina, Parqueadero, entre otros.</div>
   </div>
   <ng-template #servicesChips>
-    <app-service-chip *ngFor="let item of services"></app-service-chip>
+    <app-service-chip *ngFor="let item of selectedServices" [service]="item"></app-service-chip>
   </ng-template>
 </div>
-<div class="error text-danger mb-2" *ngIf="serviceForm.get('services').hasError('required') && serviceForm.get('services').touched">Por favor seleccione por lo menos un servicio</div>
+<div class="error text-danger mb-2" *ngIf="serviceForm.get('services').hasError('minService')">Por favor seleccione por lo menos 10 servicios</div>
 </div>
