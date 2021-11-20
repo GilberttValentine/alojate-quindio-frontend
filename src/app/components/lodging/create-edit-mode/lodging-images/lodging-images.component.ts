@@ -27,7 +27,7 @@ export class LodgingImagesComponent implements OnInit {
       img.src = "";
     }
     this.imagesForm.setValue({
-      url_pictures: `${this.img[0]},${this.img[1]},${this.img[2]},${this.img[3]},${this.img[4]}`
+      url_pictures: ' '
     })
   }
 

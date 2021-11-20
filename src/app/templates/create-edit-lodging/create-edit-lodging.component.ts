@@ -58,15 +58,36 @@ export class CreateEditLodgingComponent implements OnInit {
     })
   }
 
-  submit() {
+  async submit() {
     const user_id = Number(localStorage.getItem('user'))
 
     if (this.lodgingForm.valid) {
+      Swal.fire({
+        allowOutsideClick: false,
+        text: 'Espere un momento...',
+        icon: 'info',
+        confirmButtonText: 'Ok',
+      });
+
+      Swal.showLoading();
+
       var servicesTemp: Array<ServiceResponse> = [];
       this.lodgingForm.get('service')?.value['services'].map(function (item: number) {
         servicesTemp.push({
           service_id: item
         })
+      })
+
+      var aImg = await Promise.all(this.files.map(async (item) => {
+        const cloudinaryTemp: FormData = new FormData();
+        cloudinaryTemp.append('file', item);
+        cloudinaryTemp.append('upload_preset', environment.CLOUDINARY_UPLOAD_PRESET)
+        return await this.uploadImage(cloudinaryTemp);
+      }));
+
+
+      this.lodgingForm.get('images')!.setValue({
+        url_pictures: `${Object(aImg[0])['public_id']},${Object(aImg[1])['public_id']},${Object(aImg[2])['public_id']},${Object(aImg[3])['public_id']},${Object(aImg[4])['public_id']}`
       })
 
       const lodging: CreateLodgingResponse = {
@@ -80,18 +101,11 @@ export class CreateEditLodgingComponent implements OnInit {
         services: servicesTemp
       }
 
-      Swal.fire({
-        allowOutsideClick: false,
-        text: 'Espere un momento...',
-        icon: 'info',
-        confirmButtonText: 'Ok',
-      });
-
-      Swal.showLoading();
-
       this.lodgingService.createLodging(user_id, lodging)
         .subscribe((resp) => {
-          this.uploadImage()
+          Swal.close();
+          console.log(lodging)
+          this.router.navigate([`/hosts/lodgings`]);
         }, (err) => {
           Swal.fire({
             icon: 'error',
@@ -149,19 +163,8 @@ export class CreateEditLodgingComponent implements OnInit {
     }
   }
 
-  uploadImage() {
-    this.files.map(async (item) => {
-      const cloudinaryTemp: FormData = new FormData();
-      cloudinaryTemp.append('file', item);
-      cloudinaryTemp.append('upload_preset', environment.CLOUDINARY_UPLOAD_PRESET)
-      console.log(cloudinaryTemp)
-      this.cloudinaryService.uploadImage(cloudinaryTemp)
-        .subscribe((resp) => {
-          Swal.close();
-          console.log(resp)
-          this.router.navigate([`/hosts/lodgings`]);
-        });
-    });
+  async uploadImage(cloudinaryTemp: FormData): Promise<Object> {
+    return await (this.cloudinaryService.uploadImage(cloudinaryTemp).toPromise())
   }
 }
 
