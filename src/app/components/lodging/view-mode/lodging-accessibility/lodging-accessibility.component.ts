@@ -18,7 +18,7 @@ export class LodgingAccessibilityComponent implements OnInit, OnChanges {
     if(this.accesibility) {
       const description = document.getElementById("accessibility-description");
 
-      description!.innerHTML = this.accesibility.accesibility.replace(/\\n/g, '<br>');
+      description!.innerHTML = this.accesibility.accesibility.replace(/\n/g, '<br>');
 
       const lengthText = this.accesibility.accesibility.length;
 
