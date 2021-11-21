@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { LodgingImagesComponent } from 'src/app/components/lodging/create-edit-mode/lodging-images/lodging-images.component';
 import { Lodging } from 'src/app/models/lodging';
 import { CreateLodgingResponse } from 'src/app/models/response/createLodging';
-import { LodgingResponse } from 'src/app/models/response/lodging';
+import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
 import { ServiceResponse } from 'src/app/models/response/service';
 import { CloudinaryServiceService } from 'src/app/services/cloudinary/cloudinary-service.service';
 import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.service';
