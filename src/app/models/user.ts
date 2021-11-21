@@ -15,5 +15,5 @@ export interface User {
     civil_status_id: number;
     study_level_id: number;
     role_id: number;
-    langugages: Array<Language>;
+    languages: Array<Language>;
 }

@@ -18,7 +18,7 @@ export class AboutLodgingComponent implements OnInit, OnChanges {
     if(this.aboutLodging) {
       const description = document.getElementById("description");
 
-      description!.innerHTML = this.aboutLodging.about.replace(/\\n/g, '<br>');
+      description!.innerHTML = this.aboutLodging.about.replace(/\n/g, '<br>');
 
       const lengthText = this.aboutLodging.about.length;
 

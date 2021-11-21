@@ -10,7 +10,6 @@ import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.
 })
 export class LodgingComponent implements OnInit {
   lodgingId!: number;
-
   componentInfo: any = {};
 
   constructor(private router: Router, private route: ActivatedRoute, private lodgingService: LodgingServiceService) {
@@ -79,6 +78,10 @@ export class LodgingComponent implements OnInit {
         }
       };
 
+      const appImgsLodging = {
+        images: lodging.url_pictures.split(',')
+      }
+
       const appLodgingComments = {
         lodging_id: this.lodgingId,
         qualification: lodging.comments.qualification,
@@ -101,7 +104,8 @@ export class LodgingComponent implements OnInit {
         appLodgingLocation,
         appFloatingPerformReservation,
         appLodgingComments,
-        appLodgingOwner
+        appLodgingOwner,
+        appImgsLodging
       };
 
       console.log(lodging);

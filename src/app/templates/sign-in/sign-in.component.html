@@ -16,7 +16,7 @@
           <div class="col-12">
             <label for="password">Contraseña</label>
             <input class="form-control shadow-none" placeholder="Ingresa tu contraseña" formControlName="password"
-              name="password">
+              name="password" type="password">
             <div class="error text-danger"
               *ngIf="formDir.submitted && (signInForm.get('password')?.hasError('required') || signInForm.get('password')?.hasError('minlength'))">
               Por favor ingrese su contraseña</div>

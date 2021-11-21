@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
+import { ProfilePictureSelectorService } from 'src/app/utils/profilePictureSelector/profile-picture-selector.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +14,7 @@ import Swal from 'sweetalert2';
 export class SignUpComponent implements OnInit {
 
   signUpForm!: FormGroup;
-  constructor(private fb: FormBuilder, private userService: UserServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder, private userService: UserServiceService, private profilePictureSelector: ProfilePictureSelectorService, private router: Router) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -43,7 +44,7 @@ export class SignUpComponent implements OnInit {
       const user: User = {
         ...this.signUpForm.value,
         actual_state: true,
-        url_picture: "GojoPfp.jpg",
+        url_picture: this.profilePictureSelector.picSelector(),
         role_id: "1",
         direction: ""
       };

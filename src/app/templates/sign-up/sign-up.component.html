@@ -29,7 +29,7 @@
           </div>
           <div class="col-12">
             <label for="password">Contraseña</label>
-            <input class="form-control shadow-none" placeholder="Ingresa tu contraseña" formControlName="password" name="password">
+            <input class="form-control shadow-none" placeholder="Ingresa tu contraseña" formControlName="password" name="password" type="password">
             <div class="error text-danger" id="password-error" *ngIf="formDir.submitted && (signUpForm.get('password')?.hasError('required') || signUpForm.get('password')?.hasError('minlength'))">Por favor ingrese una contraseña con mas de 8 caracteres</div>
           </div>
           <div class="col-12">
