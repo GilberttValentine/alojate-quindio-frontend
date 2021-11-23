@@ -14,4 +14,8 @@ export class TypeLodgingServiceService {
   getAllTypeLodging(): Observable<TypeLodging[]> {
     return this.http.get<TypeLodging[]>(`${environment.baseUrl}/type-lodging`)
   }
+  
+  getLodgingTypeById(id: number): Observable<TypeLodging[]> {
+    return this.http.get<TypeLodging[]>(`${environment.baseUrl}/type-lodging/${id}`)
+  }
 }

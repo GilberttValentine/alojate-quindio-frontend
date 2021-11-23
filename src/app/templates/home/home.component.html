@@ -1,9 +1,9 @@
 <main class="container">
   <app-welcome-banner [context]="welcomeBannerContext"></app-welcome-banner>
-  <app-floating-search-input></app-floating-search-input>
-  <app-filter-municipalities></app-filter-municipalities>
-  <app-filter-types-lodgings></app-filter-types-lodgings>
+  <app-floating-search-input [filtersInputs]="({municipalities: municipalities, lodgingTypes: lodgingTypes})"></app-floating-search-input>
+  <app-filter-municipalities [municipalities]="municipalities"></app-filter-municipalities>
+  <app-filter-types-lodgings [lodgingTypes]="lodgingTypesReduced "></app-filter-types-lodgings>
   <app-welcome-banner [context]="hostBannerContext"></app-welcome-banner>
-  <app-filter-best-lodgings></app-filter-best-lodgings>
+  <app-filter-best-lodgings [lodgings]="bestLodgings"></app-filter-best-lodgings>
 </main>
 

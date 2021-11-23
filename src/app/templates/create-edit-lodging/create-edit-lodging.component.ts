@@ -71,7 +71,7 @@ export class CreateEditLodgingComponent implements OnInit {
 
       Swal.showLoading();
 
-      var servicesTemp: Array<ServiceResponse> = [];
+      var servicesTemp:Array<ServiceResponse> = [];
       this.lodgingForm.get('service')?.value['services'].map(function (item: number) {
         servicesTemp.push({
           service_id: item

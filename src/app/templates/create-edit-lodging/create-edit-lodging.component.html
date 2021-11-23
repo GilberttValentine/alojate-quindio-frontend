@@ -6,8 +6,8 @@
           <app-header-title [titleForm]="lodgingForm.get('title')"></app-header-title>
         </div>
         <form class="d-flex button-div" (ngSubmit)="submit()">
-          <button type="button" class="btn btn-light font-13 py-2 px-5 me-3" (click)="limpiar()">Cancelar</button>
-          <button type="button" class="btn btn-dark font-13 py-2 px-5" [disabled]="lodgingForm.invalid" type="submit">Guardar</button>
+          <button type="button" class="btn btn-light shadow-none font-13 py-2 px-5 me-3" (click)="limpiar()">Cancelar</button>
+          <button type="button" class="btn btn-dark shadow-none font-13 py-2 px-5" [disabled]="lodgingForm.invalid" type="submit">Guardar</button>
         </form>
       </div>
       <app-lodging-images [imagesForm]="lodgingForm.get('images')" [img]="img" [files]="files"></app-lodging-images>

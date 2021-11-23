@@ -27,8 +27,10 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     if (this.lodging) {
+
+
       this.name = this.lodging.name;
-      this.qualification = this.lodging.comments.qualification;
+      this.qualification = Math.floor(this.lodging.comments.qualification * 10) / 10;
       this.municipality = this.lodging.municipality.name;
 
       const count = this.lodging.comments.count;
@@ -43,7 +45,7 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
 
   scrollTo() {
     const element = document.getElementById('comments');
-    
-    element!.scrollIntoView({block: "center", behavior: "smooth"});
+
+    element!.scrollIntoView({ block: "center", behavior: "smooth" });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,17 +6,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css']
 })
-export class ReviewComponent implements OnInit {
-
+export class ReviewComponent implements OnInit, OnChanges {
   reviewForm!: FormGroup;
+
+  @Input() lodgingName = "";
+
   constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    this.showModalCommentDialog();
     this.createForm()
   }
 
-  showModalCommentDialog() {
+  ngOnChanges(): void {
+    
   }
 
   setValue(event: any) {

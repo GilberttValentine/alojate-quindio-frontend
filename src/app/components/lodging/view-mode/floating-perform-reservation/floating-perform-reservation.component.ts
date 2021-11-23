@@ -16,6 +16,7 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
   emailOwner = "";
   lodgingMiniumInformation: any;
 
+  peopleAmount = 0;
   nightValue = 0;
   totalReviews = 0;
   totalRate = 0;
@@ -35,13 +36,14 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     if (this.lodgingNightRate) {
-      const { night_value, total_reviews, total_rate, email, lodging } = this.lodgingNightRate;
+      const { night_value, total_reviews, total_rate, email, lodging, peopleAmount } = this.lodgingNightRate;
 
+      this.peopleAmount = peopleAmount;
       this.nightValue = night_value;
       this.limitNumber = total_reviews >= 1000 ? 1 : 0;
       this.totalReviews = total_reviews;
 
-      this.totalRate = total_rate;
+      this.totalRate = Math.floor(total_rate * 10) / 10;
 
       const totalValueByNights = night_value * this.totalNights;
       this.totalValueByNights = totalValueByNights;

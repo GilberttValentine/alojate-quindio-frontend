@@ -20,7 +20,6 @@ export class FrmReservationComponent implements OnInit {
       cardNumber: ['',[Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       expDate: ['', Validators.required],
       securityCode: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
-    })
+    });
   }
-
 }
