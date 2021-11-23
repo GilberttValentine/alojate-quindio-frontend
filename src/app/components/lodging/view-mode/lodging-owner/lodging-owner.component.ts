@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Language } from 'src/app/models/language';
 import { LanguageServiceService } from 'src/app/services/language/language-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-lodging-owner',
@@ -24,10 +25,10 @@ export class LodgingOwnerComponent implements OnInit, OnChanges {
   async ngOnChanges(): Promise<void> {
     if (this.ownerInfo) {
       const { name, created_at, languages, photo } = this.ownerInfo;
-      //this.photo = photo;
 
-      this.photo = "https://media.discordapp.net/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg?width=580&height=580";
+      this.photo = `${environment.CLOUDINARY_PROFILE_URL}/${photo}`;
       this.name = name;
+      //this.photo = "https://media.discordapp.net/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg?width=580&height=580";
 
       const date = new Date(created_at);
       const day = date.getDate();

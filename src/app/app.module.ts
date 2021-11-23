@@ -78,6 +78,9 @@ import { AccessibilityLodgingCreateEditComponent } from './components/lodging/cr
 import { NumberSuffixPipe } from './utils/pipes/number-suffix.pipe';
 import { CommentServiceService } from './services/comment/comment-service.service';
 import { LanguageServiceService } from './services/language/language-service.service';
+import { MunicipalityServiceService } from './services/municipality/municipality-service.service';
+import { TypeLodgingServiceService } from './services/typeLodging/type-lodging-service.service';
+import { LodgingFiltersComponent } from './components/modals/lodging-filters/lodging-filters.component';
 
 @NgModule({
   declarations: [
@@ -150,7 +153,8 @@ import { LanguageServiceService } from './services/language/language-service.ser
     HostLodgingsComponent,
     AboutLodgingCreateEditComponent,
     AccessibilityLodgingCreateEditComponent,
-    NumberSuffixPipe
+    NumberSuffixPipe,
+    LodgingFiltersComponent
   ],
   imports: [
     BrowserModule,
@@ -164,7 +168,9 @@ import { LanguageServiceService } from './services/language/language-service.ser
     RouterService,
     LodgingServiceService,
     CommentServiceService,
-    LanguageServiceService
+    LanguageServiceService,
+    MunicipalityServiceService,
+    TypeLodgingServiceService,
   ],
   bootstrap: [AppComponent]
 })

@@ -4,7 +4,8 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-left: 0;
   padding-right: 0;
-  font-size: 20px;
+  font-size: 1.563rem;
+  font-weight: 600;
   text-overflow: ellipsis;
 }
 

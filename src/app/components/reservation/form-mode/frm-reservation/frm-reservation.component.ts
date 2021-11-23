@@ -11,6 +11,7 @@ import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service'
   styleUrls: ['./frm-reservation.component.css']
 })
 export class FrmReservationComponent implements OnInit {
+  
   @Input() reservation: any;
   reservationForm!: FormGroup;
   constructor(private fb: FormBuilder, private sweetAlertService: SweetAlertService, private reservationService: ReservationServiceService, private route: ActivatedRoute, private router: Router) { }
@@ -24,7 +25,7 @@ export class FrmReservationComponent implements OnInit {
       cardNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       expDate: ['', Validators.required],
       securityCode: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
-    })
+    });
   }
 
   submit() {

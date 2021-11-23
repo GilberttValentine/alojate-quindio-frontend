@@ -29,7 +29,7 @@ export class LodgingComponent implements OnInit {
 
       const appOwnerLodgingInfo = {
         name: lodging.user.name,
-        picture: lodging.user.name,
+        picture: lodging.user.photo,
         persons_amount: lodging.persons_amount,
         room_quantity: lodging.room_quantity,
         bed_quantity: lodging.bed_quantity,
@@ -56,19 +56,12 @@ export class LodgingComponent implements OnInit {
         municipality: lodging.municipality.name
       };
 
-      const lodgingMiniumInformation = {
-        type: lodging.type.name,
-        image: "",
-        name: lodging.name,
-        total_reviews: lodging.comments.count,
-        total_rate: lodging.comments.qualification
-      };
-
       const appFloatingPerformReservation = {
         night_value: lodging.night_value,
         total_reviews: lodging.comments.count,
         total_rate: lodging.comments.qualification,
         email: lodging.user.email,
+        peopleAmount: lodging.persons_amount,
         lodging: {
           type: lodging.type.name,
           image: lodging.url_pictures,
@@ -84,6 +77,7 @@ export class LodgingComponent implements OnInit {
       }
 
       const appLodgingComments = {
+        name: lodging.name,
         lodging_id: this.lodgingId,
         qualification: lodging.comments.qualification,
         count: lodging.comments.count

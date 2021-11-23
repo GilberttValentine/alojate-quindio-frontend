@@ -5,7 +5,7 @@
         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h5 class="modal-title">¿Cómo fue tu estadia en Cabaño Corocoro?</h5>
+        <h5 class="modal-title">¿Cómo fue tu estadia en {{ lodgingName }}?</h5>
         <form [formGroup]="reviewForm" #formDir="ngForm" (submit)="submit()">
           <div class="d-flex flex-wrap justify-content-between mb-3">
             <div class="flex-fill pe-5">

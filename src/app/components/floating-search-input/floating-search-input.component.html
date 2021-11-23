@@ -1,47 +1,25 @@
 <div class="search-lodgings border">
-  <form class="d-flex flex-wrap justify-content-between align-items-center pt-2 pb-2">
+  <div class="d-flex flex-wrap justify-content-between align-items-center pt-2 pb-2">
     <div class="ms-5">
       <label for="Municipio" class="form-label">Municipio</label>
       <input list="showMunicipiosList" class="form-control shadow-none" id="municipio" placeholder="¿A dónde vas?">
       <datalist id="showMunicipiosList">
-        <option value="Armenia"></option>
-        <option value="Circasia"></option>
-        <option value="Calarcá"></option>
-        <option value="Filandia"></option>
-        <option value="Salento"></option>
-        <option value="Génova"></option>
-        <option value="La Tebaida"></option>
-        <option value="Pijao"></option>
-        <option value="Montenegro"></option>
-        <option value="Buenavista"></option>
-        <option value="Quimbaya"></option>
-        <option value="Córdoba"></option>
+        <option *ngFor="let municipality of municipalities" data-value="{{ municipality.id }}" value="{{ municipality.name }}"></option>
       </datalist>
     </div>
     <div class="ms-5" style="width: 15.75rem;">
       <label for="Type lodging" class="form-label">Tipo de alojamiento</label>
       <input list="showTypeLodgingList" class="form-control shadow-none" id="type-lodging" placeholder="¿Qué tipo de alojamiento quieres?">
       <datalist id="showTypeLodgingList">
-        <option value="Armenia"></option>
-        <option value="Circasia"></option>
-        <option value="Calarcá"></option>
-        <option value="Filandia"></option>
-        <option value="Salento"></option>
-        <option value="Génova"></option>
-        <option value="La Tebaida"></option>
-        <option value="Pijao"></option>
-        <option value="Montenegro"></option>
-        <option value="Buenavista"></option>
-        <option value="Quimbaya"></option>
-        <option value="Córdoba"></option>
+        <option *ngFor="let type of lodgingTypes" data-value="{{ type.id }}" value="{{ type.name }}" ></option>
       </datalist>
     </div>
     <div class="ms-5">
       <label for="municipio" class="form-label">Huéspedes</label>
-      <input type="number" class="form-control shadow-none" id="huespedes" placeholder="¿Cuántos?">
+      <input type="number" class="form-control shadow-none" id="huespedes" placeholder="¿Cuántos?" min="1">
     </div>
     <div class="ms-5 me-4">
-      <button class="btn search-btn rounded-circle d-flex align-items-center justify-content-center">
+      <button class="btn search-btn rounded-circle d-flex align-items-center justify-content-center" (click)="filterLodgings()">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
           focusable="false"
           style="fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
@@ -53,5 +31,5 @@
         </svg>
       </button>
     </div>
-  </form>
+  </div>
 </div>

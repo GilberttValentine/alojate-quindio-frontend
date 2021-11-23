@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/models/comment';
@@ -11,20 +11,22 @@ import Swal from 'sweetalert2';
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css']
 })
-export class ReviewComponent implements OnInit {
-
+export class ReviewComponent implements OnInit, OnChanges {
+  
+  @Input() lodgingName = "";
   reviewForm!: FormGroup;
   lodgingId: number;
+
   constructor(private fb:FormBuilder, private sweetAlertServices: SweetAlertService, private commentService: CommentServiceService, private route: ActivatedRoute) { 
     this.lodgingId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
-    this.showModalCommentDialog();
     this.createForm()
   }
 
-  showModalCommentDialog() {
+  ngOnChanges(): void {
+    
   }
 
   setValue(event: any) {

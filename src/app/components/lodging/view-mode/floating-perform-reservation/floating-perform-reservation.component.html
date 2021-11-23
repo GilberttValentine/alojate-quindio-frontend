@@ -33,8 +33,8 @@
         </div>
         <div class="guests">
           <label for="peopleAmount">Huéspedes</label>
-          <input class="form-control shadow-none" placeholder="Cantidad de huéspedes" formControlName="peopleAmount"
-            name="peopleAmount">
+          <input type="number" class="form-control shadow-none" placeholder="Cantidad de huéspedes" formControlName="peopleAmount"
+            name="peopleAmount" min="1" max="{{ peopleAmount }}">
         </div>
       </div>
       <div class="error text-danger mb-3" style="margin-top: -25px;" *ngIf="formDir.submitted && (

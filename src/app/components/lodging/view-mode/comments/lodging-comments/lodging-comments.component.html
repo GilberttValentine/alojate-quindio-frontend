@@ -16,8 +16,8 @@
 <ul class="comments-list">
   <app-lodging-comment *ngFor="let comment of commentsLodging" [comment]="comment"></app-lodging-comment>
 </ul>
-<hr>
-<div class="pagination">
+<hr *ngIf="totalComments >= 1">
+<div class="pagination" *ngIf="totalComments >= 1">
   <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
     <div class="actual-page d-flex flex-wrap">
       <span class="me-1">Página</span>
@@ -27,7 +27,8 @@
           <u *ngIf="actualPage > 9">{{ actualPage }}</u>
         </span>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-          <li *ngFor="let page of pagesAvailable"><a class="dropdown-item" [ngClass]="actualPage === page ? 'active':''" (click)="changePage(page)">{{ page }}</a></li>
+          <li *ngFor="let page of pagesAvailable"><a class="dropdown-item" [ngClass]="actualPage === page ? 'active':''"
+              (click)="changePage(page)">{{ page }}</a></li>
         </ul>
       </div>
       <span class="ms-1">de {{ totalPages }}</span>
@@ -39,4 +40,4 @@
   </div>
 </div>
 
-<app-review></app-review>
+<app-review [lodgingName]="lodgingName"></app-review>

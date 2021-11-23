@@ -11,6 +11,7 @@ export class ReservationFormComponent implements OnInit {
 
   reservation: any;
   lodgingId!: number;
+  
   constructor(private router: Router, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
     const reservation = navigation?.extras.state?.reservation;

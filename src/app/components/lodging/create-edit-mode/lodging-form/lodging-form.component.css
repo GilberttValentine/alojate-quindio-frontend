@@ -15,3 +15,8 @@ form {
 .form-text {
   color: #FF4343;
 }
+
+.form-control, .form-select {
+  border-radius: 5px;
+  height: 40px;
+}

@@ -25,8 +25,8 @@ export class LodgingServiceService {
     return this.http.put<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}`, body, this.httpOptions)
   }
 
-  getAllLodgings(): Observable<LodgingResponse[]> {
-    return this.http.get<LodgingResponse[]>(`${environment.baseUrl}/lodgings`)
+  getAllLodgings(filters?: any, page?: any): Observable<LodgingResponse[]> {
+    return this.http.post<LodgingResponse[]>(`${environment.baseUrl}/lodgings?page=${page}`, ({ filters: filters }), this.httpOptions)
   }
 
   getLodging(lodgingId: number): Observable<LodgingResponse> {

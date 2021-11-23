@@ -8,6 +8,12 @@
   margin-bottom: 10px;
 }
 
+.form-control {
+  border-radius: 5px;
+  font-size: 13px;
+  min-height: 40px;
+}
+
 .input-group-text {
   border-right: none;
 }
@@ -20,11 +26,11 @@
   display: flex;
   flex-wrap: wrap;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 5px;
   padding-left: 14px;
   padding-right: 14px;
   align-items: center;
-  min-height: 180px;
+  min-height: 40px;
   padding: 17px;
   align-items: center;
 }

@@ -1,16 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MunicipalityResponse } from 'src/app/models/response/municipalityResponse';
+import { MunicipalityServiceService } from 'src/app/services/municipality/municipality-service.service';
 
 @Component({
   selector: 'app-filter-municipalities',
   templateUrl: './filter-municipalities.component.html',
   styleUrls: ['./filter-municipalities.component.css']
 })
-export class FilterMunicipalitiesComponent implements OnInit {
+export class FilterMunicipalitiesComponent implements OnInit, OnChanges {
+  @Input() municipalities = [] as MunicipalityResponse[];
 
-  constructor() { }
+  municipalitiesOne = [] as MunicipalityResponse[];
+  municipalitiesTwo = [] as MunicipalityResponse[];
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.dragScroll();
+  }
+
+  ngOnChanges(): void {
+    const municipalities = this.municipalities;
+
+    this.municipalitiesOne = municipalities.slice(0, 6);
+    this.municipalitiesTwo = municipalities.slice(6);
   }
 
   dragScroll() {
@@ -57,4 +71,7 @@ export class FilterMunicipalitiesComponent implements OnInit {
     ele!.addEventListener('mousedown', mouseDownHandler);
   }
 
+  filterLodgings(id: number): void {
+    this.router.navigate([`/lodgings`], { queryParams: { mun: id } });
+  }
 }

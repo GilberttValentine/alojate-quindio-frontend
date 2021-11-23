@@ -1,11 +1,13 @@
 @media (max-width:990px) {
-  .info-cont{
+  .info-cont {
     width: 100% !important;
   }
-  .form-info-cont{
+
+  .form-info-cont {
     justify-content: center !important;
   }
-  .form-container{
+
+  .form-container {
     width: 100%;
   }
 }
@@ -21,10 +23,21 @@
 
 
 @media (max-width: 991px) {
-  .title-div{
+  .title-div {
     width: 100% !important;
   }
+
   .button-div {
     margin-top: 20px;
   }
+}
+
+.btn-light:hover {
+  color: #000;
+  background-color: transparent;
+  border-color: #000;
+}
+
+.btn-dark:hover {
+    background: rgb(29, 29, 29, 0.8);
 }

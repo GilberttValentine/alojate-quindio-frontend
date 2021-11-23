@@ -1,0 +1,44 @@
+<div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filtersModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title">Filtros</h5>
+        <label class="form-label">Municipio</label>
+        <input class="form-control mb-4 shadow-none" list="showMunicipiosList" placeholder="¿Qué municipio te interesa?">
+        <datalist id="showMunicipiosList">
+          <option *ngFor="let municipality of municipalities" data-value="{{ municipality.id }}" value="{{ municipality.name }}"></option>
+        </datalist>
+
+        <label class="form-label">Tipo de alojamiento</label>
+        <input class="form-control mb-4 shadow-none" list="showTypeLodgingList" placeholder="¿Qué alojamiento quieres buscar?">
+        <datalist id="showTypeLodgingList">
+          <option *ngFor="let type of types" data-value="{{ type.id }}" value="{{ type.name }}" ></option>
+        </datalist>
+
+        <label class="form-label">Huéspedes</label>
+        <input class="form-control mb-4 shadow-none" placeholder="¿Cuántos huéspedes se alojaran?">
+
+        <label class="form-label">Habitaciones</label>
+        <input class="form-control mb-4 shadow-none" placeholder="¿Cuántas habitaciones buscabas?">
+
+        <label class="form-label">Camas</label>
+        <input class="form-control mb-4 shadow-none" placeholder="¿Cuántas camas vas a ocupar?">
+
+        <label class="form-label">Baños</label>
+        <input class="form-control mb-4 shadow-none" placeholder="¿Cuántos baños deseas que hayan?">
+
+
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-without-bg border me-2 py-2 shadow-none" data-bs-dismiss="modal"
+            aria-label="Close">Cancelar</button>
+          <button class="btn btn-primary-action  px-4 py-2 shadow-none">Aplicar filtros</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
