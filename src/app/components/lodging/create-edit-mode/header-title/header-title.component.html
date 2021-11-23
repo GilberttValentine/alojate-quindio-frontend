@@ -1,7 +1,6 @@
     <form [formGroup]="titleForm">
       <div class="input-group input-group-lg mb-2 ">
-        <input type="text" class="form-control shadow-none" aria-label="Sizing example input" name="name" formControlName="name"
-          aria-describedby="inputGroup-sizing-lg" placeholder="¿Cuál es el nombre de tu alojamiento?">
+        <input type="text" class="form-control shadow-none" aria-label="Sizing example input" name="name" formControlName="name" aria-describedby="inputGroup-sizing-lg" placeholder="¿Cuál es el nombre de tu alojamiento?">
       </div>
       <div class="error text-danger mb-2"
         *ngIf="titleForm.get('name').hasError('required') && titleForm.get('name').touched">Por favor ingrese el nombre

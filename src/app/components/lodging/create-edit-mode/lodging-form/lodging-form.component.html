@@ -7,8 +7,7 @@
   </div>
   <div class="mb-3">
     <label for="municipality_id" class="form-label font-20 fw-bold">Municipio:</label>
-    <select class="form-select shadow-none font-13" aria-label="Default select example" name="municipality_id"
-      formControlName="municipality_id">
+    <select class="form-select shadow-none font-13" aria-label="Default select example" name="municipality_id" formControlName="municipality_id">
       <option value="" disabled>¿Dónde está ubicado tu alojamiento?</option>
       <option *ngFor="let item of municipality" [value]="item.id">{{item.name}}</option>
     </select>
@@ -16,8 +15,7 @@
   </div>
   <div class="mb-3">
     <label for="type_id" class="form-label font-20 fw-bold">Tipo alojamiento:</label>
-    <select class="form-select shadow-none font-13" aria-label="Default select example" name="type_id"
-      formControlName="type_id">
+    <select class="form-select shadow-none font-13" aria-label="Default select example" name="type_id" formControlName="type_id">
       <option value="" disabled>¿Qué es tu alojamiento?</option>
       <option *ngFor="let item of lodgingType" [value]="item.id">{{item.name}}</option>
     </select>
