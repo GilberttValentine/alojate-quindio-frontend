@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-floating-lodging',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./floating-lodging.component.css']
 })
 export class FloatingLodgingComponent implements OnInit {
-
+  @Input() reservation!: any;
   constructor() { }
 
   ngOnInit(): void {

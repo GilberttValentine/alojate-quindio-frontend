@@ -16,7 +16,7 @@
         <hr>
         <app-guest-information [guestForm]="userForm.get('guest')"></app-guest-information>
         <hr>
-        <app-host-information [hostForm]="userForm.get('host')"></app-host-information>
+        <app-host-information [hostForm]="userForm.get('host')" [languages]="languages" [selectedLanguages]="selectedLanguages"></app-host-information>
         <hr>
         <app-cancel-account></app-cancel-account>
       </div>

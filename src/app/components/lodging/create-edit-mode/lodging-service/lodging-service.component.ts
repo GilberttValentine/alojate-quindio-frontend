@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Service } from 'src/app/models/service';
 import { ServiceModelServiceService } from 'src/app/services/service/service-model-service.service';
+import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,44 +12,35 @@ import Swal from 'sweetalert2';
 export class LodgingServiceComponent implements OnInit {
 
   @Input('serviceForm') serviceForm!: any;
-  services: Array<Service> = [];
-  selectedServices: Array<string> = []
-  constructor(private serviceService: ServiceModelServiceService) { }
+  @Input() services: Array<Service> = [];
+  @Input() selectedServices: Array<string> = []
+  constructor(private serviceService: ServiceModelServiceService, private sweetAlertService: SweetAlertService) { }
 
   ngOnInit(): void {
     this.loadSelect()
   }
 
-  loadSelect(){
-    Swal.fire({
-      allowOutsideClick: false,
-      text: 'Espere un momento...',
-      icon: 'info',
-      confirmButtonText: 'Ok',
-    });
+  loadSelect() {
+    this.sweetAlertService.waitAlert();
 
-    Swal.showLoading();
-    
     this.serviceService.findAllServices()
       .subscribe(res => {
         this.services = res
+
+        this.sweetAlertService.closeAlert();
       }, (err) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error en el Registro',
-          text: err['error']['message']
-        })
+        this.sweetAlertService.errorAlert('Error con el servidor', err['error']['message']);
       });
   }
 
   selectService(evt: any) {
     const serviceTemp = evt.target.value;
-  
-    const serviceFind = this.services.find(s=>{
+
+    const serviceFind = this.services.find(s => {
       return s.name === serviceTemp
     })
 
-    if(serviceFind && !this.serviceForm.get('services').value.includes(serviceFind.id)) {
+    if (serviceFind && !this.serviceForm.get('services').value.includes(serviceFind.id)) {
       this.selectedServices.push(serviceTemp)
       this.serviceForm.get('services').value.push(serviceFind.id)
     }
@@ -56,6 +48,22 @@ export class LodgingServiceComponent implements OnInit {
     this.serviceForm.controls['services'].updateValueAndValidity();
     const ele = document.getElementById('services') as HTMLInputElement;
     ele.value = "";
+  }
+
+  deleteService(service: string) {
+    this.selectedServices = this.selectedServices.filter(s => {
+      return s !== service
+    })
+
+    const serviceFind = this.services.find(s => {
+      return s.name === service
+    })
+
+    this.serviceForm.get('services').value = this.serviceForm.get('services').value.filter((s: any) => {
+      return serviceFind!.id !== s
+    })
+
+    this.serviceForm.controls['services'].updateValueAndValidity();
   }
 
 }

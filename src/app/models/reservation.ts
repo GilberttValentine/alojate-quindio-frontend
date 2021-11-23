@@ -6,4 +6,5 @@ export interface Reservation{
     end_date: Date;
     night_value: number;
     actual_state: number;
+    persons_amount: number;
 }

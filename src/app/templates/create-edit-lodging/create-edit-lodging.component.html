@@ -15,7 +15,7 @@
         <div class="d-flex flex-column info-cont">
           <app-about-lodging-create-edit [aboutForm]="lodgingForm.get('about')"></app-about-lodging-create-edit>
           <hr class="mb-5">
-          <app-lodging-service [serviceForm]="lodgingForm.get('service')"></app-lodging-service>
+          <app-lodging-service [serviceForm]="lodgingForm.get('service')" [selectedServices]="selectedServices" [services]="services"></app-lodging-service>
           <hr class="mb-5">
           <app-accessibility-lodging-create-edit [accessibilityForm]="lodgingForm.get('accessibility')"></app-accessibility-lodging-create-edit>
         </div>

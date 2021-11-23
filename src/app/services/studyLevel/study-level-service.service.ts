@@ -10,7 +10,7 @@ export class StudyLevelServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCivilStatus(): Observable<StudyLevel[]> {
+  getAllStudyLevels(): Observable<StudyLevel[]> {
     return this.http.get<StudyLevel[]>(`${environment.baseUrl}/study-levels`)
   }
 }

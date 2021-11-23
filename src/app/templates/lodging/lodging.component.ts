@@ -74,7 +74,8 @@ export class LodgingComponent implements OnInit {
           image: lodging.url_pictures,
           name: lodging.name,
           total_reviews: lodging.comments.count,
-          total_rate: lodging.comments.qualification
+          total_rate: lodging.comments.qualification,
+          persons_amount: lodging.persons_amount
         }
       };
 
