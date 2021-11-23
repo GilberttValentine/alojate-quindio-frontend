@@ -41,7 +41,7 @@ export class CreateEditLodgingComponent implements OnInit {
    createForm() {
     this.lodgingForm = this.fb.group({
       lodging: this.fb.group({
-        night_value: ['', [Validators.required, this.nonZero]],
+        night_value: ['', [Validators.required, this.nonZero, this.minValue]],
         municipality_id: ['', Validators.required],
         type_id: ['', Validators.required],
         direction: ['', Validators.required],
@@ -154,6 +154,14 @@ export class CreateEditLodgingComponent implements OnInit {
   nonZero(control: AbstractControl): { [key: string]: any } | null {
     if (Number(control.value) <= 0) {
       return { nonZero: true };
+    } else {
+      return null;
+    }
+  }
+
+  minValue(control: AbstractControl): { [key: string]: any } | null {
+    if (Number(control.value) <= 10000) {
+      return { minValue: true };
     } else {
       return null;
     }

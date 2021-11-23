@@ -32,8 +32,8 @@ export class ReservationServiceService {
     return this.http.get<Reservation>(`${environment.baseUrl}/users/${userId}/reservations/${reservationId}`)
   }
 
-  listReservationsByUser(userId: number, body: object): Observable<object> {
-    return this.http.get<any>(`${environment.baseUrl}/users/${userId}/reservations`, body)
+  listReservationsByUser(userId: number, body: object, page?: any): Observable<object> {
+    return this.http.get<any>(`${environment.baseUrl}/users/${userId}/reservations?page=${page}`, body)
   }
 
   listReservationsByLodging(userId: number, lodgingId: number, body: object): Observable<object> {
