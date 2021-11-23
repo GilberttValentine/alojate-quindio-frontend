@@ -1,0 +1,16 @@
+<div class="admin-container-parent">
+
+    <div class="admin-container-first-son">
+        <app-side-bar (currentForm)="setCurrentForm($event)"></app-side-bar>
+    </div>
+
+    <div class="admin-container-second-son">
+        <div *ngIf="currentForm==='user'">
+            <app-user-panel></app-user-panel>
+        </div>
+        <div *ngIf="currentForm==='lodging'">
+            <app-lodging-panel></app-lodging-panel>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,135 @@
+<div class="container-fluid">
+    <div class="admin_grid_max_parent">
+        <div>
+            <form class="myModal">
+            </form>
+            <form id="admin_lodging_form_tag" (submit)="submit()" [formGroup]="lodgingForm">
+                <div class="form_parent_content">
+                    <div class="form_first_content">
+                        <div class="first-form-part-container">
+                            <div class="first-son">
+
+                                <div class="mb-3">
+                                    <label for="user_id" class="form-label">Id usuario:</label>
+                                    <input type="text" class="form-control form-control-lg shadow-none" name="user_id"
+                                        formControlName="user_id" required="required">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="municipality_id" class="form-label">Id municipio:</label>
+                                    <input type="text" class="form-control form-control-lg shadow-none"
+                                        name="municipality_id" formControlName="municipality_id" required="required">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="qualification" class="form-label">Calificacion:</label>
+                                    <input type="text" class="form-control form-control-lg shadow-none"
+                                        name="qualification" formControlName="qualification" required="required">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="type_id" class="form-label">Id tipo:</label>
+                                    <input type="text" class="form-control form-control-lg shadow-none"
+                                        name="type_id" formControlName="type_id" required="required">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre del hospedaje:</label>
+                                    <input type="text" class="form-control form-control-lg shadow-none" name="name"
+                                        formControlName="name" required="required">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="night_value" class="form-label">Precio noche:</label>
+                                    <input type="number" class="form-control form-control-lg shadow-none"
+                                        name="night_value" formControlName="night_value" required="required" min="1">
+                                </div>
+                                <div class="second-son">
+                                    <div class="mb-3" style="justify-content: center;">Cantidad:<div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="w-100">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg shadow-none"
+                                                        name="room_quantity" formControlName="room_quantity"
+                                                        required="required" placeholder="Cuartos" min="1">
+                                                </div>
+                                                <div class="w-100 ms-1">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg shadow-none"
+                                                        name="bathroom_quantity" formControlName="bathroom_quantity"
+                                                        required="required" placeholder="Baños" min="1">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="w-100">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg shadow-none"
+                                                        name="bed_quantity" formControlName="bed_quantity"
+                                                        required="required" placeholder="Camas" min="1">
+
+                                                </div>
+                                                <div class="w-100 ms-1">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg shadow-none"
+                                                        name="persons_amount" formControlName="persons_amount"
+                                                        required="required" placeholder="Personas" min="1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <div class="mb-3">
+                                <label for="direction" class="form-label">Direccion:</label>
+                                <input type="text" class="form-control form-control-lg shadow-none" name="direction"
+                                    formControlName="direction" required="required">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="accessibility" class="form-label">Accesibilidad:</label>
+                            <textarea type="text" class="form-control form-control-lg shadow-none" name="accesibility"
+                                formControlName="accesibility" required="required"></textarea>
+                        </div>
+                    </div>
+                    <div class="form_second_content">
+                        <div>
+                            <strong>Agregar servicio</strong>
+                        </div>
+                        <span> <i class="bi bi-plus-circle-fill add-service"></i></span>
+                        <div class="services_container">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-lodging-btn-container mb-5">
+                    <button id="admin-lodging-btn" type="submit"
+                        class="btn btn-primary d-block  w-100  shadow-none">Guardar</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <div id="parent-items" *ngFor="let lodging of lodgings; let i =index">
+                <div class="animate__animated animate__fadeInLeft card card-body my-2">
+                    <h4><strong>Id: {{lodging.id}}</strong></h4>
+                    <p><strong>Total comentarios: </strong>{{lodging.comments.count }}</p>
+                    <p><strong>Total camas: </strong>{{lodging.bed_quantity }}</p>
+                    <p><strong>Total personas: </strong>{{lodging.persons_amount }}</p>
+                    <h6><strong>Anfitrion: </strong>{{lodging.user.name }}</h6>
+                    <h5><strong>Municipio: </strong>{{lodging.municipality.name }}</h5>
+                    <h5><strong>Valor noche: </strong>${{lodging.night_value }}</h5>
+                    <p>
+                        <button class="btn btn-danger" (click)="deleteLodging(lodging.user.id,lodging.id)">
+                            DESHABILITAR
+                        </button>
+                        <button id="admin_lodging_id_btn" class="btn btn-dark" (click)="editLodging(lodging)">
+                            EDITAR
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

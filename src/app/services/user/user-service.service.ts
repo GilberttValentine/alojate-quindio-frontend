@@ -53,7 +53,7 @@ export class UserServiceService {
     return this.http.get<User>(`${environment.baseUrl}/users/${userId}`)
   }
 
-  findAllUsers(userId: number): Observable<object> {
-    return this.http.get<any>(`${environment.baseUrl}/users/${userId}/deactivate`)
+  findAllUsers(): Observable<object> {
+    return this.http.get<any>(`${environment.baseUrl}/users`)
   }
 }

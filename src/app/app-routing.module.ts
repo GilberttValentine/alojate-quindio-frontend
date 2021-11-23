@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'reservations', component: UserReservationsComponent, data: { title: "Reservaciones - Alójate Quindío" } },
   { path: 'reservations/:id_reservation', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío" } },
   { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión" } },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate" } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, data: { title: "Page not found", nav: "error" } }

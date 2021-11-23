@@ -40,4 +40,8 @@ export class LodgingServiceService {
   activateLodging(userId: number, lodgingId: number): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}/activate`, [], this.httpOptions)
   }
+
+  editLodging(userId: number, lodgingId: number,body:CreateLodgingResponse){
+    return this.http.put<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}`, body, this.httpOptions)
+  }
 }

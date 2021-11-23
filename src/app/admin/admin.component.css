@@ -1,0 +1,6 @@
+.admin-container-parent {
+  display: grid;
+  grid-template-columns: 15% 75%;
+  gap: 50px;
+  overflow-x: hidden ;
+}
