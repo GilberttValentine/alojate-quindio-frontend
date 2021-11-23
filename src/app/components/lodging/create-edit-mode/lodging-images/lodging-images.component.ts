@@ -7,8 +7,9 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class LodgingImagesComponent implements OnInit {
 
-  img: Array<string> = ["", "", "", "", ""];
+  @Input() img!: Array<string>;
   @Input('imagesForm') imagesForm!: any;
+  @Input() files!: Array<File>;
   constructor() { }
 
   ngOnInit(): void {
@@ -16,24 +17,28 @@ export class LodgingImagesComponent implements OnInit {
 
   onFileSelect(evt: any, pos: number) {
     var file = evt.target.files[0];
-    if(file) {
+    if (file) {
+      this.files[pos] = file;
       this.img[pos] = file.name;
       this.handleFiles(file, `img${pos}`);
-    }else {
+    } else {
       this.img[pos] = "";
       var img = document.getElementById(`img${pos}`) as HTMLImageElement;
       img.src = "";
     }
+    this.imagesForm.setValue({
+      url_pictures: ' '
+    })
   }
 
   handleFiles(file: any, element: string) {
     var img = document.getElementById(element) as HTMLImageElement;
 
     var reader = new FileReader();
-    reader.onload = (function (aImg) { 
-      return function (e: any) { 
+    reader.onload = (function (aImg) {
+      return function (e: any) {
         aImg.src = e.target.result;
-      }; 
+      };
     })(img);
     reader.readAsDataURL(file);
   }

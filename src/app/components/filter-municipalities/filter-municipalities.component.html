@@ -4,63 +4,13 @@
 <div class="municipalities" id="municipalities">
   <div class="row">
     <div class="d-flex justify-content-between">
-      <div class="municipality">
+      <div class="municipality" *ngFor="let municipality of municipalitiesOne" (click)="filterLodgings(municipality.id)">
         <div class="m-auto ms-0 d-flex align-items-center">
           <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
+            src="../../../assets/img/{{ municipality.url_picture }}.jpg">
           <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
+            <p class="m-auto municipality-name">{{ municipality.name }}</p>
+            <p class="m-auto municipal-lodgings">{{municipality.lodgings.total}} alojamientos</p>
           </div>
         </div>
       </div>
@@ -68,63 +18,13 @@
   </div>
   <div class="row mt-4">
     <div class="d-flex justify-content-between">
-      <div class="municipality">
+      <div class="municipality" *ngFor="let municipality of municipalitiesTwo" (click)="filterLodgings(municipality.id)">
         <div class="m-auto ms-0 d-flex align-items-center">
           <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
+            src="../../../assets/img/{{ municipality.url_picture }}.jpg">
           <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
-          </div>
-        </div>
-      </div>
-      <div class="municipality">
-        <div class="m-auto d-flex align-items-center">
-          <img class="img-municipality" draggable="false"
-            src="https://a0.muscache.com/im/pictures/be4d3ba5-08d7-4afe-95a7-f2da6453886a.jpg?im_q=medq&im_w=240">
-          <div class="municipality-content w-100">
-            <p class="m-auto municipality-name">Armenia</p>
-            <p class="m-auto municipal-lodgings">1000 alojamientos</p>
+            <p class="m-auto municipality-name">{{ municipality.name }}</p>
+            <p class="m-auto municipal-lodgings">{{municipality.lodgings.total}} alojamientos</p>
           </div>
         </div>
       </div>

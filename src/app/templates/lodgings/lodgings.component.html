@@ -1,56 +1,71 @@
 <div class="container">
   <div class="d-flex justify-content-between flex-wrap">
     <div class="d-flex flex-column title-card">
-      <h2 class="fw-bold font-26">Estadía en Armenia</h2>
-      <div class="font-14">
-        <small>Descubre mas de 1000 alojamientos en Armenia</small>
+      <h2 class="fw-bold font-26">Estadía <span *ngIf="municipality">en {{ municipality.name }}</span><span
+          *ngIf="!municipality"> en el Quindío</span></h2>
+      <div>
+        <small>
+          <span *ngIf="total <= 1">Existe {{ total }} alojamiento</span>
+          <span *ngIf="total > 1">Descubre más de {{ total }} alojamientos</span>
+          <span *ngIf="municipality"> en {{ municipality.name }}</span>
+          <span *ngIf="!municipality"> en el Quindío</span>
+        </small>
       </div>
-      <div class="font-14">
-        <small class="fw-bold">Tipos de alojamientos: </small><small>Todos</small> -
-        <small class="fw-bold">Huéspedes: </small><small>5</small> -
-        <small class="fw-bold">Habitaciones: </small><small>5</small> -
-        <small class="fw-bold">Camas: </small><small>5</small> -
-        <small class="fw-bold">Baños: </small><small>5</small> -
-        <small><a class="text-reset" href="">Otros parámetros</a></small>
+      <div>
+        <small class="fw-bold">
+          Tipo de alojamiento:
+        </small>
+        <small *ngIf="type">{{ type.name }}</small>
+        <small *ngIf="!type">Todos</small>
+        <span *ngIf="persons || rooms || beds || bathrooms">
+          <span *ngIf="persons"> -
+            <small class="fw-bold">Huéspedes: </small><small>{{persons}}</small>
+          </span>
+          <span *ngIf="rooms"> -
+            <small class="fw-bold">Habitaciones: </small><small>{{rooms}}</small>
+          </span>
+          <span *ngIf="beds"> -
+            <small class="fw-bold">Camas: </small><small>{{beds}}</small>
+          </span>
+          <span *ngIf="bathrooms"> -
+            <small class="fw-bold">Baños: </small><small>{{bathrooms}}</small>
+          </span>
+        </span>
       </div>
     </div>
     <div class="d-flex flex-wrap">
-      <div class="dropdown me-3 mb-3">
-        <button class="btn dropdown-toggle font-13 px-5 py-2" type="button" id="dropdownMenuButton1"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          Tipo de alojamiento
+      <div>
+        <button class="btn btn-filters font-13 px-5 " type="button" data-bs-toggle="modal"
+          data-bs-target="#filtersModal">
+          Filtros
         </button>
-        <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-      <div class="dropdown me-3 mb-3">
-        <button class="btn dropdown-toggle font-13 px-5 py-2" type="button" id="dropdownMenuButton1"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          Precio
-        </button>
-        <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-      <div class="dropdown">
-        <button class="btn dropdown-toggle font-13 px-5 py-2" type="button" id="dropdownMenuButton1"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          Más filtros
-        </button>
-        <ul class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
       </div>
     </div>
-
   </div>
-  
-<app-lodging-card *ngFor="let i of [1,2,3,4,5,6,7,8,9, 10]"></app-lodging-card>
-</div>
+  <app-lodging-card *ngFor="let lodging of lodgings" [lodging]="lodging"></app-lodging-card>
+  <div class="pagination">
+    <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
+      <div class="actual-page d-flex flex-wrap">
+        <span class="me-1">Página</span>
+        <div class="dropdown">
+          <span id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <u *ngIf="actualPage <= 9">0{{ actualPage }}</u>
+            <u *ngIf="actualPage > 9">{{ actualPage }}</u>
+          </span>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+            <li *ngFor="let page of pagesAvailable"><a class="dropdown-item"
+                [ngClass]="actualPage === page ? 'active':''" >{{ page }}</a></li>
+          </ul><!--(click)="changePage(page)"-->
+        </div>
+        <span class="ms-1">de {{ totalPages }}</span>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" id="back" (click)="back()">Atrás</button>
+        <!--(click)="back()"-->
+        <button class="btn btn-without-bg border px-5 py-2 shadow-none" id="next" (click)="next()">Siguiente</button>
+        <!-- (click)="next()"-->
+      </div>
+    </div>
+  </div>
+
+  <app-lodging-filters></app-lodging-filters>

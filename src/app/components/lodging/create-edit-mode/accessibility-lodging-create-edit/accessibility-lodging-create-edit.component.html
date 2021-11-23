@@ -1,8 +1,8 @@
 <div class="font-20 fw-bold mb-3">Accesibilidad</div>
 <form [formGroup]="accessibilityForm" class="mb-5">
   <div class="mb-3">
-    <textarea class="form-control font-13" name="accessibility" formControlName="accessibility" rows="3"
+    <textarea class="form-control font-13" name="accesibility" formControlName="accesibility" rows="3"
       placeholder="¿Qué encontrara tu cliente cuando llegue al alojamiento?"></textarea> 
-    <div class="error text-danger" *ngIf="accessibilityForm.get('accessibility').hasError('required') && accessibilityForm.get('accessibility').touched">Por favor ingrese la accesibilidad</div>
+    <div class="error text-danger" *ngIf="accessibilityForm.get('accesibility').hasError('required') && accessibilityForm.get('accesibility').touched">Por favor ingrese la accesibilidad</div>
   </div>
 </form>

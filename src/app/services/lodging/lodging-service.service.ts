@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
+import { Lodging } from 'src/app/models/lodging';
+import { CreateLodgingResponse } from 'src/app/models/response/createLodging';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +17,12 @@ export class LodgingServiceService {
   };
   constructor(private http: HttpClient) { }
 
-  createLodging(userId: number, body: LodgingResponse): Observable<object> {
+  createLodging(userId: number, body: CreateLodgingResponse): Observable<object> {
     return this.http.post<any>(`${environment.baseUrl}/users/${userId}/lodgings`, body, this.httpOptions)
   }
 
-  getAllLodgings(): Observable<LodgingResponse[]> {
-    return this.http.get<LodgingResponse[]>(`${environment.baseUrl}/lodgings`)
+  getAllLodgings(filters?: any, page?: any): Observable<LodgingResponse[]> {
+    return this.http.post<LodgingResponse[]>(`${environment.baseUrl}/lodgings?page=${page}`, ({ filters: filters }), this.httpOptions)
   }
 
   getLodging(lodgingId: number): Observable<LodgingResponse> {

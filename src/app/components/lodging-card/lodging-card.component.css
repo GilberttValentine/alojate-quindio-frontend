@@ -4,6 +4,11 @@
   border-radius: 1.25rem;
 }
 
+.icon {
+  color: #58CDBF;
+  font-size: 12px;
+}
+
 .carousel {
   width: 390px;
 }
@@ -69,4 +74,10 @@
 
 .img-card {
   margin-right: 30px;
+}
+
+.carousel-indicators [data-bs-target] {
+  border-radius: 50%;
+  width: 9px;
+  height: 8px;
 }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { LodgingFilters } from 'src/app/models/filters/lodgingFilters';
+import { TypeLodging } from 'src/app/models/typeLodging';
 
 @Component({
   selector: 'app-filter-types-lodgings',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterTypesLodgingsComponent implements OnInit {
 
-  constructor() { }
+  @Input() lodgingTypes = [] as TypeLodging[];
 
-  ngOnInit(): void {
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {}
+
+  filterLodgings(id: number): void {
+    this.router.navigate([`/lodgings`], { queryParams: { typ: id } });
   }
 
 }

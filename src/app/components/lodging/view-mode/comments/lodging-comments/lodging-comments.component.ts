@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { CommentServiceService } from 'src/app/services/comment/comment-service.service';
-import { CommentResponse } from 'src/app/models/response/commentResponse';
 
 @Component({
   selector: 'app-lodging-comments',
@@ -8,10 +7,10 @@ import { CommentResponse } from 'src/app/models/response/commentResponse';
   styleUrls: ['./lodging-comments.component.css']
 })
 export class LodgingCommentsComponent implements OnInit, OnChanges {
-
   @Input() nav!: string;
-  @Input() commentsInfo = {} as CommentResponse;
+  @Input() commentsInfo = {} as any;
 
+  lodgingName = "";
   lodgingRate = 0;
   totalComments = 0;
   limitNumber = 0;
@@ -30,9 +29,11 @@ export class LodgingCommentsComponent implements OnInit, OnChanges {
     if (this.commentsInfo) {
       const lodgingId = this.commentsInfo.lodging_id;
 
-      const { qualification, count } = this.commentsInfo;
+      const { qualification, count, name } = this.commentsInfo;
 
-      this.lodgingRate = qualification;
+      this.lodgingName = name;
+
+      this.lodgingRate = Math.floor(qualification * 10) / 10;
       this.totalComments = count;
 
       this.limitNumber = count >= 1000 ? 1 : 0;
@@ -43,6 +44,10 @@ export class LodgingCommentsComponent implements OnInit, OnChanges {
 
   async getCommentsByLodgingId(id: number) {
     let { results, total }: any = (await this.commentService.listCommentByLodging(id, this.actualPage - 1).toPromise());
+
+    if (total <= 10) {
+      this.deactivateNextButton();
+    }
 
     this.commentsLodging = results;
 
@@ -88,7 +93,7 @@ export class LodgingCommentsComponent implements OnInit, OnChanges {
     if (page > 1) this.activateBackButton();
     if (page === Number(this.totalPages)) this.deactivateNextButton();
     if (page < Number(this.totalPages)) this.activateNextButton();
-    
+
     this.ngOnChanges();
   }
 
