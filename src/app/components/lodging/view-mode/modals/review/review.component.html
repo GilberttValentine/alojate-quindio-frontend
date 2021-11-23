@@ -5,8 +5,8 @@
         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h5 class="modal-title" >¿Cómo fue tu estadia en {{ lodgingName }}?</h5>
-        <form [formGroup]="reviewForm" #formDir="ngForm">
+        <h5 class="modal-title">¿Cómo fue tu estadia en {{ lodgingName }}?</h5>
+        <form [formGroup]="reviewForm" #formDir="ngForm" (submit)="submit()">
           <div class="d-flex flex-wrap justify-content-between mb-3">
             <div class="flex-fill pe-5">
               <div class="d-flex justify-content-between align-items-center">
@@ -14,7 +14,7 @@
                 <span id="quality-value">1.0</span>
               </div>
               <input type="range" class="form-range" id="quality" min="1.0" max="5" step="0.1" value="1.0"
-                (input)="setValue($event)">
+                (input)="setValue($event)" name="quality" formControlName="quality">
             </div>
             <div class="flex-fill">
               <div class="d-flex justify-content-between align-items-center">
@@ -22,7 +22,7 @@
                 <span id="veracity-value">1.0</span>
               </div>
               <input type="range" class="form-range" id="veracity" min="1" max="5" step="0.1" value="1.0"
-                (input)="setValue($event)">
+                (input)="setValue($event)" name="veracity" formControlName="veracity">
             </div>
           </div>
           <div class="d-flex flex-wrap justify-content-between mb-3">
@@ -32,7 +32,7 @@
                 <span id="cleaning-value">1.0</span>
               </div>
               <input type="range" class="form-range" id="cleaning" min="1" max="5" step="0.1" value="1.0"
-                (input)="setValue($event)">
+                (input)="setValue($event)" name="cleaning" formControlName="cleaning">
             </div>
             <div class="flex-fill">
               <div class="d-flex justify-content-between align-items-center">
@@ -40,11 +40,11 @@
                 <span id="ubication-value">1.0</span>
               </div>
               <input type="range" class="form-range" id="ubication" min="1" max="5" step="0.1" value="1.0"
-                (input)="setValue($event)">
+                (input)="setValue($event)" name="ubication" formControlName="ubication">
             </div>
           </div>
           <label for="comment" class="mb-1">Describe tu experiencia durante la estadia</label>
-          <textarea (input)="getValue($event)" class="form-control shadow-none" formControlName="description"
+          <textarea class="form-control shadow-none" formControlName="description"
             name="description"></textarea>
           <div class="error text-danger"
             *ngIf="formDir.submitted && reviewForm.get('description')?.hasError('required')">Por favor ingrese el

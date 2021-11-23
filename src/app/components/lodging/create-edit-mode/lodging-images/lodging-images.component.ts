@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-lodging-images',
@@ -13,6 +14,17 @@ export class LodgingImagesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getImages(img: Array<string>) {
+    img.map((image, index) => {
+      this.loadImages(`${environment.CLOUDINARY_LODGING_URL}/${image}`, `img${index}`);
+    })
+  }
+
+  loadImages(url: string, elementName: string) {
+    const element = document.getElementById(elementName) as HTMLImageElement
+    element.src = url;
   }
 
   onFileSelect(evt: any, pos: number) {

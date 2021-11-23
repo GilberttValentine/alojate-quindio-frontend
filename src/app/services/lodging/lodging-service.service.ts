@@ -21,6 +21,10 @@ export class LodgingServiceService {
     return this.http.post<any>(`${environment.baseUrl}/users/${userId}/lodgings`, body, this.httpOptions)
   }
 
+  updateLodging(userId: number, lodgingId: number, body: CreateLodgingResponse): Observable<object> {
+    return this.http.put<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}`, body, this.httpOptions)
+  }
+
   getAllLodgings(filters?: any, page?: any): Observable<LodgingResponse[]> {
     return this.http.post<LodgingResponse[]>(`${environment.baseUrl}/lodgings?page=${page}`, ({ filters: filters }), this.httpOptions)
   }

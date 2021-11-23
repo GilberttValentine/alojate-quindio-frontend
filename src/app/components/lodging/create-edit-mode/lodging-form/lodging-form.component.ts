@@ -4,6 +4,7 @@ import { TypeLodging } from 'src/app/models/typeLodging';
 import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.service';
 import { MunicipalityServiceService } from 'src/app/services/municipality/municipality-service.service';
 import { TypeLodgingServiceService } from 'src/app/services/typeLodging/type-lodging-service.service';
+import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,42 +18,28 @@ export class LodgingFormComponent implements OnInit {
 
   municipality!: Array<Municipality>;
   lodgingType!: Array<TypeLodging>;
-  constructor(private municipalityService: MunicipalityServiceService, private typeLodgingService: TypeLodgingServiceService) { }
+  constructor(private municipalityService: MunicipalityServiceService, private typeLodgingService: TypeLodgingServiceService, private sweetAlertService: SweetAlertService) { }
 
   ngOnInit(): void {
     this.loadSelects()
   }
 
   loadSelects(){
-    Swal.fire({
-      allowOutsideClick: false,
-      text: 'Espere un momento...',
-      icon: 'info',
-      confirmButtonText: 'Ok',
-    });
-
-    Swal.showLoading();
+    this.sweetAlertService.waitAlert();
     this.municipalityService.getAllMunicipalities()
       .subscribe(res => {
         this.typeLodgingService.getAllTypeLodging()
           .subscribe(resp => {
             this.lodgingType = resp
+            
+            this.sweetAlertService.closeAlert()
           }, (err) => {
-            Swal.fire({
-              icon: 'error',
-              title: 'Error con el servidor',
-              text: err['error']['message']
-            })
+            this.sweetAlertService.errorAlert("Error con el servidor", err['error']['message']);
           });
 
-        Swal.close();
         this.municipality = res
       }, (err) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error con el servidor',
-          text: err['error']['message']
-        })
+        this.sweetAlertService.errorAlert("Error con el servidor", err['error']['message']);
       });
   }
 

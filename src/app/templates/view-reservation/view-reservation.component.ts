@@ -9,10 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewReservationComponent implements OnInit {
 
   host = false;
-  activatedRoute:ActivatedRoute;
-  constructor(activatedRoute: ActivatedRoute) { 
-    this.activatedRoute = activatedRoute
-  }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {

@@ -1,7 +1,7 @@
 <div class="d-flex flex-column">
   <div class="font-20 fw-bold">Información de huésped</div>
   <div>
-    <form [formGroup]="guestForm">
+    <form [formGroup]="guestForm" (submit)="submit()">
       <div class="mb-3 mt-2">
         <label for="stratum" class="form-label font-14 fw-bold">Estrato</label>
         <input type="text" class="form-control h-53" name="stratum" formControlName="stratum">
@@ -15,11 +15,9 @@
         <select class="form-select h-53" aria-label="Default select example" name="civilStatusId"
           formControlName="civilStatusId">
           <option value="" disabled>Estado Civil</option>
-          <option value="1">Soltero/a</option>
-          <option value="2">Casado/a</option>
-          <option value="3">Ninguno</option>
+          <option *ngFor="let item of civilStatus" [value]="item.id">{{item.name}}</option>
         </select>
-        <div class="error text-danger mb-2" 
+        <div class="error text-danger mb-2"
           *ngIf="guestForm.get('civilStatusId').hasError('required') && guestForm.get('civilStatusId').touched">Por
           favor seleccione su estado civil</div>
       </div>
@@ -29,16 +27,13 @@
         <select class="form-select h-53" aria-label="Default select example" name="studyLevelId"
           formControlName="studyLevelId">
           <option value="" disabled>Nivel de estudio</option>
-          <option value="1">Bachiller</option>
-          <option value="2">Pregrado</option>
-          <option value="3">Posgrado</option>
-          <option value="4">Ninguno</option>
+          <option *ngFor="let item of studyLevels" [value]="item.id">{{item.name}}</option>
         </select>
         <div class="error text-danger mb-2"
           *ngIf="guestForm.get('studyLevelId').hasError('required') && guestForm.get('studyLevelId').touched">Por favor
           seleccione su nivel de estudio</div>
       </div>
+      <button type="submit" class="btn btn-guardar" [disabled]="guestForm.invalid">Guardar cambios</button>
     </form>
   </div>
-  <button type="submit" class="btn btn-guardar" [disabled]="guestForm.invalid">Guardar cambios</button>
 </div>

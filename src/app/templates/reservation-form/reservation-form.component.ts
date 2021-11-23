@@ -19,12 +19,15 @@ export class ReservationFormComponent implements OnInit {
     const lodgingId = Number(this.route.snapshot.paramMap.get('id'));
 
     if (!reservation) {
-      //this.router.navigate([`/lodgings/${lodgingId}`]);
+      this.router.navigate([`/lodgings/${lodgingId}`]);
     }
     
+    console.log(reservation)
+
     this.lodgingId = lodgingId;
     this.reservation = reservation;
   }
+
 
   ngOnInit(): void {
   }

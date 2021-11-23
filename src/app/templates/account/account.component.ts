@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Language } from 'src/app/models/language';
 import { User } from 'src/app/models/user';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
+import { userRoles } from 'src/app/utils/constants/userRoleConstants';
+import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
@@ -14,53 +17,40 @@ import Swal from 'sweetalert2';
 export class AccountComponent implements OnInit {
   userForm!: FormGroup;
   user!: User;
+  languages: Array<Language> = [];
+  selectedLanguages: Array<string> = [];
   CLOUDINARY_PROFILE_URL = environment.CLOUDINARY_PROFILE_URL
 
-  constructor(private fb: FormBuilder, private userService: UserServiceService) { }
+  constructor(private fb: FormBuilder, private userService: UserServiceService, private sweetAlertService: SweetAlertService) { }
 
   ngOnInit(): void {
     this.createForm();
     this.getUser();
   }
 
-  getUser(){
-    Swal.fire({
-      allowOutsideClick: false,
-      text: 'Espere un momento...',
-      icon: 'info',
-      confirmButtonText: 'Ok',
-    });
-
-    Swal.showLoading();
-    const user_id = Number(localStorage.getItem('user'))
+  getUser() {
+    this.sweetAlertService.waitAlert();
+    const user_id = Number(localStorage.getItem('user'));
     this.userService.findUserById(user_id)
       .subscribe(res => {
-        Swal.close();
-
+        this.sweetAlertService.closeAlert()
         this.user = res;
-
-        this.cargarForm()
+        this.loadForm()
       }, (err) => {
-        console.log(err)
-        Swal.fire({
-          icon: 'error',
-          title: 'Error en el Registro',
-          text: err['error']['message']
-        })
+        this.sweetAlertService.errorAlert('Error obteniendo el usuario', err['error']['message'])
       });
   }
 
   createForm() {
     this.userForm = this.fb.group({
       user: this.fb.group({
-        firstName: ['', Validators.required],
-        secondName: [''],
-        firstLastname: ['', Validators.required],
-        secondLastname: [''],
+        first_name: ['', Validators.required],
+        second_name: [''],
+        first_lastname: ['', Validators.required],
+        second_lastname: [''],
         direction: ['', Validators.required],
-        password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
-        urlPicture: [''],
+        url_picture: [''],
+        email: ['']
       }),
       guest: this.fb.group({
         stratum: ['', [Validators.required, this.nonZero]],
@@ -68,45 +58,64 @@ export class AccountComponent implements OnInit {
         studyLevelId: ['', Validators.required]
       }),
       host: this.fb.group({
-        languages: ['', Validators.required]
+        languages: [[], [this.minLanguages]]
       })
     })
   }
 
-  cargarForm() {
-    const role = localStorage.getItem('role');
+  loadForm() {
+    const role = Number(localStorage.getItem('role'));
 
     const profileImg = document.getElementById('profileImg') as HTMLImageElement
     profileImg.src = `${environment.CLOUDINARY_PROFILE_URL}/${this.user.url_picture}`;
 
+    this.loadUser();
+
+    if (role === userRoles.HOST_ROLE_ID || role === userRoles.HOSTGUEST_ROLE_ID) {
+      this.loadHost();
+    }
+
+    if (role === userRoles.GUEST_ROLE_ID || role === userRoles.HOSTGUEST_ROLE_ID) {
+      this.loadGuest();
+    }
+  }
+
+  loadUser() {
     this.userForm.get('user')!.setValue({
-      firstName: this.user.first_name,
-      secondName: this.user.second_name,
-      firstLastname: this.user.first_lastname,
-      secondLastname: this.user.second_lastname,
+      first_name: this.user.first_name,
+      second_name: this.user.second_name,
+      first_lastname: this.user.first_lastname,
+      second_lastname: this.user.second_lastname,
+      url_picture: this.user.url_picture,
       direction: this.user.direction,
-      password: '',
-      confirmPassword: '',
-      urlPicture: this.user.url_picture
+      email: this.user.email
+    })
+  }
+
+  loadHost() {
+    this.languages = this.user.languages;
+
+    var languages:Array<number> = this.languages.map(l => {
+      return l['id']
     })
 
-    if(role !== '5' && role !== '3') {
-      var languages = this.user.languages?.map( l =>{
-        return Object(l)['id']
-      })
-      
-      this.userForm.get('host')!.setValue({
-        languages: languages
-      })
-    }
+    this.selectedLanguages = this.languages.map(l => {
+      return Object(l)['name']
+    })
 
-    if(role !== '5' && role !== '2') {
-      this.userForm.get('guest')!.setValue({
-        stratum: this.user.stratum,
-        civilStatusId: this.user.civil_status_id,
-        studyLevelId: this.user.study_level_id
-      })
-    }
+    console.log(this.selectedLanguages)
+
+    this.userForm.get('host')!.setValue({
+      languages: languages
+    })
+  }
+  
+  loadGuest() {
+    this.userForm.get('guest')!.setValue({
+      stratum: this.user.stratum,
+      civilStatusId: this.user.civil_status_id,
+      studyLevelId: this.user.study_level_id
+    })
   }
 
   nonZero(control: AbstractControl): { [key: string]: any } | null {
@@ -117,4 +126,11 @@ export class AccountComponent implements OnInit {
     }
   }
 
+  minLanguages(control: AbstractControl): { [key: string]: any } | null {
+    if (control.value.length < 1) {
+      return { "minLanguages": true }
+    } else {
+      return null;
+    }
+  }
 }

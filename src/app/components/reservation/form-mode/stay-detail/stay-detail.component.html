@@ -2,9 +2,9 @@
   <div class="your-stay">
     <h6 class="title-text">Tu estadía</h6>
     <p class="title-sm-text">Fechas</p>
-    <p class="title-md-text">28 de ene de 2022 - 4 de feb de 2022 </p>
+    <p class="title-md-text">{{reservation.start_date | date}} - {{reservation.end_date | date}} </p>
     <p class="title-sm-text">Huéspedes</p>
-    <p class="title-md-text">1 huésped </p>
+    <p class="title-md-text">{{reservation.persons_amount}} huésped/es </p>
   </div>
   <hr>
   <div class="payment-method">
@@ -16,7 +16,7 @@
           <p class="title-md-text">Paga el total ahora y listo</p>
         </div>
         <div class="payment-total flex-fill text-end">
-          <p class="title-md-text">$4,991,071</p>
+          <p class="title-md-text">{{reservation.total_value * 1.19 |currency}}1</p>
         </div>
       </div>
     </div>

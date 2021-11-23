@@ -3,6 +3,8 @@ import { AbstractControl, FormBuilder, FormGroup, NgForm, Validators } from '@an
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import * as moment from 'moment';
 import { switchMap } from 'rxjs/operators';
+import { ReservationServiceService } from 'src/app/services/reservation/reservation-service.service';
+import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service';
 
 @Component({
   selector: 'app-floating-perform-reservation',
@@ -20,6 +22,7 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
   nightValue = 0;
   totalReviews = 0;
   totalRate = 0;
+  persons_amount = 0;
 
   limitNumber: number = 0;
 
@@ -28,13 +31,14 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
   totalNights = 1;
 
   reservationForm!: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private reservationService: ReservationServiceService, private sweetAlertService: SweetAlertService) { }
 
   ngOnInit(): void {
     this.createForm();
   }
 
   ngOnChanges(): void {
+
     if (this.lodgingNightRate) {
       const { night_value, total_reviews, total_rate, email, lodging, peopleAmount } = this.lodgingNightRate;
 
@@ -42,7 +46,7 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
       this.nightValue = night_value;
       this.limitNumber = total_reviews >= 1000 ? 1 : 0;
       this.totalReviews = total_reviews;
-
+      this.persons_amount = lodging.persons_amount;
       this.totalRate = Math.floor(total_rate * 10) / 10;
 
       const totalValueByNights = night_value * this.totalNights;
@@ -52,6 +56,8 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
       this.total = total;
 
       this.emailOwner = email;
+
+      lodging.total_rate = Math.floor(lodging.total_rate*10)/10
 
       this.lodgingMiniumInformation = lodging;
     }
@@ -73,37 +79,57 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.reservationForm.valid) {
-      this.bookLodging();
+      await this.bookLodging();
     }
   }
 
 
-  bookLodging() {
-    const startDate = moment(this.reservationForm.get('startDate')?.value)
-    const endDate = moment(this.reservationForm.get('endDate')?.value)
-    const dif = endDate.diff(startDate, 'days');
+  async bookLodging() {
+    const lodgingId = Number(this.route.snapshot.paramMap.get('id'));
 
-    const reservation = {
-      startDate: this.reservationForm.get('startDate')?.value,
-      endDate: this.reservationForm.get('endDate')?.value,
-      peopleAmount: this.reservationForm.get('peopleAmount')?.value,
-      total_value: dif,
-      nightValue: this.nightValue,
-      email: this.emailOwner,
-      lodging: this.lodgingMiniumInformation
-    }
+    let startDate = this.reservationForm.get('startDate')?.value
+    let endDate = this.reservationForm.get('endDate')?.value
 
-    const navigationExtras: NavigationExtras = {
-      state: {
-        reservation
+    this.sweetAlertService.waitAlert();
+
+    try {
+      await this.reservationService.validateLodgingDisponibility(lodgingId, { start_date: startDate, end_date: endDate }).toPromise()
+
+      this.sweetAlertService.closeAlert()
+
+      startDate = moment(startDate)
+      endDate = moment(endDate)
+      const dif = endDate.diff(startDate, 'days');
+
+      const persons_amount_input = this.reservationForm.get('peopleAmount')?.value
+
+      if (persons_amount_input > this.persons_amount) {
+        this.sweetAlertService.errorAlert('Ups, parece que no se pudo realizar la reserva', 'La cantidad ingresada de huespedes excede la capacidad maxima del alojamiento')
+      } else {
+        const reservation = {
+          start_date: this.reservationForm.get('startDate')?.value,
+          end_date: this.reservationForm.get('endDate')?.value,
+          persons_amount: this.reservationForm.get('peopleAmount')?.value,
+          total_value: dif*this.nightValue,
+          night_value: this.nightValue,
+          night_count: dif,
+          email: this.emailOwner,
+          lodging: this.lodgingMiniumInformation
+        }
+
+        const navigationExtras: NavigationExtras = {
+          state: {
+            reservation
+          }
+        }
+
+        this.router.navigate([`/lodgings/${lodgingId}/reservation`], navigationExtras);
       }
+    } catch (error: any) {
+      this.sweetAlertService.errorAlert('Ups, parece que no se pudo realizar la reserva', error['error']['message'])
     }
-
-    const lodgingId = this.route.snapshot.paramMap.get('id');
-
-    this.router.navigate([`/lodgings/${lodgingId}/reservation`], navigationExtras);
   }
 
   scrollTo() {

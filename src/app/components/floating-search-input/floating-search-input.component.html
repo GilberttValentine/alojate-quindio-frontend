@@ -1,22 +1,23 @@
+<form [formGroup]="filtersForm">
 <div class="search-lodgings border">
   <div class="d-flex flex-wrap justify-content-between align-items-center pt-2 pb-2">
     <div class="ms-5">
       <label for="Municipio" class="form-label">Municipio</label>
-      <input list="showMunicipiosList" class="form-control shadow-none" id="municipio" placeholder="¿A dónde vas?">
+      <input list="showMunicipiosList" class="form-control shadow-none" id="municipio" placeholder="¿A dónde vas?" formControlName="municipality">
       <datalist id="showMunicipiosList">
         <option *ngFor="let municipality of municipalities" data-value="{{ municipality.id }}" value="{{ municipality.name }}"></option>
       </datalist>
     </div>
     <div class="ms-5" style="width: 15.75rem;">
       <label for="Type lodging" class="form-label">Tipo de alojamiento</label>
-      <input list="showTypeLodgingList" class="form-control shadow-none" id="type-lodging" placeholder="¿Qué tipo de alojamiento quieres?">
+      <input list="showTypeLodgingList" class="form-control shadow-none" id="type-lodging" placeholder="¿Qué tipo de alojamiento quieres?" formControlName="typeId">
       <datalist id="showTypeLodgingList">
         <option *ngFor="let type of lodgingTypes" data-value="{{ type.id }}" value="{{ type.name }}" ></option>
       </datalist>
     </div>
     <div class="ms-5">
       <label for="municipio" class="form-label">Huéspedes</label>
-      <input type="number" class="form-control shadow-none" id="huespedes" placeholder="¿Cuántos?" min="1">
+      <input type="number" class="form-control shadow-none" id="huespedes" placeholder="¿Cuántos?" min="1" formControlName="peopleAmount">
     </div>
     <div class="ms-5 me-4">
       <button class="btn search-btn rounded-circle d-flex align-items-center justify-content-center" (click)="filterLodgings()">
@@ -33,3 +34,4 @@
     </div>
   </div>
 </div>
+</form>

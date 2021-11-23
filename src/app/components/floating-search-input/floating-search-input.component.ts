@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MunicipalityResponse } from 'src/app/models/response/municipalityResponse';
 import { TypeLodging } from 'src/app/models/typeLodging';
@@ -13,48 +14,54 @@ export class FloatingSearchInputComponent implements OnInit, OnChanges {
 
   municipalities = [] as MunicipalityResponse[];
   lodgingTypes = [] as TypeLodging[];
+  filtersForm!: FormGroup;
 
-  municipality = 0;
-  typeId = 0;
-  peopleAmount = 0;
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.createForm();
   }
 
   ngOnChanges(): void {
     const { municipalities, lodgingTypes } = this.filtersInputs;
-
+    
     this.municipalities = municipalities;
-    this.lodgingTypes = lodgingTypes.map((it: TypeLodging) => ({ id: it.id, name: it.name.charAt(0).toUpperCase() + it.name.slice(1) }));
+    this.lodgingTypes = lodgingTypes;
+  }
+
+  createForm() {
+    this.filtersForm = this.fb.group({
+      municipality: '',
+      typeId: '',
+      peopleAmount: ''
+    })
   }
 
   filterLodgings() {
-    const municipality = this.municipality;
-    const typeId = this.typeId;
-    const peopleAmount = this.peopleAmount;
-    
+    const municipality = this.municipalities.find(item => { return this.filtersForm.get('municipality')?.value == item.name })?.id;
+    const typeId = this.lodgingTypes.find(item => { return this.filtersForm.get('typeId')?.value == item.name })?.id;
+    const peopleAmount = this.filtersForm.get('peopleAmount')?.value;
+
     let filters = {}
 
-    if(municipality > 0) {
+    if(municipality) {
       filters = {
         ...filters,
-        municipality
+        mun: municipality
       };
     }
 
-    if(typeId > 0) {
+    if(typeId) {
       filters = {
         ...filters,
-        typeId
+        typ: typeId
       };
     }
 
-    if(typeId > 0) {
+    if(peopleAmount > 0) {
       filters = {
         ...filters,
-        peopleAmount
+        peo: peopleAmount
       };
     }
 

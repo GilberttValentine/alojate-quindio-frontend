@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
+import { HostLanguageResponse } from 'src/app/models/response/hostLanguage';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class UserServiceService {
     return this.http.post<any>(`${environment.baseUrl}/users`, body, this.httpOptions)
   }
 
-  createHost(userId: number, body: User): Observable<object> {
+  createHost(userId: number, body: HostLanguageResponse): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
   }
 
@@ -32,7 +33,7 @@ export class UserServiceService {
     return this.http.put<any>(`${environment.baseUrl}/users/${userId}`, body, this.httpOptions)
   }
 
-  updateHost(userId: number, body: { languagesId: number[] }): Observable<object> {
+  updateHost(userId: number, body: HostLanguageResponse): Observable<object> {
     return this.http.put<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
   }
 

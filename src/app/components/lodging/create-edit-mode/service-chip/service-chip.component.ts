@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-service-chip',
@@ -8,9 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ServiceChipComponent implements OnInit {
 
   @Input() service!:string;
+  @Output() deleteService: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  callParent() {
+    this.deleteService.emit(this.service)
   }
 
 }

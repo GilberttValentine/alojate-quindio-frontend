@@ -12,11 +12,11 @@
     <div class="flex-fill">
       <app-stay-detail [reservation]="reservation"></app-stay-detail>
       <hr>
-      <app-frm-reservation></app-frm-reservation>
+      <app-frm-reservation [reservation]="reservation"></app-frm-reservation>
     </div>
     <div class="ms-md-5 ps-md-3">
       <div class="lodging-details">
-      <app-floating-lodging></app-floating-lodging>
+      <app-floating-lodging [reservation] = "reservation"></app-floating-lodging>
       </div>
     </div>
   </div>
