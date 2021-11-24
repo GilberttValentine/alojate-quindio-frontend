@@ -1,7 +1,3 @@
-#admin_lodging_form_tag {
-  padding: 40px;
-}
-
 .form_parent_content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -16,10 +12,26 @@
 }
 .admin_grid_max_parent {
   display: grid;
-  margin: 30px;
   grid-template-columns: 60% 40%;
   gap: 2rem;
 }
+.info-cont {
+  width: 55%;
+}
+
+.btn {
+  height: 41px;
+}
+
+@media (max-width: 991px) {
+  .title-div {
+    width: 100% !important;
+  }
+  .button-div {
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 990px) {
   .info-cont {
     width: 100% !important;
@@ -35,22 +47,5 @@
     margin: 30px;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 2rem;
-  }
-}
-
-.info-cont {
-  width: 55%;
-}
-
-.btn {
-  height: 41px;
-}
-
-@media (max-width: 991px) {
-  .title-div {
-    width: 100% !important;
-  }
-  .button-div {
-    margin-top: 20px;
   }
 }

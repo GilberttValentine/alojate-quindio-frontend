@@ -3,10 +3,11 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CloudinaryServiceService } from 'src/app/services/cloudinary/cloudinary-service.service';
 import { LodgingPanelUtil } from 'src/app/admin/components/lodging-panel/utils/lodgingPanelUtils'
-import { LodgingResponse } from './models/lodgingResponse';
+import { LodgingResponse } from '../../models/lodgingResponse';
 import Swal from 'sweetalert2';
 import { CreateLodgingResponse } from 'src/app/models/response/createLodging';
 import { ServiceResponse } from 'src/app/models/response/service';
+import { LodgingFormUtil } from './utils/lodgingFormUtils';
 
 @Component({
   selector: 'app-lodging-panel',
@@ -18,14 +19,14 @@ export class LodgingPanelComponent implements OnInit {
   lodgingForm!: FormGroup;
   editStatus!: boolean;
 
-  constructor(private lodgingPanelUtils: LodgingPanelUtil, private cloudinaryService: CloudinaryServiceService, private router: Router) { }
+  constructor(private lodgingPanelUtils: LodgingPanelUtil, private lodgingFormUtil: LodgingFormUtil, private cloudinaryService: CloudinaryServiceService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.createForm();
     this.editStatus = false;
     this.lodgings = Object.values((await this.lodgingPanelUtils.getAllLodgings()))[0]
     this.lodgings = this.lodgings.filter(it => it.actual_state)
-    this.lodgingPanelUtils.addNewService((document.querySelector('.add-service') as HTMLButtonElement))
+    this.lodgingFormUtil.addNewService((document.querySelector('.add-service') as HTMLButtonElement))
   }
 
   async ngOnChanges() {
@@ -36,7 +37,7 @@ export class LodgingPanelComponent implements OnInit {
   }
 
   createForm() {
-    this.lodgingForm = this.lodgingPanelUtils.setInitialFormGroup()
+    this.lodgingForm = this.lodgingFormUtil.setInitialFormGroup()
   }
 
   async submit() {
@@ -60,6 +61,7 @@ export class LodgingPanelComponent implements OnInit {
       }
       lodging.services.push(currentService)
     })
+
     try {
       if (!this.editStatus) {
         Swal.fire({ allowOutsideClick: false, text: 'Espere un momento...', icon: 'info', confirmButtonText: 'Ok' });
@@ -71,7 +73,7 @@ export class LodgingPanelComponent implements OnInit {
         this.ngOnChanges();
         this.lodgings = Object.values((await this.lodgingPanelUtils.getAllLodgings()))[0]
         this.lodgings = this.lodgings.filter(it => it.actual_state)
-        this.lodgingPanelUtils.resetForm((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
+        this.lodgingFormUtil.resetForm((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
 
       } else {
 
@@ -86,31 +88,31 @@ export class LodgingPanelComponent implements OnInit {
         this.ngOnChanges();
         this.lodgings = Object.values((await this.lodgingPanelUtils.getAllLodgings()))[0]
         this.lodgings = this.lodgings.filter(it => it.actual_state)
-        this.lodgingPanelUtils.resetForm((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
+        this.lodgingFormUtil.resetForm((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
 
       }
     } catch (err: any) {
       Swal.fire({ icon: 'error', title: 'Error en la ejecucion', text: err['error']['message'] || 'Tienes campos vacios' })
     }
-    this.lodgingPanelUtils.resetServices();
+    this.lodgingFormUtil.resetServices();
   }
 
 
   async deleteLodging(userId: number, lodgingId: number) {
     await this.lodgingPanelUtils.deactivateLodging(userId, lodgingId);
     await this.ngOnChanges();
-    this.lodgingPanelUtils.resetForm((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
+    this.lodgingFormUtil.resetForm((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
   }
 
   editLodging(lodging: LodgingResponse) {
     document.querySelectorAll('#admin_lodging_id_btn').forEach((it) => (it as HTMLButtonElement).disabled = true)
 
     this.editStatus = true;
-    this.lodgingPanelUtils.addServicesToLodgingForm((document.querySelector('.add-service') as HTMLButtonElement), lodging.services)
-    this.lodgingPanelUtils.disableLodgingFormItems(this.lodgingForm)
-    this.lodgingForm = this.lodgingPanelUtils.setEditableFormGroup(lodging)
+    this.lodgingFormUtil.addServicesToLodgingForm((document.querySelector('.add-service') as HTMLButtonElement), lodging.services)
+    this.lodgingFormUtil.disableLodgingFormItems(this.lodgingForm)
+    this.lodgingForm = this.lodgingFormUtil.setEditableFormGroup(lodging)
 
-    const clearBtn = this.lodgingPanelUtils.setEditStatusForButtons((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
+    const clearBtn = this.lodgingFormUtil.setEditStatusForButtons((document.querySelector('#admin-lodging-btn') as HTMLButtonElement), this.lodgingForm)
     clearBtn.addEventListener('click', (e) => {
       e.preventDefault();
       this.resetForm(clearBtn);
@@ -123,10 +125,10 @@ export class LodgingPanelComponent implements OnInit {
   resetForm(button: HTMLButtonElement): void {
     const containerParent = (button.parentNode as HTMLDivElement);
     try {
-      this.lodgingPanelUtils.enableLodgingFormItemsAndReset(this.lodgingForm)
-      this.lodgingForm = this.lodgingPanelUtils.setInitialFormGroup();
+      this.lodgingFormUtil.enableLodgingFormItemsAndReset(this.lodgingForm)
+      this.lodgingForm = this.lodgingFormUtil.setInitialFormGroup();
       containerParent.children[1].remove()
-      this.lodgingPanelUtils.resetServices();
+      this.lodgingFormUtil.resetServices();
     } catch (error) {
     }
   }

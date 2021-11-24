@@ -1,8 +1,8 @@
-import { Municipality } from "../../../../models/municipality";
-import { ServiceResponse } from "../../../../models/response/service";
-import { TypeLodging } from "../../../../models/typeLodging";
-import { CommentResponse } from "../../../../models/response/commentResponse";
-import { UserResponse } from "../../../../models/response/userResponse";
+import { Municipality } from "../../models/municipality";
+import { ServiceResponse } from "../../models/response/service";
+import { TypeLodging } from "../../models/typeLodging";
+import { CommentResponse } from "../../models/response/commentResponse";
+import { UserResponse } from "../../models/response/userResponse";
 
 export interface LodgingResponse {
     id: number;

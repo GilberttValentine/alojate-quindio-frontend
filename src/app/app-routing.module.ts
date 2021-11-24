@@ -15,6 +15,7 @@ import { SignInComponent } from './templates/sign-in/sign-in.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
 import { UserReservationsComponent } from './templates/user-reservations/user-reservations.component';
 import { ViewReservationComponent } from './templates/view-reservation/view-reservation.component';
+import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: "Home" } },
@@ -35,11 +36,13 @@ const routes: Routes = [
   { path: 'host/reservations/:id_reservation', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío", nav: "panel-host", host:true} },
 
   { path: 'account', component: AccountComponent, data: { title: "Cuenta - Alójate Quindío" } },
-  
+
   { path: 'reservations', component: UserReservationsComponent, data: { title: "Reservaciones - Alójate Quindío" } },
   { path: 'reservations/:id_reservation', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío" } },
+  { path: 'hosts/reservations/:id_reservation', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío", host: true } },
+  { path: 'hosts/lodgings/create', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío" } },
   { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión" } },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin', canActivate: [AdminAuthGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate" } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, data: { title: "Page not found", nav: "error" } }

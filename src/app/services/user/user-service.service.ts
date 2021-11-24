@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { HostLanguageResponse } from 'src/app/models/response/hostLanguage';
+import { HostResponse } from 'src/app/admin/models/hostResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,9 @@ export class UserServiceService {
   createHost(userId: number, body: HostLanguageResponse): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
   }
+  createHostWannabe(userId: number, body: HostResponse): Observable<object> {
+    return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
+  }
 
   createGuest(userId: number, body: User): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/guests`, body, this.httpOptions)
@@ -34,6 +38,9 @@ export class UserServiceService {
   }
 
   updateHost(userId: number, body: HostLanguageResponse): Observable<object> {
+    return this.http.put<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
+  }
+  updateHostWannabe(userId: number, body: HostResponse): Observable<object> {
     return this.http.put<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
   }
 

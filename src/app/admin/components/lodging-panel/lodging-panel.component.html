@@ -4,8 +4,9 @@
             <form class="myModal">
             </form>
             <form id="admin_lodging_form_tag" (submit)="submit()" [formGroup]="lodgingForm">
+                <h3 class="title"><strong>Hospedajes</strong></h3>
                 <div class="form_parent_content">
-                    <div class="form_first_content">
+                    <div class="form_first_content">                      
                         <div class="first-form-part-container">
                             <div class="first-son">
 
@@ -112,7 +113,7 @@
         </div>
         <div>
             <div id="parent-items" *ngFor="let lodging of lodgings; let i =index">
-                <div class="animate__animated animate__fadeInLeft card card-body my-2">
+                <div class="animate__animated animate__fadeInLeft card card-body">
                     <h4><strong>Id: {{lodging.id}}</strong></h4>
                     <p><strong>Total comentarios: </strong>{{lodging.comments.count }}</p>
                     <p><strong>Total camas: </strong>{{lodging.bed_quantity }}</p>

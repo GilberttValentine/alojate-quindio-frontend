@@ -1,6 +1,7 @@
 .nav-main ul.nav-menu {
   z-index: 2;
   list-style: none;
+  height: 100vh;
 }
 .nav-main ul li {
   margin-top: 20px;
