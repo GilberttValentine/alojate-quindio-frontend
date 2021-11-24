@@ -26,6 +26,7 @@ export class UserPanelComponent implements OnInit {
   userEditStatus: boolean = false
   hostEditStatus: boolean = false
   guestEditStatus: boolean = false
+  saveCounter = 0
 
   constructor(private fb: FormBuilder, private userPanelUtil: UserPanelUtil, private formPanelUtil: FormPanelUtil, private guestFormPanelUtil: GuestFormPanelUtil, private hostFormPanelUtil: HostFormPanelUtil, private router: Router) { }
 
@@ -34,9 +35,6 @@ export class UserPanelComponent implements OnInit {
     this.hosts = await this.userPanelUtil.getHosts(this.hosts)
     this.guests = await this.userPanelUtil.getGuests(this.guests)
     this.createForm();
-    if (this.userType === 'host') {
-      this.hostFormPanelUtil.addNewLanguage((document.querySelector('.add-language') as HTMLButtonElement))
-    }
   }
 
   async ngOnChanges() {
@@ -44,6 +42,10 @@ export class UserPanelComponent implements OnInit {
     this.hosts = await this.userPanelUtil.getHosts(this.hosts)
     this.guests = await this.userPanelUtil.getGuests(this.guests)
     this.createForm();
+    if (this.userType === 'host' && this.saveCounter <= 0) {
+      this.hostFormPanelUtil.addNewLanguage((document.querySelector('.add-language') as HTMLButtonElement))
+      this.saveCounter++
+    }
   }
 
   createForm() {
@@ -165,9 +167,7 @@ export class UserPanelComponent implements OnInit {
 
     } catch (err: any) {
       Swal.fire({ icon: 'error', title: 'Error en la creacion', text: err['error']['message'] || 'Hay campos vacios' })
-      if (this.userType === 'host') {
-        this.hostFormPanelUtil.addNewLanguage((document.querySelector('.add-language') as HTMLButtonElement))
-      }
+      this.saveCounter = 1
     }
     this.hostFormPanelUtil.resetLanguages();
     this.ngOnChanges();
