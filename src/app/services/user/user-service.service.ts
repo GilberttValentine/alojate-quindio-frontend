@@ -25,9 +25,6 @@ export class UserServiceService {
   createHost(userId: number, body: HostLanguageResponse): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
   }
-  createHostWannabe(userId: number, body: HostResponse): Observable<object> {
-    return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
-  }
 
   createGuest(userId: number, body: User): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/guests`, body, this.httpOptions)
@@ -38,9 +35,6 @@ export class UserServiceService {
   }
 
   updateHost(userId: number, body: HostLanguageResponse): Observable<object> {
-    return this.http.put<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
-  }
-  updateHostWannabe(userId: number, body: HostResponse): Observable<object> {
     return this.http.put<any>(`${environment.baseUrl}/users/${userId}/hosts`, body, this.httpOptions)
   }
 

@@ -24,7 +24,7 @@ export class SecurityServiceService {
   }
 
   adminAuth(): boolean {
-    if (localStorage.getItem('role') === '5') return true
+    if (localStorage.getItem('role') === '1') return true
     else return false
   }
 

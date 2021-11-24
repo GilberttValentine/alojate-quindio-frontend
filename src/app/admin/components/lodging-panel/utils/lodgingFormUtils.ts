@@ -1,4 +1,3 @@
-import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.service';
 import { Injectable } from '@angular/core';
 import { LodgingResponse } from '../../../models/lodgingResponse';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,7 +7,7 @@ import { ServiceResponse } from 'src/app/models/response/service';
 })
 
 export class LodgingFormUtil {
-    constructor(private lodgingService: LodgingServiceService, private fb: FormBuilder,) { }
+    constructor( private fb: FormBuilder,) { }
 
     setEditStatusForButtons(button: HTMLButtonElement, form: FormGroup): HTMLButtonElement {
         const containerParent = (button.parentNode as HTMLDivElement);
