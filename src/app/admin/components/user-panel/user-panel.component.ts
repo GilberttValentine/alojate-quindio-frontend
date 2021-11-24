@@ -33,9 +33,7 @@ export class UserPanelComponent implements OnInit {
     this.users = await this.userPanelUtil.getUsers(this.users)
     this.hosts = await this.userPanelUtil.getHosts(this.hosts)
     this.guests = await this.userPanelUtil.getGuests(this.guests)
-
     this.createForm();
-
     if (this.userType === 'host') {
       this.hostFormPanelUtil.addNewLanguage((document.querySelector('.add-language') as HTMLButtonElement))
     }
@@ -46,9 +44,6 @@ export class UserPanelComponent implements OnInit {
     this.hosts = await this.userPanelUtil.getHosts(this.hosts)
     this.guests = await this.userPanelUtil.getGuests(this.guests)
     this.createForm();
-    if (this.userType === 'host') {
-      this.hostFormPanelUtil.addNewLanguage((document.querySelector('.add-language') as HTMLButtonElement))
-    }
   }
 
   createForm() {
@@ -170,6 +165,9 @@ export class UserPanelComponent implements OnInit {
 
     } catch (err: any) {
       Swal.fire({ icon: 'error', title: 'Error en la creacion', text: err['error']['message'] || 'Hay campos vacios' })
+      if (this.userType === 'host') {
+        this.hostFormPanelUtil.addNewLanguage((document.querySelector('.add-language') as HTMLButtonElement))
+      }
     }
     this.hostFormPanelUtil.resetLanguages();
     this.ngOnChanges();
