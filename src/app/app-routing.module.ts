@@ -15,6 +15,7 @@ import { SignInComponent } from './templates/sign-in/sign-in.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
 import { UserReservationsComponent } from './templates/user-reservations/user-reservations.component';
 import { ViewReservationComponent } from './templates/view-reservation/view-reservation.component';
+import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: "Home" } },
@@ -28,7 +29,6 @@ const routes: Routes = [
   { path: 'host/home', component: HostHomeComponent, data: { title: "Home - Anfitrión - Alójate Quindío", nav: "panel-host" } },
   { path: 'host/lodgings/create', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío" } },
   { path: 'host/lodgings/:id/edit', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío", edit:true} },
-  { path: 'hosts/lodgings/create', component: CreateEditLodgingComponent, data: { title: "Crea tu alojamiento - Alójate Quindío", nav: "panel-host" } },
   { path: 'host/lodgings/:id', component: HostLodgingComponent, data: { title: "Alojamiento - Anfitrión - Alójate Quindío", nav: "panel-host" } },
   { path: 'host/lodgings', component: HostLodgingsComponent, data: { title: "Alojamientos - Alójate Quindío", nav: "panel-host" } },
   { path: 'host/lodgings/:lodging_id/reservations', component: LodgingReservationsComponent, data: { title: "Reservaciones - Alójate Quindío", nav: "panel-host" } },
@@ -38,7 +38,9 @@ const routes: Routes = [
   
   { path: 'reservations', component: UserReservationsComponent, data: { title: "Reservaciones - Alójate Quindío" } },
   { path: 'reservations/:id', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío" } },
+  
   { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión" } },
+  { path: 'admin', canActivate: [AdminAuthGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate" } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, data: { title: "Page not found", nav: "error" } }
