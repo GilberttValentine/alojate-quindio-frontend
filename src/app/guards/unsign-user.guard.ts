@@ -6,17 +6,18 @@ import { SecurityServiceService } from '../services/security/security-service.se
 @Injectable({
   providedIn: 'root'
 })
-export class GuestAuthGuard implements CanActivate {
-  constructor(private securityService: SecurityServiceService, private router:Router) { }
+export class UnsignUserGuard implements CanActivate {
+
+  constructor(private securityService: SecurityServiceService, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    if (this.securityService.guestAuth() || this.securityService.mixAuth() || this.securityService.adminAuth()) {
-      return true;
+    if (this.securityService.hostAuth() || this.securityService.mixAuth() || this.securityService.guestAuth() || this.securityService.adminAuth() || this.securityService.userAuth()) {
+      this.router.navigate(['/home'])
+      return false;
     }
-    this.router.navigate(['/home'])
-    return false;
+    return true;
   }
 
 }

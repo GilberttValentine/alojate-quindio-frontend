@@ -14,7 +14,7 @@ export class GuestFormPanelUtil {
             id: ['', Validators.required],
             stratum: ['', Validators.required],
             studyLevelId: ['', Validators.required],
-            civilStatus: ['', Validators.required],
+            civilStatusId: ['', Validators.required],
         })
     }
 
@@ -23,7 +23,7 @@ export class GuestFormPanelUtil {
             id: [user.id, Validators.required],
             stratum: [user.stratum, Validators.required],
             studyLevelId: [user.study_level_id, Validators.required],
-            civilStatus: [user.civil_status_id, Validators.required],
+            civilStatusId: [user.civil_status_id, Validators.required],
         })
     }
 

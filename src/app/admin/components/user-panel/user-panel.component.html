@@ -19,12 +19,12 @@
                                 name="first_name" required>
                             <div class="error text-danger" id="first-name-error"
                                 *ngIf="formDir.submitted && (userForm.get('first_name')?.hasError('required'))">Por
-                                favor ingrese su primer nombe</div>
+                                favor ingrese su primer nombre</div>
                         </div>
                         <div class="form-group mt-4">
                             <label for="second_name">Segundo nombre</label>
                             <input class="form-control form-control-lg shadow-none" formControlName="second_name"
-                                name="second_name" required>
+                                name="second_name">
                         </div>
                         <div class="form-group mt-4">
                             <label for="first_lastname">Primer apellido</label>
@@ -36,8 +36,8 @@
                         </div>
                         <div class="form-group mt-4">
                             <label for="second_lastname">Segundo apellido</label>
-                            <input class="form-control shadow-none" formControlName="second_lastname"
-                                name="second_lastname" required>
+                            <input class="form-control form-control-lg shadow-none" formControlName="second_lastname"
+                                name="second_lastname">
                         </div>
                         <div class="form-group mt-4">
                             <label for="email">Correo electrónico</label>
@@ -130,7 +130,7 @@
 
                         <div class="form-group">
                             <label for="civil_status">Estado civil</label>
-                            <select class="form-control mb-3" formControlName="civilStatus">
+                            <select class="form-control mb-3" formControlName="civilStatusId">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
