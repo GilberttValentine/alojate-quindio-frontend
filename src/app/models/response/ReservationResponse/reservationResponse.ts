@@ -1,4 +1,4 @@
-import { ReservationGuestResponse } from "./guestRespone";
+import { ReservationGuestResponse } from "./guestResponse";
 import { ReservationHostResponse } from "./hostResponse";
 import { ReservationLodgingResponse } from "./lodgingResponse";
 

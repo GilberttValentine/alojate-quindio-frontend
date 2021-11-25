@@ -11,7 +11,7 @@
   </div>
 </div>
 <button class="btn btn-without-bg border px-5 py-2 mt-3 mb-4 shadow-none" data-bs-toggle="modal"
-  data-bs-target="#commentModal" *ngIf="nav !== 'panel-host'">Realizar reseña</button>
+  data-bs-target="#commentModal" *ngIf="context !== 'panel-host'">Realizar reseña</button>
 
 <ul class="comments-list">
   <app-lodging-comment *ngFor="let comment of commentsLodging" [comment]="comment"></app-lodging-comment>
@@ -34,8 +34,8 @@
       <span class="ms-1">de {{ totalPages }}</span>
     </div>
     <div class="action-buttons">
-      <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" id="back" (click)="back()">Atrás</button>
-      <button class="btn btn-without-bg border px-5 py-2 shadow-none" id="next" (click)="next()">Siguiente</button>
+      <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" [disabled]="disabledBack" (click)="back()">Atrás</button>
+      <button class="btn btn-without-bg border px-5 py-2 shadow-none" [disabled]="disabledNext" (click)="next()">Siguiente</button>
     </div>
   </div>
 </div>

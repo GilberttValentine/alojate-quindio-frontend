@@ -1,6 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+
 * {
   font-family: 'Poppins', sans-serif;
   -webkit-touch-callout: none;
@@ -58,15 +59,15 @@ body {
   background: rgba(180, 180, 180, 0.1);
 }
 
-.font-10{
+.font-10 {
   font-size: 10px;
 }
 
-.font-11{
+.font-11 {
   font-size: 11px;
 }
 
-.font-12{
+.font-12 {
   font-size: 12px;
 }
 
@@ -74,27 +75,27 @@ body {
   font-size: 13px;
 }
 
-.font-14{
+.font-14 {
   font-size: 14px;
 }
 
-.font-16{
+.font-16 {
   font-size: 16px;
 }
 
-.font-18{
+.font-18 {
   font-size: 18px;
 }
 
-.font-20{
+.font-20 {
   font-size: 20px;
 }
 
-.font-24{
+.font-24 {
   font-size: 24px;
 }
 
-.font-26{
+.font-26 {
   font-size: 26px;
 }
 

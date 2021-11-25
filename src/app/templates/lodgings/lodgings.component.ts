@@ -11,7 +11,7 @@ import { TypeLodgingServiceService } from 'src/app/services/typeLodging/type-lod
   templateUrl: './lodgings.component.html',
   styleUrls: ['./lodgings.component.css']
 })
-export class LodgingsComponent implements OnInit, OnChanges {
+export class LodgingsComponent implements OnInit {
 
   lodgings = [] as any;
 
@@ -31,16 +31,17 @@ export class LodgingsComponent implements OnInit, OnChanges {
   totalPages = "";
   pagesAvailable: number[] = []
 
+  disabledNext = false;
+  disabledBack = false;
+
+  actualRoute = '/lodgings';
+
   constructor(private router: Router, private route: ActivatedRoute, private lodgingService: LodgingServiceService, private municipalityService: MunicipalityServiceService, private lodgingTypeService: TypeLodgingServiceService) { }
 
   async ngOnInit(): Promise<void> {
     const { lodgingTypeId, municipalityId, people, page, room, bed, bathroom } = this.getQueryParams();
 
     Promise.resolve(this.buildQueryParams(lodgingTypeId, municipalityId, people, page, room, bed, bathroom));
-  }
-
-  async ngOnChanges(): Promise<void> {
-    
   }
 
   getQueryParams() {
@@ -130,23 +131,22 @@ export class LodgingsComponent implements OnInit, OnChanges {
       }
     });
 
-    this.total = total;
+    if (this.lodgings.length != 0) {
+      this.total = total;
 
-    if (total <= 10) {
-      this.deactivateNextButton();
+      if (total <= 3) this.deactivateNextButton();
+
+      total = Number(Math.ceil(total / 10));
+
+      this.pagesAvailable = Array(total).fill(1).map((x, i) => i + 1)
+      this.totalPages = total <= 9 ? `0${total}` : total;
+
+      if (this.actualPage >= Number(this.totalPages)) this.deactivateNextButton()
+
+      if (this.actualPage === 1) this.deactivateBackButton();
+
+      console.log(this.filters);
     }
-
-    total = Number(((total / 10) - 0.5).toFixed(0));
-    total++;
-
-    this.pagesAvailable = Array(total).fill(1).map((x, i) => i + 1)
-    this.totalPages = total <= 9 ? `0${total}` : total;
-
-    if (this.actualPage === 1) {
-      this.deactivateBackButton();
-    }
-
-    console.log(this.filters);
   }
 
   async getAllLodgings() {
@@ -162,23 +162,20 @@ export class LodgingsComponent implements OnInit, OnChanges {
   }
 
   deactivateBackButton() {
-    const back = (document.getElementById('back') as HTMLButtonElement);
-    back!.disabled = true;
+    this.disabledBack = true;
   }
 
   activateBackButton() {
-    const back = (document.getElementById('back') as HTMLButtonElement);
-    back!.disabled = false;
+    this.disabledBack = false;
   }
 
   deactivateNextButton() {
-    const next = (document.getElementById('next') as HTMLButtonElement);
-    next!.disabled = true;
+    this.disabledNext = true;
   }
 
   activateNextButton() {
-    const next = (document.getElementById('next') as HTMLButtonElement);
-    next!.disabled = false;
+    this.disabledNext = false;
+
   }
 
   back() {
@@ -188,7 +185,9 @@ export class LodgingsComponent implements OnInit, OnChanges {
     if (this.actualPage <= 1) this.deactivateBackButton();
     if (this.actualPage < Number(this.totalPages)) this.activateNextButton()
 
-    this.router.navigate(['/lodgings'], { queryParams: { ...this.filters, page: this.actualPage } });
+    this.router.navigate(['/lodgings'], { queryParams: { ...this.filters, page: this.actualPage } }).then(() => {
+      window.location.reload();
+    });;
   }
 
   next() {
@@ -198,6 +197,8 @@ export class LodgingsComponent implements OnInit, OnChanges {
     if (this.actualPage > 1) this.activateBackButton()
     if (this.actualPage >= Number(this.totalPages)) this.deactivateNextButton()
 
-    this.router.navigate(['/lodgings'], { queryParams: { ...this.filters, page: this.actualPage } });
+    this.router.navigate(['/lodgings'], { queryParams: { ...this.filters, page: this.actualPage } }).then(() => {
+      window.location.reload();
+    });
   }
 }

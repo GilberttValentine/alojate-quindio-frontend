@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="lodgings.length != 0;else lodgingsNotFound">
   <div class="d-flex justify-content-between flex-wrap">
     <div class="d-flex flex-column title-card">
       <h2 class="fw-bold font-26">Estadía <span *ngIf="municipality">en {{ municipality.name }}</span><span
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <app-lodging-card *ngFor="let lodging of lodgings" [lodging]="lodging"></app-lodging-card>
+  <app-lodging-card *ngFor="let lodging of lodgings" [lodging]="lodging" [actualRoute]="actualRoute"></app-lodging-card>
   <div class="pagination">
     <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
       <div class="actual-page d-flex flex-wrap">
@@ -54,18 +54,23 @@
           </span>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
             <li *ngFor="let page of pagesAvailable"><a class="dropdown-item"
-                [ngClass]="actualPage === page ? 'active':''" >{{ page }}</a></li>
-          </ul><!--(click)="changePage(page)"-->
+                [ngClass]="actualPage === page ? 'active':''">{{ page }}</a></li>
+          </ul>
+          <!--(click)="changePage(page)"-->
         </div>
         <span class="ms-1">de {{ totalPages }}</span>
       </div>
       <div class="action-buttons">
-        <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" id="back" (click)="back()">Atrás</button>
-        <!--(click)="back()"-->
-        <button class="btn btn-without-bg border px-5 py-2 shadow-none" id="next" (click)="next()">Siguiente</button>
-        <!-- (click)="next()"-->
+        <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" [disabled]="disabledBack" (click)="back()">Atrás</button>
+        <button class="btn btn-without-bg border px-5 py-2 shadow-none" [disabled]="disabledNext" (click)="next()">Siguiente</button>
       </div>
     </div>
   </div>
+</div>
 
-  <app-lodging-filters></app-lodging-filters>
+<ng-template #lodgingsNotFound>
+  <div class="container">
+    No se encontraron hospedajes
+  </div>
+</ng-template>
+<app-lodging-filters></app-lodging-filters>

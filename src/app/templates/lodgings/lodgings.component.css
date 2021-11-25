@@ -4,6 +4,7 @@
 
 .container {
   min-height: 79.6vh;
+  margin-bottom: 45px;
 }
 
 .bold {
@@ -38,7 +39,6 @@
 
 .pagination {
   font-size: 13px;
-  margin-bottom: 30px;
 }
 
 .btn-without-bg {

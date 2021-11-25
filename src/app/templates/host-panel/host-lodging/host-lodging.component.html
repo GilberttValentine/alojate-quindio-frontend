@@ -1,25 +1,25 @@
 <div class="ps-md-6 col-md-12">
   <main class="container">
-    <app-lodging-name-info [nav]="nav"></app-lodging-name-info>
-    <app-imgs-lodging></app-imgs-lodging>
+    <app-lodging-name-info [context]="context" [lodging]="componentInfo.appLodgingNameInfo"></app-lodging-name-info>
+    <app-imgs-lodging [imagesLodging]="componentInfo.appImgsLodging"></app-imgs-lodging>
     <div class="d-flex flex-wrap justify-content-between">
       <div class="lodging-information col-md-7">
-        <app-owner-lodging-info [nav]="nav"></app-owner-lodging-info>
+        <app-owner-lodging-info [context]="context" [ownerLodgingInfo]="componentInfo.appOwnerLodgingInfo"></app-owner-lodging-info>
         <hr>
-        <app-about-lodging></app-about-lodging>
+        <app-about-lodging [aboutLodging]="componentInfo.appAboutLodging"></app-about-lodging>
         <hr>
-        <app-services-lodging></app-services-lodging>
+        <app-services-lodging [services]="componentInfo.appServicesLodging"></app-services-lodging>
         <hr>
-        <app-lodging-accessibility></app-lodging-accessibility>
+        <app-lodging-accessibility [accesibility]="componentInfo.appLodgingAccessibility"></app-lodging-accessibility>
       </div>
       <div class="floating-lodging-information">
-        <app-floating-lodging-info></app-floating-lodging-info>
+        <app-floating-lodging-info [lodging]="componentInfo.appFloatingLodgingInfo"></app-floating-lodging-info>
       </div>
     </div>
     <hr>
-    <app-lodging-comments [nav]="nav"></app-lodging-comments>
+    <app-lodging-comments [context]="context" [commentsInfo]="componentInfo.appLodgingComments"></app-lodging-comments>
     <hr>
-    <app-lodging-owner [nav]="nav"></app-lodging-owner>
+    <app-lodging-owner [context]="context" [ownerInfo]="componentInfo.appLodgingOwner"></app-lodging-owner>
   </main>
   <app-footer></app-footer>
 </div>

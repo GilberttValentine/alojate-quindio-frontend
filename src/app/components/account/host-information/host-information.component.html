@@ -1,4 +1,4 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column" id="host-info">
   <div class="font-20 fw-bold">Información de Anfitrión</div>
   <div class="mb-3">
     <form [formGroup]="hostForm" (submit)="submit()">
@@ -12,7 +12,7 @@
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
           </span>
-          <input list="showTypeLodgingList" class="form-control shadow-none h-53 search-input" id="languages"
+          <input list="showTypeLodgingList" class="form-control shadow-none search-input" id="languages"
             placeholder="Escribe el nombre del idioma que hablas" id="languages" (change)="selectLanguage($event)">
         </div>
         <datalist id="showTypeLodgingList">

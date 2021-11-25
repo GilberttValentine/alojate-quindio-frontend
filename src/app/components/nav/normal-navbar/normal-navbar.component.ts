@@ -12,4 +12,10 @@ export class NormalNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  goLodgings() {
+    this.router.navigate(['/lodgings']).then(() => {
+      window.location.reload();
+    });
+  }
 }

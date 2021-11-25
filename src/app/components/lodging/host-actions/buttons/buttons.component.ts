@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buttons.component.css']
 })
 export class ButtonsComponent implements OnInit {
+  @Input() state = false;
 
   constructor() { }
 

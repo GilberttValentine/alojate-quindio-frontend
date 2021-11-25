@@ -1,12 +1,12 @@
 <div class="card floating-form">
   <div class="card-body">
     <div class="title">Noche</div>
-    <p>$624,286 COP</p>
+    <p>{{ lodging?.night_value | currency }}</p>
     <div class="title">Municipio</div>
-    <p>La Tebaida, Quindío</p>
+    <p>{{ lodging?.municipality }}, Quindío</p>
     <div class="title">Tipo de alojamiento</div>
-    <p>Cabaña entera</p>
+    <p>{{ lodging?.type }}</p>
     <div class="title">Dirección</div>
-    <p>Calle 90 #27 63 12</p>
+    <p>{{ lodging?.direction }}</p>
   </div>
 </div>

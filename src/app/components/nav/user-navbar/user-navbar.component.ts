@@ -4,11 +4,11 @@ import { SecurityServiceService } from 'src/app/services/security/security-servi
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-panel-host-navbar',
-  templateUrl: './panel-host-navbar.component.html',
-  styleUrls: ['./panel-host-navbar.component.css']
+  selector: 'app-user-navbar',
+  templateUrl: './user-navbar.component.html',
+  styleUrls: ['./user-navbar.component.css']
 })
-export class PanelHostNavbarComponent implements OnInit, OnChanges {
+export class UserNavbarComponent implements OnInit, OnChanges {
   @Input() user = {} as any;
   role = "";
   url_profile_server = environment.CLOUDINARY_PROFILE_URL;
@@ -20,8 +20,19 @@ export class PanelHostNavbarComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     const { role } = this.user;
+    if (role === 5) {
+      this.role = "Usuario";
+    } else if(role === 3) {
+      this.role = "Huésped";
+    } else {
+      this.role = "Anfitrión";
+    }
+  }
 
-    this.role = "Anfitrión";
+  goLodgings() {
+    this.router.navigate(['/lodgings']).then(() => {
+      window.location.reload();
+    });
   }
 
   logout() {

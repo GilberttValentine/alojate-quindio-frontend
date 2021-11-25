@@ -7,7 +7,7 @@ import { CommentServiceService } from 'src/app/services/comment/comment-service.
   styleUrls: ['./lodging-comments.component.css']
 })
 export class LodgingCommentsComponent implements OnInit, OnChanges {
-  @Input() nav!: string;
+  @Input() context = "";
   @Input() commentsInfo = {} as any;
 
   lodgingName = "";
@@ -20,6 +20,9 @@ export class LodgingCommentsComponent implements OnInit, OnChanges {
   totalPages = "";
   pagesAvailable: number[] = []
   commentsLodging: any[] = []
+
+  disabledBack = false;
+  disabledNext = false;
 
   constructor(private commentService: CommentServiceService) { }
 
@@ -63,27 +66,19 @@ export class LodgingCommentsComponent implements OnInit, OnChanges {
   }
 
   deactivateBackButton() {
-    const back = (document.getElementById('back') as HTMLButtonElement);
-
-    back!.disabled = true;
+    this.disabledBack = true;
   }
 
   activateBackButton() {
-    const back = (document.getElementById('back') as HTMLButtonElement);
-
-    back!.disabled = false;
+    this.disabledBack = false;
   }
 
   deactivateNextButton() {
-    const next = (document.getElementById('next') as HTMLButtonElement);
-
-    next!.disabled = true;
+    this.disabledNext = true;
   }
 
   activateNextButton() {
-    const next = (document.getElementById('next') as HTMLButtonElement);
-
-    next!.disabled = false;
+    this.disabledNext = false;
   }
 
   changePage(page: number) {

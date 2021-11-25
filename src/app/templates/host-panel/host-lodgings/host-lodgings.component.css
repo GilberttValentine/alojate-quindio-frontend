@@ -2,6 +2,11 @@
   margin-left: 10%;
 }
 
+.container {
+  min-height: 79.6vh;
+  margin-bottom: 45px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -43,4 +48,12 @@
 
 .title {
   max-width: 640px;
+}
+
+.pagination {
+  font-size: 13px;
+}
+
+.btn-without-bg {
+  margin: 0;
 }

@@ -18,30 +18,29 @@ import { ViewReservationComponent } from './templates/view-reservation/view-rese
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, data: { title: "Home" } },
-  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión", nav: "sign-in-sign-up" } },
-  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate", nav: "sign-in-sign-up" } },
+  { path: 'home', component: HomeComponent, data: { title: "Home", context: ' ' } },
+  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión", nav: "sign-in-sign-up", context: ' ' } },
+  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate", nav: "sign-in-sign-up", context: ' ' } },
 
-  { path: 'lodgings', component: LodgingsComponent, data: { title: "Alojamientos - Alójate Quindío" } },
-  { path: 'lodgings/:id', component: LodgingComponent, data: { title: "Alojamiento - Alójate Quindío" } },
-  { path: 'lodgings/:id/reservation', component: ReservationFormComponent, data: { title: "Realizar reserva - Alójate Quindío" } },
+  { path: 'lodgings', component: LodgingsComponent, data: { title: "Alojamientos - Alójate Quindío", context: ' ' } },
+  { path: 'lodgings/:id', component: LodgingComponent, data: { title: "Alojamiento - Alójate Quindío", context: ' ' } },
+  { path: 'lodgings/:id/reservation', component: ReservationFormComponent, data: { title: "Realizar reserva - Alójate Quindío", context: ' ' } },
 
-  { path: 'host/home', component: HostHomeComponent, data: { title: "Home - Anfitrión - Alójate Quindío", nav: "panel-host" } },
-  { path: 'host/lodgings/create', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío" } },
-  { path: 'host/lodgings/:id/edit', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío", edit:true} },
-  { path: 'host/lodgings/:id', component: HostLodgingComponent, data: { title: "Alojamiento - Anfitrión - Alójate Quindío", nav: "panel-host" } },
-  { path: 'host/lodgings', component: HostLodgingsComponent, data: { title: "Alojamientos - Alójate Quindío", nav: "panel-host" } },
-  { path: 'host/lodgings/:lodging_id/reservations', component: LodgingReservationsComponent, data: { title: "Reservaciones - Alójate Quindío", nav: "panel-host" } },
-  { path: 'host/reservations/:id', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío", nav: "panel-host", host:true} },
+  { path: 'host/home', component: HostHomeComponent, data: { title: "Home - Anfitrión - Alójate Quindío", context: 'panel-host' } },
+  { path: 'host/lodgings/create', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío", context: 'panel-host' } },
+  { path: 'host/lodgings/:id/edit', component: CreateEditLodgingComponent, data: { title: "Hospedaje - Alójate Quindío", edit: true, context: 'panel-host' } },
+  { path: 'host/lodgings/:id', component: HostLodgingComponent, data: { title: "Alojamiento - Anfitrión - Alójate Quindío", context: 'panel-host' } },
+  { path: 'host/lodgings', component: HostLodgingsComponent, data: { title: "Alojamientos - Alójate Quindío", context: 'panel-host' } },
+  { path: 'host/lodgings/:id/reservations', component: LodgingReservationsComponent, data: { title: "Reservaciones - Alójate Quindío", context: 'panel-host' } },
+  { path: 'host/reservations/:id', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío", context: 'panel-host', host: true } },
 
   { path: 'account', component: AccountComponent, data: { title: "Cuenta - Alójate Quindío" } },
+
+  { path: 'reservations', component: UserReservationsComponent, data: { title: "Reservaciones - Alójate Quindío", context: ' ' } },
+  { path: 'reservations/:id', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío", context: ' ' } },
   
-  { path: 'reservations', component: UserReservationsComponent, data: { title: "Reservaciones - Alójate Quindío" } },
-  { path: 'reservations/:id', component: ViewReservationComponent, data: { title: "Reservacion - Alójate Quindío" } },
+  { path: 'admin', data: { context: ' ' }, canActivate: [AdminAuthGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   
-  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión" } },
-  { path: 'admin', canActivate: [AdminAuthGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate" } },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent, data: { title: "Page not found", nav: "error" } }
 ];
