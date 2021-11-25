@@ -26,7 +26,7 @@ export class LodgingPanelComponent implements OnInit {
     this.editStatus = false;
     this.lodgings = Object.values((await this.lodgingPanelUtils.getAllLodgings()))[0]
     this.lodgings = this.lodgings.filter(it => it.actual_state)
-    this.lodgingFormUtil.addNewService((document.querySelector('.add-service') as HTMLButtonElement))
+    this.lodgingFormUtil.addNewService((document.querySelector('.add-service') as HTMLButtonElement));
   }
 
   async ngOnChanges() {
@@ -92,7 +92,7 @@ export class LodgingPanelComponent implements OnInit {
 
       }
     } catch (err: any) {
-      Swal.fire({ icon: 'error', title: 'Error en la ejecución', text: err['error']['message'] || 'Tienes campos vacios' })
+      Swal.fire({ icon: 'error', title: 'Error en la ejecución', text: err['error']['message'] || 'Tienes campos vacíos' })
       this.lodgingFormUtil.addNewService((document.querySelector('.add-service') as HTMLButtonElement))
     }
     this.lodgingFormUtil.resetServices();

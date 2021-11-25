@@ -89,7 +89,11 @@ export class ViewReservationComponent implements OnInit {
   }
 
   return() {
-    this.router.navigate(['/reservations']);
+    if(!this.host){
+      this.router.navigate(['/reservations']);
+    }else {
+      this.router.navigate(['/host/lodgings']);
+    }
   }
 
 }

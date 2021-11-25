@@ -32,10 +32,6 @@ export class LodgingServiceService {
   getAllLodgingsHost(id: number, page?: any): Observable<LodgingResponse[]> {
     return this.http.post<LodgingResponse[]>(`${environment.baseUrl}/user/${id}/lodgings?page=${page}`, this.httpOptions)
   }
-  
-  getAllLodgingsNoPage(): Observable<LodgingResponse[]> {
-    return this.http.get<LodgingResponse[]>(`${environment.baseUrl}/lodgings`)
-  }
 
   getLodging(lodgingId: number): Observable<LodgingResponse> {
     return this.http.get<LodgingResponse>(`${environment.baseUrl}/lodgings/${lodgingId}`);
