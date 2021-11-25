@@ -168,7 +168,7 @@ export class CreateEditLodgingComponent implements OnInit {
   }
 
   minServices(control: AbstractControl): { [key: string]: any } | null {
-    if (control.value.length < 1) {
+    if (control.value.length < 10) {
       return { "minService": true }
     } else {
       return null;
