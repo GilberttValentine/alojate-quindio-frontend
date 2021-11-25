@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ReservationGuestResponse } from 'src/app/models/response/ReservationResponse/guestRespone';
+import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 
 @Component({
   selector: 'app-reservation-guest-information',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationGuestInformationComponent implements OnInit {
 
+  @Input() guest: any = {};
   constructor() { }
 
   ngOnInit(): void {
