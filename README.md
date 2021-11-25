@@ -1,27 +1,28 @@
 # AlojateQuindioFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+Esta proyecto esta basado en razon de los requerimientos solicitados durante el sexto semestre de la institucion universitaria EAM. El proyecto consiste en la simulacion de una plataforma para la reserva y publicacion de <strong>alojamientos temporales</strong>.
 
-## Development server
+## Integrantes:
+<ul>
+<li>Pablo Andres Guzman RIos</li>
+<li>Felipe Corredor Castro</li>
+<li>Juan Manuel Villanueva Aristizabal</li>
+</ul>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Dependencias:
+<br>
+<ul>
+<li><div style="display:flex; justify-content:space-between; width:150px;">Angular <img width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/240px-Angular_full_color_logo.svg.png"></img></div></li>
+<br>
+<li><div style="display:flex; justify-content:space-between; width:150px;">Bootstrap <img width="30px" src="https://i.stack.imgur.com/C9301.png"></img></div></li>
+<br>
+<li><div style="display:flex; justify-content:space-between; width:150px;">JQuery <img width="30px" src="https://tecnologiaenvivo.com/wp-content/uploads/2014/08/icon_jquery.png"></img></div></li>
+<br>
+<li><div style="display:flex; justify-content:space-between; width:150px;">Cloudinary <img width="30px" src="https://www.pngkit.com/png/detail/422-4225219_https-res-cloudinary-com-demo-image-upload-e.png"></img></div></li>
+</ul>
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Scripts:
+<ul>
+<li>Instalar dependencias: <strong>npm install</strong></li>
+<li>Inicio: <strong>npm start</strong></li>
+</ul>
