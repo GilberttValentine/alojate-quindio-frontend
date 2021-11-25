@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user-information.component.css']
 })
 export class UserInformationComponent implements OnInit {
-
   @Input('user') userForm: any;
   constructor(private userService: UserServiceService, private sweetAlertService: SweetAlertService) { }
 
@@ -32,9 +31,9 @@ export class UserInformationComponent implements OnInit {
 
       this.userService.updateUser(user_id, user)
         .subscribe(res => {
-          this.sweetAlertService.successAlert('Actualizacion Exitosa','Tus datos han sido actualizados con exito')
+          this.sweetAlertService.successAlert('Actualización exitosa','Tus datos han sido actualizados con éxito')
         }, err => {
-          this.sweetAlertService.errorAlert('Error actualizando el usuario', err['error']['message'])
+          this.sweetAlertService.errorAlert('Uups...ha ocurrido un error al actualizar tus datos', err['error']['message'])
         });
     }
   }

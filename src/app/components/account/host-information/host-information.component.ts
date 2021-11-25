@@ -78,20 +78,20 @@ export class HostInformationComponent implements OnInit {
   updateHost(user_id: number, languages: HostLanguageResponse) {
     this.userService.updateHost(user_id, languages)
       .subscribe(res => {
-        this.sweetAlertService.successAlert('Actualizacion Exitosa', 'Tus datos han sido actualizados con exito')
+        this.sweetAlertService.successAlert('Actualización exitosa', 'Tus datos han sido actualizados con éxito')
       }, err => {
-        this.sweetAlertService.errorAlert('Error actualizando el usuario', err['error']['message'])
+        this.sweetAlertService.errorAlert('Uups...ha ocurrido un error al actualizar tus datos', err['error']['message'])
       })
   }
 
   createHost(user_id: number, languages: HostLanguageResponse) {
     this.userService.createHost(user_id, languages)
-    .subscribe(res => {
-      this.sweetAlertService.successAlert('¡Felicidades ahora eres Anfitrión!', 'Por cuestiones de seguridad por favor vuelve a iniciar sesion')
-      this.router.navigate([`/sign-in`]);
-    }, err => {
-      this.sweetAlertService.errorAlert('Error creando Anfitrión', err['error']['message'])
-    })
+      .subscribe(res => {
+        this.sweetAlertService.successAlert('¡Felicidades ahora eres anfitrión!', 'Por motivos de seguridad, debes volver a iniciar sesión')
+        this.router.navigate([`/sign-in`]);
+      }, err => {
+        this.sweetAlertService.errorAlert('Uups...ha ocurrido un error al almacenar tus datos', err['error']['message'])
+      })
   }
 
   dragScroll() {

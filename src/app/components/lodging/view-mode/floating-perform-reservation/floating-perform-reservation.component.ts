@@ -57,7 +57,7 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
 
       this.emailOwner = email;
 
-      lodging.total_rate = Math.floor(lodging.total_rate*10)/10
+      lodging.total_rate = Math.floor(lodging.total_rate * 10) / 10
 
       this.lodgingMiniumInformation = lodging;
     }
@@ -106,13 +106,13 @@ export class FloatingPerformReservationComponent implements OnInit, OnChanges {
       const persons_amount_input = this.reservationForm.get('peopleAmount')?.value
 
       if (persons_amount_input > this.persons_amount) {
-        this.sweetAlertService.errorAlert('Ups, parece que no se pudo realizar la reserva', 'La cantidad ingresada de huespedes excede la capacidad maxima del alojamiento')
+        this.sweetAlertService.errorAlert('Ups, parece que no se pudo realizar la reserva', 'La cantidad ingresada de huéspedes excede la capacidad máxima del alojamiento')
       } else {
         const reservation = {
           start_date: this.reservationForm.get('startDate')?.value,
           end_date: this.reservationForm.get('endDate')?.value,
           persons_amount: this.reservationForm.get('peopleAmount')?.value,
-          total_value: dif*this.nightValue,
+          total_value: dif * this.nightValue,
           night_value: this.nightValue,
           night_count: dif,
           email: this.emailOwner,

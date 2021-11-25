@@ -21,21 +21,22 @@
   <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
     <div class="actual-page d-flex flex-wrap">
       <span class="me-1">Página</span>
-      <div class="dropdown">
-        <span id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <u *ngIf="actualPage <= 9">0{{ actualPage }}</u>
-          <u *ngIf="actualPage > 9">{{ actualPage }}</u>
-        </span>
+      <div >
+        <span *ngIf="actualPage <= 9">0{{ actualPage }}</span>
+        <span *ngIf="actualPage > 9">{{ actualPage }}</span>
+        <!--
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
           <li *ngFor="let page of pagesAvailable"><a class="dropdown-item" [ngClass]="actualPage === page ? 'active':''"
               (click)="changePage(page)">{{ page }}</a></li>
-        </ul>
+        </ul>-->
       </div>
       <span class="ms-1">de {{ totalPages }}</span>
     </div>
     <div class="action-buttons">
-      <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" [disabled]="disabledBack" (click)="back()">Atrás</button>
-      <button class="btn btn-without-bg border px-5 py-2 shadow-none" [disabled]="disabledNext" (click)="next()">Siguiente</button>
+      <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" [disabled]="disabledBack"
+        (click)="back()">Atrás</button>
+      <button class="btn btn-without-bg border px-5 py-2 shadow-none" [disabled]="disabledNext"
+        (click)="next()">Siguiente</button>
     </div>
   </div>
 </div>

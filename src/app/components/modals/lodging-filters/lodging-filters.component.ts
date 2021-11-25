@@ -125,7 +125,6 @@ export class LodgingFiltersComponent implements OnInit {
       };
     }
 
-    console.log(filters)
     this.router.navigate([`/lodgings`], { queryParams: { ...filters } }).then(() => {
       window.location.reload()
     })

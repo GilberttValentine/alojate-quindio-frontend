@@ -19,6 +19,8 @@ export class HostHomeComponent implements OnInit {
 
   totalLodgings = 0;
   totalReservations = 0;
+  totalReviews = 0;
+  
   name = "";
 
   constructor(private securityService: SecurityServiceService, private lodgingService: LodgingServiceService, private reservationService: ReservationServiceService) { }

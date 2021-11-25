@@ -38,7 +38,7 @@ export class CreateEditLodgingComponent implements OnInit {
    * GENERAL METHODS
    */
 
-   createForm() {
+  createForm() {
     this.lodgingForm = this.fb.group({
       lodging: this.fb.group({
         night_value: ['', [Validators.required, this.nonZero, this.minValue]],
@@ -68,7 +68,7 @@ export class CreateEditLodgingComponent implements OnInit {
     })
   }
 
-   async submit() {
+  async submit() {
     const user_id = Number(localStorage.getItem('user'))
 
     if (this.lodgingForm.valid) {
@@ -183,10 +183,10 @@ export class CreateEditLodgingComponent implements OnInit {
   async createLodging(user_id: number, lodging: CreateLodgingResponse) {
     this.lodgingService.createLodging(user_id, lodging)
       .subscribe(resp => {
-        this.sweetAlertService.successAlert('Hospedaje creado con éxito', 'Felicitaciones tu hospedaje ha sido registrado exitosamente')
+        this.sweetAlertService.successAlert('Se ha registrado exitosamente', 'Tu alojamiento ha sido registrado exitosamente')
         this.router.navigate([`/host/lodgings`]);
       }, err => {
-        this.sweetAlertService.errorAlert('Error creando hospedaje', err['error']['message']);
+        this.sweetAlertService.errorAlert('Error creando alojamiento', err['error']['message']);
       });
   }
 
@@ -200,10 +200,10 @@ export class CreateEditLodgingComponent implements OnInit {
 
     this.lodgingService.updateLodging(user_id, lodging_id, lodging)
       .subscribe(resp => {
-        this.sweetAlertService.successAlert('Hospedaje editado con éxito', 'Felicitaciones tu hospedaje ha sido Actualizado exitosamente')
+        this.sweetAlertService.successAlert('Se ha actualizado exitosamente', 'Tu alojamiento ha sido actualizado exitosamente')
         this.router.navigate([`/host/lodgings`]);
       }, err => {
-        this.sweetAlertService.errorAlert('Error editando hospedaje', err['error']['message']);
+        this.sweetAlertService.errorAlert('Error actualizando alojamiento', err['error']['message']);
       });
   }
 

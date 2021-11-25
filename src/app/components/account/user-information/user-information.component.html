@@ -1,38 +1,48 @@
 <div class="d-flex flex-column">
-    <div class="font-20 fw-bold mt-4">Información de usuario</div>
-    <div>
-      <form [formGroup]="userForm" (submit)="submit()">
-        <div class="d-flex first-double-input mt-2">
-          <div class="mb-3 w-50">
-            <label for="first_name" class="form-label font-14 fw-bold">Primer nombre</label>
-            <input type="text" class="form-control shadow-none" name="first_name" formControlName="first_name">
-            <small class="error text-danger mb-2" *ngIf="userForm.get('first_name').hasError('required') && userForm.get('first_name').touched">Por favor ingrese su primer nombre</small>
-          </div>
-          <div class="mb-3 w-50">
-            <label for="second_name" class="form-label font-14 fw-bold" >Segundo nombre</label>
-            <input type="text" class="form-control shadow-none" id="second_name" name="second_name" formControlName="second_name">
-          </div>
+  <div class="font-20 fw-bold mt-4">Información de usuario</div>
+  <div>
+    <form [formGroup]="userForm" (submit)="submit()">
+      <div class="d-flex first-double-input mt-2">
+        <div class="mb-3 w-50">
+          <label for="first_name" class="form-label font-14 fw-bold">Primer nombre</label>
+          <input type="text" class="form-control shadow-none" name="first_name" formControlName="first_name"
+            placeholder="Ingresa tu primer nombre">
+          <small class="error text-danger mb-2"
+            *ngIf="userForm.get('first_name').hasError('required') && userForm.get('first_name').touched">Por favor
+            ingresa tu primer nombre</small>
         </div>
- 
-        <div class="d-flex first-double-input mt-2">
-          <div class="mb-3 w-50">
-            <label for="first_lastname" class="form-label font-14 fw-bold">Primer apellido</label>
-            <input type="text" class="form-control shadow-none" name="first_lastname" formControlName="first_lastname">
-            <small class="error text-danger mb-2" *ngIf="userForm.get('first_lastname').hasError('required') && userForm.get('first_lastname').touched">Por favor ingrese su primer apellido</small>
-          </div>
-          <div class="mb-3 w-50">
-            <label for="second_lastname" class="form-label font-14 fw-bold" >Segundo apellido</label>
-            <input type="text" class="form-control shadow-none" name="second_lastname" formControlName="second_lastname">
-          </div>
+        <div class="mb-3 w-50">
+          <label for="second_name" class="form-label font-14 fw-bold">Segundo nombre</label>
+          <input type="text" class="form-control shadow-none" id="second_name" name="second_name"
+            formControlName="second_name" placeholder="Ingresa tu segundo nombre">
         </div>
+      </div>
 
-        <div class="mb-3 mt-2">
-          <label for="direction" class="form-label font-14 fw-bold" >Dirección</label>
-          <input type="text" class="form-control shadow-none" name="direction" formControlName="direction">
-          <small class="error text-danger mb-2" *ngIf="userForm.get('direction').hasError('required') && userForm.get('direction').touched">Por favor ingrese su dirección</small>
+      <div class="d-flex first-double-input mt-2">
+        <div class="mb-3 w-50">
+          <label for="first_lastname" class="form-label font-14 fw-bold">Primer apellido</label>
+          <input type="text" class="form-control shadow-none" name="first_lastname" formControlName="first_lastname"
+            placeholder="Ingresa tu primer apellido">
+          <small class="error text-danger mb-2"
+            *ngIf="userForm.get('first_lastname').hasError('required') && userForm.get('first_lastname').touched">Por
+            favor ingresa tu primer apellido</small>
         </div>
-        
-        <!--<div class="mb-3 mt-2">
+        <div class="mb-3 w-50">
+          <label for="second_lastname" class="form-label font-14 fw-bold">Segundo apellido</label>
+          <input type="text" class="form-control shadow-none" name="second_lastname" formControlName="second_lastname"
+            placeholder="Ingresa tu segundo apellido">
+        </div>
+      </div>
+
+      <div class="mb-3 mt-2">
+        <label for="direction" class="form-label font-14 fw-bold">Dirección</label>
+        <input type="text" class="form-control shadow-none" name="direction" formControlName="direction">
+        <small class="error text-danger mb-2"
+          *ngIf="userForm.get('direction').hasError('required') && userForm.get('direction').touched">Por favor ingresa
+          tu dirección</small>
+      </div>
+
+      <!--<div class="mb-3 mt-2">
           <label for="password" class="form-label font-14 fw-bold" >Contraseña</label>
           <input type="password" class="form-control h-53" name="password" formControlName="password">
           <small class="error text-danger mb-2" *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">Por favor ingrese su contraseña</small>
@@ -43,8 +53,8 @@
           <input type="password" class="form-control h-53" name="confirmPassword" formControlName="confirmPassword" placeholder="Vuelve a ingresar tu contraseña">
           <small class="error text-danger mb-2" *ngIf="userForm.get('confirmPassword').hasError('required') && userForm.get('confirmPassword').touched">Por favor confirme su contraseña</small>
         </div>-->
-        <button type="submit" class="btn btn-guardar" [disabled]="userForm.invalid">Guardar cambios</button>
-      </form>
-    </div>
-    
+      <button type="submit" class="btn btn-guardar" [disabled]="userForm.invalid">Guardar cambios</button>
+    </form>
+  </div>
+
 </div>

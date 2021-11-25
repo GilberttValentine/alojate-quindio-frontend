@@ -51,7 +51,8 @@ export class SignInComponent implements OnInit {
             localStorage.setItem('token', Object(resp)["token"]);
             localStorage.setItem('user', Object(res)["id"]);
             localStorage.setItem('role', Object(res)["role"]);
-            this.router.navigate([`/home`]);
+
+            this.router.navigate([`/home`])
           })
       }, (err) => {
         this.sweetAlertService.errorAlert('Error iniciando sesion', err['error']['message']);

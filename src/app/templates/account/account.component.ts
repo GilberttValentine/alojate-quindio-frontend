@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Language } from 'src/app/models/language';
 import { User } from 'src/app/models/user';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { userRoles } from 'src/app/utils/constants/userRoleConstants';
 import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service';
 import { environment } from 'src/environments/environment';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-account',
@@ -31,13 +29,14 @@ export class AccountComponent implements OnInit {
   getUser() {
     this.sweetAlertService.waitAlert();
     const user_id = Number(localStorage.getItem('user'));
+
     this.userService.findUserById(user_id)
       .subscribe(res => {
         this.sweetAlertService.closeAlert()
         this.user = res;
-        this.loadForm()
+        this.loadForm();
       }, (err) => {
-        this.sweetAlertService.errorAlert('Error obteniendo el usuario', err['error']['message'])
+        this.sweetAlertService.errorAlert('Ha ocurrido un error', err['error']['message']);
       });
   }
 
@@ -95,7 +94,7 @@ export class AccountComponent implements OnInit {
   loadHost() {
     this.languages = this.user.languages;
 
-    var languages:Array<number> = this.languages.map(l => {
+    var languages: Array<number> = this.languages.map(l => {
       return l['id']
     })
 
@@ -103,13 +102,11 @@ export class AccountComponent implements OnInit {
       return Object(l)['name']
     })
 
-    console.log(this.selectedLanguages)
-
     this.userForm.get('host')!.setValue({
       languages: languages
     })
   }
-  
+
   loadGuest() {
     this.userForm.get('guest')!.setValue({
       stratum: this.user.stratum,

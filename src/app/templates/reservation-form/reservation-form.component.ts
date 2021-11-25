@@ -31,7 +31,4 @@ export class ReservationFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-
-
 }

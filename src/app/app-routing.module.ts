@@ -19,8 +19,8 @@ import { AdminAuthGuard } from './guards/admin-auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: "Home", context: ' ' } },
-  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión", nav: "sign-in-sign-up", context: ' ' } },
-  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate", nav: "sign-in-sign-up", context: ' ' } },
+  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión", nav: "sign-in-sign-up", context: 'sign-in-sign-up' } },
+  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate", nav: "sign-in-sign-up", context: 'sign-in-sign-up' } },
 
   { path: 'lodgings', component: LodgingsComponent, data: { title: "Alojamientos - Alójate Quindío", context: ' ' } },
   { path: 'lodgings/:id', component: LodgingComponent, data: { title: "Alojamiento - Alójate Quindío", context: ' ' } },

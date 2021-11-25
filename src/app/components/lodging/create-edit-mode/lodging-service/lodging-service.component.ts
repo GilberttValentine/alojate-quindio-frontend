@@ -10,10 +10,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./lodging-service.component.css']
 })
 export class LodgingServiceComponent implements OnInit {
-
   @Input('serviceForm') serviceForm!: any;
   @Input() services: Array<Service> = [];
-  @Input() selectedServices: Array<string> = []
+  @Input() selectedServices: Array<string> = [];
+
   constructor(private serviceService: ServiceModelServiceService, private sweetAlertService: SweetAlertService) { }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class LodgingServiceComponent implements OnInit {
 
         this.sweetAlertService.closeAlert();
       }, (err) => {
-        this.sweetAlertService.errorAlert('Error con el servidor', err['error']['message']);
+        this.sweetAlertService.errorAlert('Error en el servidor', err['error']['message']);
       });
   }
 

@@ -10,9 +10,11 @@ export class FeedStatsComponent implements OnInit, OnChanges {
   
   lodgingsLimiter = 0;
   reservationsLimiter = 0;
+  reviewsLimiter = 0;
 
   totalLodgings = 0;
   totalReservations = 0;
+  totalReviews = 0;
 
   constructor() { }
 
@@ -20,13 +22,16 @@ export class FeedStatsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    const { totalLodgings, totalReservations } = this.stats;
+    const { totalLodgings, totalReservations, totalReviews } = this.stats;
     
     this.lodgingsLimiter = totalLodgings >= 1000 ? 1 : 0;
     this.totalLodgings = totalLodgings;
 
     this.reservationsLimiter = totalReservations >= 1000 ? 1 : 0;
     this.totalReservations = totalReservations;
+
+    this.reviewsLimiter = totalReviews >= 1000 ? 1 : 0;
+    this.totalReviews = totalReviews;
 
     console.log(this.stats);
   }

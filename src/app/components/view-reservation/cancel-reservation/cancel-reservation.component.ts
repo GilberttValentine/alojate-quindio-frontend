@@ -24,24 +24,24 @@ export class CancelReservationComponent implements OnInit {
 
   cancel() {
     Swal.fire({
-      title: '¿Estas seguro que deseas cancelar la reserva?',
-      text: "Si cancelas la reserva tu dinero sera reembolsado",
+      title: '¿Deseas cancelar tu reservación?',
+      text: "Al cancelar la reserva, se realizará el proceso de reembolso",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Cancelar Reserva'
+      confirmButtonText: 'Cancelar reserva'
     }).then((result) => {
       if (result.isConfirmed) {
         const user_id = Number(localStorage.getItem('user'));
         this.reservationService.cancelReservation(this.userId, this.reservationId)
-        .subscribe(res=>{
-          this.sweetAlertService.successAlert('Reserva Cancelada', 'La reserva se cancelo exitosamente');
-          this.router.navigate([`/reservations`]);
-        }, err =>{
-          this.sweetAlertService.errorAlert('Error deshabilitando cuenta', err['error']['message']);
-        })
+          .subscribe(res => {
+            this.sweetAlertService.successAlert('Reserva cancelada', 'Tu reserva se canceló exitosamente');
+            this.router.navigate([`/reservations`]);
+          }, err => {
+            this.sweetAlertService.errorAlert('Ha ocurrido un error al momento de cancelar tu reserva', err['error']['message']);
+          })
       }
     })
   }
