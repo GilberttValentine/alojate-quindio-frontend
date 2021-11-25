@@ -92,7 +92,7 @@ export class LodgingPanelComponent implements OnInit {
 
       }
     } catch (err: any) {
-      Swal.fire({ icon: 'error', title: 'Error en la ejecucion', text: err['error']['message'] || 'Tienes campos vacios' })
+      Swal.fire({ icon: 'error', title: 'Error en la ejecución', text: err['error']['message'] || 'Tienes campos vacios' })
       this.lodgingFormUtil.addNewService((document.querySelector('.add-service') as HTMLButtonElement))
     }
     this.lodgingFormUtil.resetServices();
