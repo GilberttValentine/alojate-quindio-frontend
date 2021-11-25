@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
-import { ReservationResponse } from 'src/app/models/response/reservationResponse/reservationResponse';
+import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 import { LodgingServiceService } from 'src/app/services/lodging/lodging-service.service';
 import { ReservationServiceService } from 'src/app/services/reservation/reservation-service.service';
 import { SecurityServiceService } from 'src/app/services/security/security-service.service';

@@ -1,7 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ReservationHostResponse } from 'src/app/models/response/ReservationResponse/hostResponse';
-import { ReservationLodgingResponse } from 'src/app/models/response/ReservationResponse/lodgingResponse';
-import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 
 @Component({
   selector: 'app-reservation-host-information',

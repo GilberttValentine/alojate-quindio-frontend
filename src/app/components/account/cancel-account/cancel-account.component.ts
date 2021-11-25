@@ -18,24 +18,25 @@ export class CancelAccountComponent implements OnInit {
 
   cancelarCuenta() {
     Swal.fire({
-      title: '¿Estas seguro que deseas Deshabilitar tu cuenta?',
-      text: "Si deshabilitas tu cuenta no podras volver a acceder a esta a menos de que un administrador la vuelva a habilitar",
+      title: '¿Seguro deseas deshabilitar tu cuenta?',
+      text: "Si deshabilitas tu cuenta perderás el acceso a ciertas funcionalidades y también a tu información. Si cambias de parecer, debes contactarnos para rehabilitar tu cuenta.",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Deshabilitar Cuenta'
+      confirmButtonText: 'Deshabilitar cuenta'
     }).then((result) => {
       if (result.isConfirmed) {
         const user_id = Number(localStorage.getItem('user'));
+        
         this.userService.deactivateUser(user_id)
-        .subscribe(res=>{
-          this.sweetAlertService.successAlert('Cuenta deshabilitada', 'Adiós vaquero');
-          this.router.navigate([`/sign-in`]);
-        }, err =>{
-          this.sweetAlertService.errorAlert('Error deshabilitando cuenta', err['error']['message']);
-        })
+          .subscribe(res => {
+            this.sweetAlertService.successAlert('Cuenta deshabilitada', 'Adiós vaquero');
+            this.router.navigate([`/sign-in`]);
+          }, err => {
+            this.sweetAlertService.errorAlert('Error deshabilitando cuenta', err['error']['message']);
+          })
       }
     })
   }

@@ -4,22 +4,22 @@
     <form [formGroup]="guestForm" (submit)="submit()">
       <div class="mb-3 mt-2">
         <label for="stratum" class="form-label font-14 fw-bold">Estrato</label>
-        <input type="text" class="form-control shadow-none" name="stratum" formControlName="stratum">
+        <input type="text" class="form-control shadow-none" name="stratum" formControlName="stratum" min="1" max="6">
         <div class="error text-danger mb-2"
           *ngIf="(guestForm.get('stratum').hasError('required') || guestForm.get('stratum').hasError('nonZero')) && guestForm.get('stratum').touched">
-          Por favor ingrese su estrato valido</div>
+          Por favor ingrese su estrato válido</div>
       </div>
 
       <div class="mb-3 mt-2">
         <label for="civilStatusId" class="form-label font-14 fw-bold">Estado civil</label>
         <select class="form-select shadow-none" aria-label="Default select example" name="civilStatusId"
           formControlName="civilStatusId">
-          <option value="" disabled>Estado Civil</option>
+          <option value="" disabled>Estado civil</option>
           <option *ngFor="let item of civilStatus" [value]="item.id">{{item.name}}</option>
         </select>
         <div class="error text-danger mb-2"
           *ngIf="guestForm.get('civilStatusId').hasError('required') && guestForm.get('civilStatusId').touched">Por
-          favor seleccione su estado civil</div>
+          favor seleccione un estado civil</div>
       </div>
 
       <div class="mb-3 mt-2">
@@ -31,7 +31,7 @@
         </select>
         <div class="error text-danger mb-2"
           *ngIf="guestForm.get('studyLevelId').hasError('required') && guestForm.get('studyLevelId').touched">Por favor
-          seleccione su nivel de estudio</div>
+          seleccione un nivel de estudio</div>
       </div>
       <button type="submit" class="btn btn-guardar" [disabled]="guestForm.invalid">Guardar cambios</button>
     </form>
