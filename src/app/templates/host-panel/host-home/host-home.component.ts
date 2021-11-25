@@ -73,8 +73,6 @@ export class HostHomeComponent implements OnInit {
 
           this.totalReservations = total;
           this.reservations = results;
-
-          console.log(results);
         })
       });
     }

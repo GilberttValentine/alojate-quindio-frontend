@@ -53,21 +53,12 @@
       </div>
     </div>
 
-    <div class="pagination">
+    <div class="pagination" *ngIf="reservations.length != 0">
       <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
         <div class="actual-page d-flex flex-wrap">
           <span class="me-1">Página</span>
-          <div class="dropdown">
-            <span id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              <u *ngIf="actualPage <= 9">0{{ actualPage }}</u>
-              <u *ngIf="actualPage > 9">{{ actualPage }}</u>
-            </span>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
-              <li *ngFor="let page of pagesAvailable"><a class="dropdown-item"
-                  [ngClass]="actualPage === page ? 'active':''">{{ page }}</a></li>
-            </ul>
-            <!--(click)="changePage(page)"-->
-          </div>
+          <span *ngIf="actualPage <= 9">0{{ actualPage }}</span>
+          <span *ngIf="actualPage > 9">{{ actualPage }}</span>
           <span class="ms-1">de {{ totalPages }}</span>
         </div>
         <div class="action-buttons">

@@ -22,6 +22,7 @@ export class HostLodgingComponent implements OnInit {
   ngOnInit(): void {
     this.lodgingService.getLodging(this.lodgingId).subscribe((response: LodgingResponse) => {
       const {
+        id,
         name,
         comments,
         municipality,
@@ -44,7 +45,8 @@ export class HostLodgingComponent implements OnInit {
         comments: comments,
         municipality: municipality,
         type: type,
-        actual_state: actual_state
+        actual_state: actual_state,
+        id: id
       };
 
       const appOwnerLodgingInfo = {

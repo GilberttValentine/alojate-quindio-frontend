@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class ViewReservationComponent implements OnInit {
 
   host = false;
-  reservation!: ReservationResponse;
+  reservation = {} as ReservationResponse;
 
   lodgingCard: any = {}
   hostCard: any = {}

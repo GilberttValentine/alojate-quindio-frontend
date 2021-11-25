@@ -11,6 +11,7 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
 
   @Input() context = "";
   @Input() lodging = {} as LodgingResponse;
+  @Input() id = 0;
 
   name: string = "";
   qualification: number = 0;
@@ -33,7 +34,8 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
       this.qualification = Math.floor(this.lodging.comments.qualification * 10) / 10;
       this.municipality = this.lodging.municipality.name;
       this.actualState = this.lodging.actual_state;
-
+      this.id = this.lodging.id;
+      
       const count = this.lodging.comments.count;
       this.count = count;
 

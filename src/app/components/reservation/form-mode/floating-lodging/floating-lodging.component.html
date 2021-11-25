@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <div class="d-flex flex-wrap  align-items-center">
-      <img class="img-lodging "
+    <div class="d-flex  align-items-center">
+      <img class="img-lodging"  draggable="false"
         [src]="imgUrl">
-      <div class="lodging-info ms-3">
+      <div class="d-flex flex-column justify-content-center lodging-info ms-3">
         <p class="type-lodging">{{reservation.lodging.type}}</p>
         <p class="name-lodging">{{reservation.lodging.name}}</p>
-        <!--
+        <!-- Este es el troling
         <div class="utils-lodging d-flex flex-wrap">
           <p>1 habitación</p>
           <span class="separator-point mt-auto mb-auto">·</span>
