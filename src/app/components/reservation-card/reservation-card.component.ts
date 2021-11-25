@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 import { UserReservationResponse } from 'src/app/models/response/ReservationResponse/userReservationResponse';
 import { environment } from 'src/environments/environment';
 
@@ -12,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class ReservationCardComponent implements OnInit {
 
   @Input() host = false;
-  @Input() reservation!: UserReservationResponse;
+  @Input() reservation!: ReservationResponse;
   reservation_user = "";
   total_value = 0;
 
@@ -29,7 +30,11 @@ export class ReservationCardComponent implements OnInit {
   }
 
   viewLodging() {
-    this.router.navigate([`/reservations/${this.reservation.id}`]);
+    if(!this.host){
+      this.router.navigate([`/reservations/${this.reservation.id}`]);
+    }else {
+      this.router.navigate([`/host/reservations/${this.reservation.id}`]);
+    }
   }
 
 }

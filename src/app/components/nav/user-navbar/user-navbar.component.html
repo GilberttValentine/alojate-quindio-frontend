@@ -43,7 +43,7 @@
           <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark mt-2"
             aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" [routerLink]="['account']" routerLinkActive="active">Configuración</a></li>
-            <li><a class="dropdown-item" href="#" *ngIf="user.role === 2">Reservas</a></li>
+            <li><a class="dropdown-item" [routerLink]="['reservations']" *ngIf="user.role !== 2 && user.role !== 5">Reservas</a></li>
             <li><a class="dropdown-item logout" (click)="logout()">Cerrar sesión</a></li>
           </ul>
         </li>

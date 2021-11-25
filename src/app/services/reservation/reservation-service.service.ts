@@ -36,8 +36,8 @@ export class ReservationServiceService {
     return this.http.post<any>(`${environment.baseUrl}/users/${userId}/reservations?page=${page}`, body)
   }
 
-  listReservationsByLodging(userId: number, lodgingId: number, body: object): Observable<object> {
-    return this.http.post<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}/reservations`, body)
+  listReservationsByLodging(userId: number, lodgingId: number, body: object, page?: any): Observable<object> {
+    return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}/reservations?page=${page}`, body, this.httpOptions)
   }
 
   listReservationsForHost(userId: number): Observable<object> {
