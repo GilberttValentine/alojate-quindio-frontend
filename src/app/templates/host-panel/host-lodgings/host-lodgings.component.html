@@ -35,7 +35,7 @@
     </div>
     <app-lodging-card [host]=true *ngFor="let lodging of lodgings" [lodging]="lodging" [actualRoute]="actualRoute">
     </app-lodging-card>
-    <div class="pagination">
+    <div class="pagination" *ngIf="lodgings.length != 0">
       <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
         <div class="actual-page d-flex flex-wrap">
           <span class="me-1">Página</span>

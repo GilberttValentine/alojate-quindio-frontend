@@ -2,7 +2,7 @@
   <div class="name-lodging">
     {{name}}
   </div>
-  <app-buttons *ngIf="context === 'panel-host'" [state]="actualState"></app-buttons>
+  <app-buttons *ngIf="context === 'panel-host'" [state]="actualState" [lodgingId]="id"></app-buttons>
 </div>
 <div class="little-info-lodging d-flex align-items-end justify-content-between">
   <div class="d-flex flex-wrap align-items-center">

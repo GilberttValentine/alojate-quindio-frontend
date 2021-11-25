@@ -10,7 +10,7 @@
               name="email">
             <div class="error text-danger" id="email-error"
               *ngIf="formDir.submitted && (signInForm.get('email')?.hasError('required') || signInForm.get('email')?.hasError('email'))">
-              Por favor ingrese un correo valido</div>
+              Por favor ingrese un correo válido</div>
             <!--El correo electrónico o contraseña ingresada son incorrectos-->
           </div>
           <div class="col-12">
@@ -21,6 +21,7 @@
               *ngIf="formDir.submitted && (signInForm.get('password')?.hasError('required') || signInForm.get('password')?.hasError('minlength'))">
               Por favor ingrese su contraseña</div>
           </div>
+          <!--
           <div class="col-12">
             <div class="form-check">
               <input class="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault">
@@ -28,7 +29,7 @@
                 Recordarme
               </label>
             </div>
-          </div>
+          </div>-->
           <div class="col-12">
             <button class="btn btn-primary-action w-100" type="submit">Iniciar sesión</button>
           </div>

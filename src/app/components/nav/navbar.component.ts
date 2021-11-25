@@ -6,7 +6,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit, OnChanges {
+export class NavbarComponent implements OnInit {
   @Input() context!: string;
   @Input() nav!: string;
   @Input() user = {} as any;
@@ -14,10 +14,5 @@ export class NavbarComponent implements OnInit, OnChanges {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(): void {
-    console.log(this.context);
-    console.log(this.user);
   }
 }

@@ -32,8 +32,5 @@ export class FeedStatsComponent implements OnInit, OnChanges {
 
     this.reviewsLimiter = totalReviews >= 1000 ? 1 : 0;
     this.totalReviews = totalReviews;
-
-    console.log(this.stats);
   }
-
 }

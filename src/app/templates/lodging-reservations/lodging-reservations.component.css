@@ -2,6 +2,10 @@
   margin-left: 10%;
 }
 
+.container {
+  margin-bottom: 40px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -38,4 +42,8 @@
 
 .title {
   max-width: 640px;
+}
+
+.pagination {
+  font-size: 13px;
 }

@@ -11,7 +11,6 @@ import { environment } from 'src/environments/environment';
 })
 export class LodgingReservationsComponent implements OnInit {
 
-
   reservations = [] as any;
   user_id!: number;
   lodging_id!: number;
@@ -80,8 +79,6 @@ export class LodgingReservationsComponent implements OnInit {
 
     let { results, total }: any = reservations;
     
-    console.log(results)
-
     this.reservations = results.map((it: ReservationResponse) => {
       it.lodging.comments.qualification = Math.floor(it.lodging.comments.qualification * 10) / 10;
       it.lodging.url_pictures = `${environment.CLOUDINARY_LODGING_URL}/${it.lodging.url_pictures.split(',')[0]}`

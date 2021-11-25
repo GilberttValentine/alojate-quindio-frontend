@@ -28,7 +28,6 @@ export class UserReservationsComponent implements OnInit {
   totalPages = "";
   pagesAvailable: number[] = []
 
-
   constructor(private router: Router, private route: ActivatedRoute, private reservationService: ReservationServiceService) { }
 
   ngOnInit(): void {

@@ -144,8 +144,6 @@ export class LodgingsComponent implements OnInit {
       if (this.actualPage >= Number(this.totalPages)) this.deactivateNextButton()
 
       if (this.actualPage === 1) this.deactivateBackButton();
-
-      console.log(this.filters);
     }
   }
 

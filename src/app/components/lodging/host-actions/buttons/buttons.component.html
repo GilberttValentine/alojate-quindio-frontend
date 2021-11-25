@@ -1,3 +1,3 @@
-<button class="btn btn-switch-red me-2" *ngIf="state">Deshabilitar</button>
-<button class="btn btn-switch-green me-2" *ngIf="!state">Habilitar</button>
-<button class="btn btn-niggermai">Modo edición</button>
+<button class="btn btn-switch-red me-2" *ngIf="state" (click)="deactivate()">Deshabilitar</button>
+<button class="btn btn-switch-green me-2" *ngIf="!state" (click)="activate()">Habilitar</button>
+<button class="btn btn-niggermai" (click)="goEditionMode()">Modo edición</button>
