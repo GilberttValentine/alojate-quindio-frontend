@@ -7,7 +7,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 })
 export class FeedStatsComponent implements OnInit, OnChanges {
   @Input() stats = {} as any;
-  
+
   lodgingsLimiter = 0;
   reservationsLimiter = 0;
   reviewsLimiter = 0;
@@ -23,7 +23,7 @@ export class FeedStatsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     const { totalLodgings, totalReservations, totalReviews } = this.stats;
-    
+
     this.lodgingsLimiter = totalLodgings >= 1000 ? 1 : 0;
     this.totalLodgings = totalLodgings;
 

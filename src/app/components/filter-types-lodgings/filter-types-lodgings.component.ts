@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { LodgingFilters } from 'src/app/models/filters/lodgingFilters';
 import { TypeLodging } from 'src/app/models/typeLodging';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-filter-types-lodgings',
@@ -11,6 +12,7 @@ import { TypeLodging } from 'src/app/models/typeLodging';
 export class FilterTypesLodgingsComponent implements OnInit {
 
   @Input() lodgingTypes = [] as TypeLodging[];
+  urlPictureServer = environment.CLOUDINARY_TYPE_URL;
 
   constructor(private router: Router) { }
 

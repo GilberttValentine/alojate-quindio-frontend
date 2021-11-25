@@ -4,8 +4,7 @@
 </div>
 <div class="filter-types-lodgings d-flex flex-wrap justify-content-center">
   <div class="lodging m-auto" *ngFor="let type of lodgingTypes" (click)="filterLodgings(type.id)">
-    <img class="lodging-img" draggable="false"
-      src="{{ type.url_picture }}">
+    <img class="lodging-img" draggable="false" src="{{urlPictureServer}}/{{ type.url_picture }}">
     <p class="mt-2">{{ type.name }}</p>
   </div>
 </div>
