@@ -12,12 +12,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit, OnChanges {
-  
+
   @Input() lodgingName = "";
   reviewForm!: FormGroup;
   lodgingId: number;
 
-  constructor(private fb:FormBuilder, private sweetAlertServices: SweetAlertService, private commentService: CommentServiceService, private route: ActivatedRoute) { 
+  constructor(private fb: FormBuilder, private sweetAlertServices: SweetAlertService, private commentService: CommentServiceService, private route: ActivatedRoute) {
     this.lodgingId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
@@ -26,7 +26,7 @@ export class ReviewComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    
+
   }
 
   setValue(event: any) {
@@ -37,7 +37,7 @@ export class ReviewComponent implements OnInit, OnChanges {
     element!.innerText = value == 1 || value == 2 || value == 3 || value == 4 || value == 5 ? `${value}.0` : value;
   }
 
-  createForm(){
+  createForm() {
     this.reviewForm = this.fb.group({
       description: ['', Validators.required],
       quality: [1, Validators.required],
@@ -48,8 +48,8 @@ export class ReviewComponent implements OnInit, OnChanges {
   }
 
   submit() {
-    if(this.reviewForm.valid) {
-      const user_id:number = Number(localStorage.getItem('user'));
+    if (this.reviewForm.valid) {
+      const user_id: number = Number(localStorage.getItem('user'));
 
       const comment: Comment = {
         ...this.reviewForm.value
@@ -58,17 +58,17 @@ export class ReviewComponent implements OnInit, OnChanges {
       this.sweetAlertServices.waitAlert()
 
       this.commentService.createComment(user_id, this.lodgingId, comment)
-      .subscribe(res => {
+        .subscribe(res => {
           Swal.fire(
-            'Reseña realizada',
-            'La reseña se ha realizado con exito',
+            'Reseña realizada con éxito',
+            'La reseña se ha realizado con éxito',
             'success'
-          ).then( resp => {
+          ).then(resp => {
             window.location.reload();
           })
-      }, err=> {
-        this.sweetAlertServices.errorAlert('Error realizando el comentario', err['error']['message'])
-      })
+        }, err => {
+          this.sweetAlertServices.errorAlert('Error realizando la reseña', err['error']['message'])
+        })
     }
   }
 }

@@ -25,5 +25,5 @@
     <app-service-chip *ngFor="let item of selectedServices" [service]="item" (deleteService)="deleteService($event)"></app-service-chip>
   </ng-template>
 </div>
-<div class="error text-danger mb-2" *ngIf="serviceForm.get('services').hasError('minService')">Por favor seleccione por lo menos 10 servicios</div>
+<div class="error text-danger mb-2" *ngIf="serviceForm.get('services').hasError('minService')">Selecciona por lo menos 10 servicios</div>
 </div>

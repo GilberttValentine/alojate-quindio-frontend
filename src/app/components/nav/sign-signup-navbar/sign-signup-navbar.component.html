@@ -13,10 +13,10 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
+          <a class="nav-link" aria-current="page" (click)="goHome()" [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/lodgings']" routerLinkActive="active">Alojamientos</a>
+          <a class="nav-link" (click)="goLodgings()" [routerLink]="['/lodgings']" routerLinkActive="active">Alojamientos</a>
         </li>
       </ul>
     </div>

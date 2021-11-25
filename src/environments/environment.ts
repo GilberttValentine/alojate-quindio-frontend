@@ -8,7 +8,8 @@ export const environment = {
   CLOUDINARY_URL:"https://api.cloudinary.com/v1_1/errorhyperion/image/upload",
   CLOUDINARY_UPLOAD_PRESET:"d8zhm4a7",
   CLOUDINARY_LODGING_URL:"https://res.cloudinary.com/errorhyperion/image/upload/v1637435910",
-  CLOUDINARY_PROFILE_URL:"https://res.cloudinary.com/errorhyperion/image/upload/v1637434697/profile"
+  CLOUDINARY_PROFILE_URL:"https://res.cloudinary.com/errorhyperion/image/upload/v1637434697/profile",
+  CLOUDINARY_TYPE_URL:"https://res.cloudinary.com/errorhyperion/image/upload/v1637434697/type"
 };
 
 /*

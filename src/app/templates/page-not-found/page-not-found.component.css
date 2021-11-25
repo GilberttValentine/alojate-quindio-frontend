@@ -1,3 +1,13 @@
 .container {
   min-height: 79.6vh;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.content {
+  font-size: 14px;
 }

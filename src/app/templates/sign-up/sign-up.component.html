@@ -7,7 +7,7 @@
           <div class="col-sm-6">
             <label for="first_name">Primer nombre</label>
             <input class="form-control shadow-none" placeholder="Ingresa tu primer nombre" formControlName="first_name" name="first_name">
-            <div class="error text-danger" id="first-name-error" *ngIf="formDir.submitted && (signUpForm.get('first_name')?.hasError('required'))">Por favor ingrese su primer nombe</div>
+            <div class="error text-danger" id="first-name-error" *ngIf="formDir.submitted && (signUpForm.get('first_name')?.hasError('required'))">Ingresa tu primer nombre</div>
           </div>
           <div class="col-sm-6">
             <label for="second_name">Segundo nombre</label>
@@ -16,7 +16,7 @@
           <div class="col-sm-6">
             <label for="first_lastname">Primer apellido</label>
             <input class="form-control shadow-none" placeholder="Ingresa tu primer apellido" formControlName="first_lastname" name="first_lastname">
-            <div class="error text-danger" id="first-last-name-error" *ngIf="formDir.submitted && (signUpForm.get('first_lastname')?.hasError('required'))">Por favor ingrese su primer apellido</div>
+            <div class="error text-danger" id="first-last-name-error" *ngIf="formDir.submitted && (signUpForm.get('first_lastname')?.hasError('required'))">Ingresa tu primer apellido</div>
           </div>
           <div class="col-sm-6">
             <label for="second_lastname">Segundo apellido</label>
@@ -25,12 +25,12 @@
           <div class="col-12">
             <label for="email">Correo electrónico</label>
             <input class="form-control shadow-none" placeholder="Ingresa tu correo electrónico" formControlName="email" name="email">
-            <div class="error text-danger" id="email-error" *ngIf="formDir.submitted && (signUpForm.get('email')?.hasError('required')) || signUpForm.get('email')?.hasError('email')">Por favor ingrese un correo valido</div>
+            <div class="error text-danger" id="email-error" *ngIf="formDir.submitted && (signUpForm.get('email')?.hasError('required')) || signUpForm.get('email')?.hasError('email')">Por favor ingresa un correo electrónico válido</div>
           </div>
           <div class="col-12">
             <label for="password">Contraseña</label>
             <input class="form-control shadow-none" placeholder="Ingresa tu contraseña" formControlName="password" name="password" type="password">
-            <div class="error text-danger" id="password-error" *ngIf="formDir.submitted && (signUpForm.get('password')?.hasError('required') || signUpForm.get('password')?.hasError('minlength'))">Por favor ingrese una contraseña con mas de 8 caracteres</div>
+            <div class="error text-danger" id="password-error" *ngIf="formDir.submitted && (signUpForm.get('password')?.hasError('required') || signUpForm.get('password')?.hasError('minlength'))">Por favor ingresa una contraseña con más de 8 caracteres</div>
           </div>
           <div class="col-12">
             <button class="btn btn-primary-action w-100" type="submit">Registrarse</button>

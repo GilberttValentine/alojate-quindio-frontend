@@ -51,7 +51,7 @@ export class SignUpComponent implements OnInit {
       
       Swal.fire({
         allowOutsideClick: false,
-        text: 'Espere un momento...',
+        text: 'Espera un momento...',
         icon: 'info',
         confirmButtonText: 'Ok',
       });
@@ -66,7 +66,7 @@ export class SignUpComponent implements OnInit {
         }, (err) => {
           Swal.fire({
             icon: 'error',
-            title: 'Error en el Registro',
+            title: 'Ha ocurrido un error al momento de registrarse',
             text: err['error']['message']
           })
         });

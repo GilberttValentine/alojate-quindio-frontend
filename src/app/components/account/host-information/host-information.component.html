@@ -6,14 +6,10 @@
         <label for="languages" class="form-label font-14 fw-bold">Idiomas</label>
         <div class="input-group mb-3">
           <span class="input-group-text bg-white" id="basic-addon1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-              viewBox="0 0 16 16">
-              <path
-                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
+            <i class="bi bi-search"></i>
           </span>
           <input list="showTypeLodgingList" class="form-control shadow-none search-input" id="languages"
-            placeholder="Escribe el nombre del idioma que hablas" id="languages" (change)="selectLanguage($event)">
+            placeholder="Escribe el nombre de un idioma que hables" id="languages" (change)="selectLanguage($event)">
         </div>
         <datalist id="showTypeLodgingList">
           <option *ngFor="let item of languages" [value]="item.language_name"></option>
@@ -22,8 +18,7 @@
       <div class="language-container" id="languagesList">
         <app-language-chip *ngFor="let item of selectedLanguages" [idioma]="item"></app-language-chip>
       </div>
-      <div class="error text-danger" *ngIf="hostForm.get('languages').hasError('minLanguages')">Por favor
-        seleccione por lo menos un idioma</div>
+      <div class="error text-danger" *ngIf="hostForm.get('languages').hasError('minLanguages')">Por favor seleccione al menos un idioma</div>
       <button type="submit" class="btn btn-guardar mt-3" [disabled]="hostForm.invalid">Guardar cambios</button>
     </form>
   </div>

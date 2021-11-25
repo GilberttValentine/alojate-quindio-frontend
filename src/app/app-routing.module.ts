@@ -24,9 +24,9 @@ import { UnsignUserGuard } from './guards/unsign-user.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: "Home", context: ' ' } },
-  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión", nav: "sign-in-sign-up", context: ' ' }, canActivate: [UnsignUserGuard] },
-  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate", nav: "sign-in-sign-up", context: ' ' }, canActivate: [UnsignUserGuard] },
-
+  { path: 'sign-in', component: SignInComponent, data: { title: "Iniciar sesión", nav: "sign-in-sign-up", context: 'sign-in-sign-up' }, canActivate: [UnsignUserGuard]},
+  { path: 'sign-up', component: SignUpComponent, data: { title: "Regístrate", nav: "sign-in-sign-up", context: 'sign-in-sign-up' }, canActivate: [UnsignUserGuard]},
+  
   { path: 'lodgings', component: LodgingsComponent, data: { title: "Alojamientos - Alójate Quindío", context: ' ' } },
   { path: 'lodgings/:id', component: LodgingComponent, data: { title: "Alojamiento - Alójate Quindío", context: ' ' } },
   { path: 'lodgings/:id/reservation', component: ReservationFormComponent, data: { title: "Realizar reserva - Alójate Quindío", context: ' ' }, canActivate: [GuestAuthGuard] },

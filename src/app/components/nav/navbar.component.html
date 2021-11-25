@@ -1,4 +1,3 @@
-
 <app-normal-navbar *ngIf="nav === 'normal';else loginNavbar"></app-normal-navbar>
 <ng-template #loginNavbar>
   <app-sign-signup-navbar *ngIf="nav === 'sign-in-sign-up';else userNavbar"></app-sign-signup-navbar>

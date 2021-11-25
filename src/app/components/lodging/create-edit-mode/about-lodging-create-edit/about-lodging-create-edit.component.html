@@ -2,7 +2,7 @@
 <form [formGroup]="aboutForm">
   <div class="mb-3">
     <textarea class="form-control font-13 shadow-none" id="description" name="description" formControlName="description" rows="3"
-      placeholder="Realiza una breve descripcion de tu alojamiento, esto con el finde brindar mas información de interes a futuros huéspedes."></textarea>
-      <div class="error text-danger mb-2" *ngIf="aboutForm.get('description').hasError('required') && aboutForm.get('description').touched">Por favor ingrese la descripcion del hospedaje</div>
+      placeholder="Realiza una breve descripción de tu alojamiento, esto con el fin de brindar más información de interés a futuros huéspedes."></textarea>
+      <div class="error text-danger mb-2" *ngIf="aboutForm.get('description').hasError('required') && aboutForm.get('description').touched">Por favor ingrese una descripcion para tu alojamiento</div>
   </div>
 </form>

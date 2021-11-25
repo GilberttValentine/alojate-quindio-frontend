@@ -17,7 +17,7 @@
 
           <label class="form-label">Tipo de alojamiento</label>
           <input class="form-control mb-4 shadow-none" list="showTypeLodgingList"
-            placeholder="¿Qué alojamiento quieres buscar?" formControlName="typeId">
+            placeholder="¿Qué tipo de alojamiento buscas?" formControlName="typeId">
           <datalist id="showTypeLodgingList">
             <option *ngFor="let type of types" data-value="{{ type.id }}" value="{{ type.name }}"></option>
           </datalist>
@@ -35,7 +35,7 @@
             formControlName="bedQuantity">
 
           <label class="form-label">Baños</label>
-          <input class="form-control mb-4 shadow-none" placeholder="¿Cuántos baños deseas que hayan?"
+          <input class="form-control mb-4 shadow-none" placeholder="¿Cuántos baños deseas que haya?"
             formControlName="bathroomQuantity">
         </form>
       </div>

@@ -6,7 +6,7 @@
             <form id="admin_lodging_form_tag" (submit)="submit()" [formGroup]="lodgingForm">
                 <h3 class="title"><strong>Hospedajes</strong></h3>
                 <div class="form_parent_content">
-                    <div class="form_first_content">                      
+                    <div class="form_first_content">
                         <div class="first-form-part-container">
                             <div class="first-son">
 
@@ -23,15 +23,15 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="qualification" class="form-label">Calificacion:</label>
+                                    <label for="qualification" class="form-label">Calificación:</label>
                                     <input type="text" class="form-control form-control-lg shadow-none"
                                         name="qualification" formControlName="qualification" required="required">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="type_id" class="form-label">Id tipo:</label>
-                                    <input type="text" class="form-control form-control-lg shadow-none"
-                                        name="type_id" formControlName="type_id" required="required">
+                                    <input type="text" class="form-control form-control-lg shadow-none" name="type_id"
+                                        formControlName="type_id" required="required">
                                 </div>
 
                                 <div class="mb-3">
@@ -84,7 +84,7 @@
                         <div class="d-flex justify-content-between mb-3">
 
                             <div class="mb-3">
-                                <label for="direction" class="form-label">Direccion:</label>
+                                <label for="direction" class="form-label">Dirección:</label>
                                 <input type="text" class="form-control form-control-lg shadow-none" name="direction"
                                     formControlName="direction" required="required">
                             </div>
@@ -118,7 +118,7 @@
                     <p><strong>Total comentarios: </strong>{{lodging.comments.count }}</p>
                     <p><strong>Total camas: </strong>{{lodging.bed_quantity }}</p>
                     <p><strong>Total personas: </strong>{{lodging.persons_amount }}</p>
-                    <h6><strong>Anfitrion: </strong>{{lodging.user.name }}</h6>
+                    <h6><strong>Anfitrión: </strong>{{lodging.user.name }}</h6>
                     <h5><strong>Municipio: </strong>{{lodging.municipality.name }}</h5>
                     <h5><strong>Valor noche: </strong>${{lodging.night_value }}</h5>
                     <p>

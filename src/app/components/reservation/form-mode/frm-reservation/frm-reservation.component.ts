@@ -53,10 +53,10 @@ export class FrmReservationComponent implements OnInit {
 
           const createdAt = `${day} ${months[month]}`;
 
-          this.sweetAlertService.successAlert('¡Reserva realizada exitosamente!', `Te esperamos el ${createdAt} en ${this.reservation.lodging.name}`)
+          this.sweetAlertService.successAlert('¡Reserva exitosa, gracias por preferirnos!', `Te esperamos el ${createdAt} en ${this.reservation.lodging.name}`)
           this.router.navigate([`/lodgings/${lodging_id}`]);
         }, err => {
-          this.sweetAlertService.errorAlert('Ups, ocurrio un problema creando la reserva', err['error']['message'])
+          this.sweetAlertService.errorAlert('Ups, ocurrió un problema creando la reserva', err['error']['message'])
         })
     }
   }

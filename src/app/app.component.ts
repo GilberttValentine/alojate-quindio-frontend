@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   user = {} as any;
   context: string = "";
 
-  constructor(private routerService: RouterService, private securityService: SecurityServiceService) { }
+  constructor(private router: Router, private routerService: RouterService, private securityService: SecurityServiceService) { }
 
   ngOnInit() {
     this.routerService.setTitle();
@@ -48,14 +48,18 @@ export class AppComponent implements OnInit {
 
     navigation.subscribe((event: any) => {
       const route = this.routerService.getChild(this.routerService.route);
+
       route.data.subscribe((data: any) => {
-
         this.nav = data.nav ? data.nav : this.nav;
-
-        console.log(data.context);
 
         this.context = data.context ? data.context : this.context;
       });
+
+      const extras = this.router.getCurrentNavigation()?.extras.state?.nav
+
+      if(extras) {
+        this.nav = extras;
+      }
     });
   }
 }

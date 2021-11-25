@@ -1,18 +1,19 @@
-<div class="container">
-  <div class="d-flex justify-content-between flex-wrap">
-    <div class="d-flex flex-column title-card">
-      <h2 class="fw-bold title font-26">Alojamientos de {{ name }}</h2>
-      <div class="font-14">
-        <small>Descubre más de {{total}} alojamientos a nivel departamental</small>
-      </div>
-      <!--
+<div class="ps-md-6 col-md-12">
+  <div class="container">
+    <div class="d-flex justify-content-between flex-wrap">
+      <div class="d-flex flex-column title-card">
+        <h2 class="fw-bold title font-26">Alojamientos de {{ name }}</h2>
+        <div class="font-14">
+          <small>Descubre más de {{total}} alojamientos a nivel departamental</small>
+        </div>
+        <!--
         <div class="font-14">
           <small class="fw-bold">Búsqueda: </small><small>Parámetro de búsqueda</small>
         </div>-->
-    </div>
-    <div class="d-flex">
-      <div class="d-flex filter-options">
-        <!--
+      </div>
+      <div class="d-flex">
+        <div class="d-flex filter-options">
+          <!--
           <div class="mb-3 me-md-3 input-search">
             <input type="text" class="form-control filter-info font-13" id="searchInput" aria-describedby="searchHelp"
               placeholder="Buscar...">
@@ -27,26 +28,29 @@
               <li><a class="dropdown-item font-13" href="#">Inactivo</a></li>
             </ul>
           </div>-->
-        <button class="btn btn-primary px-5 py-2 filter-info font-13 add-button" [routerLink]="['/host/lodgings/create']">Agregar</button>
+          <button class="btn btn-primary px-5 py-2 filter-info font-13 add-button"
+            [routerLink]="['/host/lodgings/create']">Agregar</button>
+        </div>
       </div>
     </div>
-  </div>
-  <app-lodging-card [host]=true *ngFor="let lodging of lodgings" [lodging]="lodging" [actualRoute]="actualRoute"></app-lodging-card>
-  <div class="pagination">
-    <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
-      <div class="actual-page d-flex flex-wrap">
-        <span class="me-1">Página</span>
-        <div class="dropdown">
-          <span *ngIf="actualPage <= 9">0{{ actualPage }}</span>
-          <span *ngIf="actualPage > 9">{{ actualPage }}</span>
+    <app-lodging-card [host]=true *ngFor="let lodging of lodgings" [lodging]="lodging" [actualRoute]="actualRoute">
+    </app-lodging-card>
+    <div class="pagination">
+      <div class="d-flex flex-wrap  flex-fill align-items-center justify-content-between">
+        <div class="actual-page d-flex flex-wrap">
+          <span class="me-1">Página</span>
+          <div class="dropdown">
+            <span *ngIf="actualPage <= 9">0{{ actualPage }}</span>
+            <span *ngIf="actualPage > 9">{{ actualPage }}</span>
+          </div>
+          <span class="ms-1">de {{ totalPages }}</span>
         </div>
-        <span class="ms-1">de {{ totalPages }}</span>
-      </div>
-      <div class="action-buttons">
-        <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" [disabled]="disabledBack"
-          (click)="back()">Atrás</button>
-        <button class="btn btn-without-bg border px-5 py-2 shadow-none" [disabled]="disabledNext"
-          (click)="next()">Siguiente</button>
+        <div class="action-buttons">
+          <button class="btn btn-without-bg border me-2 px-4 py-2 shadow-none" [disabled]="disabledBack"
+            (click)="back()">Atrás</button>
+          <button class="btn btn-without-bg border px-5 py-2 shadow-none" [disabled]="disabledNext"
+            (click)="next()">Siguiente</button>
+        </div>
       </div>
     </div>
   </div>

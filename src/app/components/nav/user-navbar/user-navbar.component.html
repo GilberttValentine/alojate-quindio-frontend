@@ -23,7 +23,8 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item me-4 mt-auto mb-auto">
           <a class="nav-link" [routerLink]="['account']" *ngIf="user.role !== 2 && user.role !== 4">Hazte anfitrión</a>
-          <a class="nav-link" [routerLink]="['host/home']" *ngIf="user.role === 2 || user.role === 4">Panel de anfitrión</a>
+          <a class="nav-link" [routerLink]="['host/home']" *ngIf="user.role === 2 || user.role === 4">Panel de
+            anfitrión</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"

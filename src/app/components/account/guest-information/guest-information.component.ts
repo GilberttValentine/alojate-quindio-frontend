@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CivilStatus } from 'src/app/models/civilStatus';
 import { StudyLevel } from 'src/app/models/studyLevel';
@@ -17,11 +16,11 @@ import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service'
 })
 export class GuestInformationComponent implements OnInit {
   @Input('guestForm') guestForm!: any;
-  
+
   studyLevels!: Array<StudyLevel>;
   civilStatus!: Array<CivilStatus>;
 
-  constructor(private sweetAlertService: SweetAlertService, private civilStatusService: CivilStatusServiceService, private studyLevelService: StudyLevelServiceService, private userService: UserServiceService, private router:Router) { }
+  constructor(private sweetAlertService: SweetAlertService, private civilStatusService: CivilStatusServiceService, private studyLevelService: StudyLevelServiceService, private userService: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadSelects()
@@ -67,21 +66,19 @@ export class GuestInformationComponent implements OnInit {
   updateGuest(user_id: number, user: User) {
     this.userService.updateGuest(user_id, user)
       .subscribe(res => {
-        this.sweetAlertService.successAlert('Actualizacion Exitosa', 'Tus datos han sido actualizados con exito')
+        this.sweetAlertService.successAlert('Actualización exitosa', 'Tus datos han sido actualizados con éxito')
       }, err => {
-        this.sweetAlertService.errorAlert('Error actualizando el usuario', err['error']['message'])
+        this.sweetAlertService.errorAlert('Uups...ha ocurrido un error actualizando tu información', err['error']['message'])
       })
   }
 
   createGuest(user_id: number, user: User) {
-    console.log(user_id)
-    console.log(user)
     this.userService.createGuest(user_id, user)
       .subscribe(res => {
-        this.sweetAlertService.successAlert('¡Felicidades ahora eres huesped!', 'Por cuestiones de seguridad por favor vuelve a iniciar sesion')
+        this.sweetAlertService.successAlert('¡Felicidades ahora eres huésped!', 'Por motivos de seguridad, debes volver a iniciar sesión');
         this.router.navigate([`/sign-in`]);
       }, err => {
-        this.sweetAlertService.errorAlert('Error creando huesped', err['error']['message'])
+        this.sweetAlertService.errorAlert('Uups...ha ocurrido un error al almacenar tus datos', err['error']['message']);
       })
   }
 }
