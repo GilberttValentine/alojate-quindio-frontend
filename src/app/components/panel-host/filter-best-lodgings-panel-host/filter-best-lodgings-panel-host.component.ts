@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
 
 @Component({
   selector: 'app-filter-best-lodgings-panel-host',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-best-lodgings-panel-host.component.css']
 })
 export class FilterBestLodgingsPanelHostComponent implements OnInit {
+  @Input()lodgings = [] as any[];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.dragScroll();
@@ -57,4 +60,7 @@ export class FilterBestLodgingsPanelHostComponent implements OnInit {
     ele!.addEventListener('mousedown', mouseDownHandler);
   }
 
+  showLodging(id: number) {
+    this.router.navigate([`host/lodgings/${id}`]);
+  }
 }

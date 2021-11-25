@@ -5,30 +5,30 @@
         <div class="d-flex first-double-input mt-2">
           <div class="mb-3 w-50">
             <label for="first_name" class="form-label font-14 fw-bold">Primer nombre</label>
-            <input type="text" class="form-control h-53" name="first_name" formControlName="first_name">
+            <input type="text" class="form-control shadow-none" name="first_name" formControlName="first_name">
             <small class="error text-danger mb-2" *ngIf="userForm.get('first_name').hasError('required') && userForm.get('first_name').touched">Por favor ingrese su primer nombre</small>
           </div>
           <div class="mb-3 w-50">
             <label for="second_name" class="form-label font-14 fw-bold" >Segundo nombre</label>
-            <input type="text" class="form-control h-53" id="second_name" name="second_name" formControlName="second_name">
+            <input type="text" class="form-control shadow-none" id="second_name" name="second_name" formControlName="second_name">
           </div>
         </div>
  
         <div class="d-flex first-double-input mt-2">
           <div class="mb-3 w-50">
             <label for="first_lastname" class="form-label font-14 fw-bold">Primer apellido</label>
-            <input type="text" class="form-control h-53" name="first_lastname" formControlName="first_lastname">
+            <input type="text" class="form-control shadow-none" name="first_lastname" formControlName="first_lastname">
             <small class="error text-danger mb-2" *ngIf="userForm.get('first_lastname').hasError('required') && userForm.get('first_lastname').touched">Por favor ingrese su primer apellido</small>
           </div>
           <div class="mb-3 w-50">
             <label for="second_lastname" class="form-label font-14 fw-bold" >Segundo apellido</label>
-            <input type="text" class="form-control h-53" name="second_lastname" formControlName="second_lastname">
+            <input type="text" class="form-control shadow-none" name="second_lastname" formControlName="second_lastname">
           </div>
         </div>
 
         <div class="mb-3 mt-2">
           <label for="direction" class="form-label font-14 fw-bold" >Dirección</label>
-          <input type="text" class="form-control h-53" name="direction" formControlName="direction">
+          <input type="text" class="form-control shadow-none" name="direction" formControlName="direction">
           <small class="error text-danger mb-2" *ngIf="userForm.get('direction').hasError('required') && userForm.get('direction').touched">Por favor ingrese su dirección</small>
         </div>
         

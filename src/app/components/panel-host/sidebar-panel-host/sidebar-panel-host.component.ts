@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-panel-host',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-panel-host.component.css']
 })
 export class SidebarPanelHostComponent implements OnInit {
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  goLodgings() {
+    this.router.navigate(['host/lodgings']).then(() => {
+      window.location.reload();
+    });
+  }
 }

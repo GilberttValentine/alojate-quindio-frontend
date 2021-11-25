@@ -9,7 +9,7 @@ import { LodgingResponse } from 'src/app/models/response/lodgingResponse';
 })
 export class LodgingNameInfoComponent implements OnInit, OnChanges {
 
-  @Input() nav!: string;
+  @Input() context = "";
   @Input() lodging = {} as LodgingResponse;
 
   name: string = "";
@@ -17,7 +17,7 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
   count: number = 0;
   municipality: string = "";
   type: string = "";
-
+  actualState = false;
   limitNumber: number = 0;
 
   constructor() { }
@@ -32,6 +32,7 @@ export class LodgingNameInfoComponent implements OnInit, OnChanges {
       this.name = this.lodging.name;
       this.qualification = Math.floor(this.lodging.comments.qualification * 10) / 10;
       this.municipality = this.lodging.municipality.name;
+      this.actualState = this.lodging.actual_state;
 
       const count = this.lodging.comments.count;
       this.count = count;

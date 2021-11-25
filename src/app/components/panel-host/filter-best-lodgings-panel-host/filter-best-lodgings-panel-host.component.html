@@ -4,52 +4,16 @@
 </div>
 <div class="best-lodgings" id="best-lodgings">
     <div class="d-flex justify-content-between align-items-center">
-      <div class="lodging">
+      <div class="lodging" *ngFor="let lodging of lodgings">
         <div class="m-auto ms-0">
           <div class="img-qualification">
             <img class="lodging-img" draggable="false"
-              src="https://a0.muscache.com/im/pictures/a9772604-fec6-4d44-85de-7f7caafd0ea3.jpg?im_w=1200">
+              src="{{ lodging.image }}">
             <div class="qualification d-flex justify-content-center align-items-center">
-              4.5
+              {{lodging.qualification}}
             </div>
           </div>
-          <p class="mt-2">Casas</p>
-        </div>
-      </div>
-      <div class="lodging">
-        <div class="m-auto">
-          <div class="img-qualification">
-            <img class="lodging-img" draggable="false"
-              src="https://a0.muscache.com/im/pictures/miso/Hosting-50045592/original/22810b8b-4f91-4b62-b121-651dfa84bb22.jpeg?im_w=720">
-            <div class="qualification d-flex justify-content-center align-items-center">
-              4.5
-            </div>
-          </div>
-          <p class="mt-2">Casas</p>
-        </div>
-      </div>
-      <div class="lodging">
-        <div class="m-auto">
-          <div class="img-qualification">
-            <img class="lodging-img" draggable="false"
-              src="https://a0.muscache.com/im/pictures/d5d015a1-1427-4c3c-99c1-20d79b136691.jpg?im_w=1200">
-            <div class="qualification d-flex justify-content-center align-items-center">
-              4.5
-            </div>
-          </div>
-          <p class="mt-2">Casas</p>
-        </div>
-      </div>
-      <div class="lodging">
-        <div class="m-auto ms-0">
-          <div class="img-qualification">
-            <img class="lodging-img" draggable="false"
-              src="https://a0.muscache.com/im/pictures/b15a0d34-06e0-43a0-af27-96cac9cdddaa.jpg?im_w=720">
-            <div class="qualification d-flex justify-content-center align-items-center">
-              4.5
-            </div>
-          </div>
-          <p class="mt-2">Casas</p>
+          <p class="mt-2" (click)="showLodging(lodging.id)"><u>{{lodging.name}}</u></p>
         </div>
       </div>
       <div class="lodging">

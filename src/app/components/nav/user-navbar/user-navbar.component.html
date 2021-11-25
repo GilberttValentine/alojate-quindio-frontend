@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white border-bottom">
-  <div class="container-fluid px-4 px-lg-5">
-    <a class="navbar-brand me-4">Alójate
+  <div class="container ps-4 pe-4">
+    <a class="navbar-brand navbar-brand-center">Alójate
       Quindío</a>
     <div class="d-flex">
       <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
@@ -9,17 +9,27 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+
     <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="goLodgings()" [routerLink]="['/lodgings']"
+            routerLinkActive="active">Alojamientos</a>
+        </li>
+      </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item mt-auto mb-auto me-4">
-          <a class="nav-link" aria-current="page" [routerLink]="['/home']">Modo viajero</a>
+        <li class="nav-item me-4 mt-auto mb-auto">
+          <a class="nav-link" [routerLink]="['account']" *ngIf="user.role !== 2 && user.role !== 4">Hazte anfitrión</a>
+          <a class="nav-link" [routerLink]="['host/home']" *ngIf="user.role === 2 || user.role === 4">Panel de anfitrión</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
             role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="user-profile-picture">
-              <img class="user-profile"
-              src="{{ url_profile_server }}/{{ user.url_picture }}">
+              <img class="user-profile" src="{{ url_profile_server }}/{{ user.url_picture }}">
             </div>
             <div class="user-information ms-3">
               <div class="user-role">
@@ -30,8 +40,10 @@
               </div>
             </div>
           </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark mt-2" aria-labelledby="navbarDropdownMenuLink">
+          <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark mt-2"
+            aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" [routerLink]="['account']" routerLinkActive="active">Configuración</a></li>
+            <li><a class="dropdown-item" href="#" *ngIf="user.role === 2">Reservas</a></li>
             <li><a class="dropdown-item logout" (click)="logout()">Cerrar sesión</a></li>
           </ul>
         </li>

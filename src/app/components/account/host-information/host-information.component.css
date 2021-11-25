@@ -19,10 +19,20 @@
 .language-container {
   display: flex;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 5px;
   padding-left: 14px;
   padding-right: 14px;
   align-items: center;
   height: 61px;
   overflow: hidden;
+}
+
+.form-control {
+  font-size: 13px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.input-group, .input-group-text {
+  border-radius: 5px;
 }

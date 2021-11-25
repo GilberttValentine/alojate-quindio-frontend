@@ -4,7 +4,7 @@
     <form [formGroup]="guestForm" (submit)="submit()">
       <div class="mb-3 mt-2">
         <label for="stratum" class="form-label font-14 fw-bold">Estrato</label>
-        <input type="text" class="form-control h-53" name="stratum" formControlName="stratum">
+        <input type="text" class="form-control shadow-none" name="stratum" formControlName="stratum">
         <div class="error text-danger mb-2"
           *ngIf="(guestForm.get('stratum').hasError('required') || guestForm.get('stratum').hasError('nonZero')) && guestForm.get('stratum').touched">
           Por favor ingrese su estrato valido</div>
@@ -12,7 +12,7 @@
 
       <div class="mb-3 mt-2">
         <label for="civilStatusId" class="form-label font-14 fw-bold">Estado civil</label>
-        <select class="form-select h-53" aria-label="Default select example" name="civilStatusId"
+        <select class="form-select shadow-none" aria-label="Default select example" name="civilStatusId"
           formControlName="civilStatusId">
           <option value="" disabled>Estado Civil</option>
           <option *ngFor="let item of civilStatus" [value]="item.id">{{item.name}}</option>
@@ -24,7 +24,7 @@
 
       <div class="mb-3 mt-2">
         <label for="studyLevelId" class="form-label font-14 fw-bold">Nivel de estudio</label>
-        <select class="form-select h-53" aria-label="Default select example" name="studyLevelId"
+        <select class="form-select shadow-none" aria-label="Default select example" name="studyLevelId"
           formControlName="studyLevelId">
           <option value="" disabled>Nivel de estudio</option>
           <option *ngFor="let item of studyLevels" [value]="item.id">{{item.name}}</option>

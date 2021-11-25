@@ -1,6 +1,6 @@
 <div class="d-flex flex-wrap justify-content-between">
   <div class="owner-info-estate">
-    <div class="owner" *ngIf="nav !== 'panel-host'">
+    <div class="owner" *ngIf="context !== 'panel-host'">
       <b>Propietario</b> - {{ name }}
     </div>
     <div class="estates">
@@ -17,7 +17,7 @@
       <span class="bathrooms" *ngIf="bathroom_quantity == 1">{{ bathroom_quantity }} baño</span>
     </div>
   </div>
-  <div *ngIf="nav !== 'panel-host'">
+  <div *ngIf="context !== 'panel-host'">
     <img class="owner-profile-picture" src="{{picture}}">
   </div>
 </div>

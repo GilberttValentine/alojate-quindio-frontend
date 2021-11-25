@@ -7,3 +7,9 @@
   color: white;
   margin-bottom: 10px;
 }
+
+.form-control, .form-select {
+  font-size: 13px;
+  height: 40px;
+  border-radius: 5px;
+}

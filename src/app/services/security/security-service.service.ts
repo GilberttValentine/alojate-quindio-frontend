@@ -19,7 +19,19 @@ export class SecurityServiceService {
     return this.http.post<any>(`${environment.baseUrl}/security/login`, body, this.httpOptions)
   }
 
-  validateToken(body: { token: string }): Observable<object> {
+  validateToken(body: { token: string | null }): Observable<object> {
     return this.http.post<object>(`${environment.baseUrl}/security/validate-token`, body, this.httpOptions)
+  }
+
+  isAuth(token: string | null) {
+    if (!token) {
+      return false;
+    }
+
+    return true;
+  }
+
+  logout() {
+    localStorage.clear();
   }
 }

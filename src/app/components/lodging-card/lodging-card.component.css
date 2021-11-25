@@ -4,6 +4,10 @@
   border-radius: 1.25rem;
 }
 
+.routerLink {
+  cursor: pointer;
+}
+
 .icon {
   color: #58CDBF;
   font-size: 12px;

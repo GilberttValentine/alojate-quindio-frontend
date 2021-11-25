@@ -1,8 +1,11 @@
 
 <app-normal-navbar *ngIf="nav === 'normal';else loginNavbar"></app-normal-navbar>
 <ng-template #loginNavbar>
-  <app-sign-signup-navbar *ngIf="nav === 'sign-in-sign-up';else panelHostNavbar"></app-sign-signup-navbar>
+  <app-sign-signup-navbar *ngIf="nav === 'sign-in-sign-up';else userNavbar"></app-sign-signup-navbar>
+</ng-template>
+<ng-template #userNavbar>
+  <app-user-navbar *ngIf="nav === 'user' && context !== 'panel-host';else panelHostNavbar" [user]="user"></app-user-navbar>
 </ng-template>
 <ng-template #panelHostNavbar>
-  <app-panel-host-navbar *ngIf="nav === 'panel-host'"></app-panel-host-navbar>
+  <app-panel-host-navbar *ngIf="context === 'panel-host'" [user]="user"></app-panel-host-navbar>
 </ng-template>

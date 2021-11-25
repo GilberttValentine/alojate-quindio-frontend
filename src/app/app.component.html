@@ -1,5 +1,4 @@
-<app-navbar [nav]="nav"></app-navbar>
-<app-sidebar-panel-host *ngIf="nav === 'panel-host'"></app-sidebar-panel-host>
+<app-navbar [nav]="nav" [user]="user" [context]="context"></app-navbar>
+<app-sidebar-panel-host *ngIf="context === 'panel-host'"></app-sidebar-panel-host>
 <router-outlet (activate)="onActivate()"></router-outlet>
-
-<app-footer *ngIf="nav !== 'panel-host'"></app-footer>
+<app-footer *ngIf="context !== 'panel-host'"></app-footer>

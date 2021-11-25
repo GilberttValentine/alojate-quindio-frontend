@@ -6,7 +6,7 @@
           Alojamientos
         </div>
         <div class="value">
-          5k en total
+          {{totalLodgings | numberSuffix:lodgingsLimiter}} en total
         </div>
       </div>
       <div class="context-icon">
@@ -21,7 +21,7 @@
           Reservas
         </div>
         <div class="value">
-          8.5m en total
+          {{totalReservations | numberSuffix:reservationsLimiter}} en total
         </div>
       </div>
       <div class="context-icon">

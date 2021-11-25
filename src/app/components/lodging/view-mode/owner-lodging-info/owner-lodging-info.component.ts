@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class OwnerLodgingInfoComponent implements OnInit, OnChanges {
 
-  @Input() nav!: string;
+  @Input() context = "";
   @Input() ownerLodgingInfo: any = {};
 
   name: string = ""

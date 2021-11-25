@@ -10,7 +10,7 @@
         </a>
       </li>
       <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Mis alojamientos">
-        <a class="nav-link" [routerLink]="['/host/lodgings']" routerLinkActive="active">
+        <a class="nav-link" (click)="goLodgings()" [routerLink]="['/host/lodgings']" routerLinkActive="active">
           <div class="d-flex align-items-center">
             <i class="bi bi-box-seam"></i>
             <span class="text d-sm-none">Mis alojamientos</span>
