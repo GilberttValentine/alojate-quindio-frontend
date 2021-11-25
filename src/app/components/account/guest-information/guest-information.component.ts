@@ -4,6 +4,7 @@ import { CivilStatus } from 'src/app/models/civilStatus';
 import { StudyLevel } from 'src/app/models/studyLevel';
 import { User } from 'src/app/models/user';
 import { CivilStatusServiceService } from 'src/app/services/civilStatus/civil-status-service.service';
+import { SecurityServiceService } from 'src/app/services/security/security-service.service';
 import { StudyLevelServiceService } from 'src/app/services/studyLevel/study-level-service.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { userRoles } from 'src/app/utils/constants/userRoleConstants';
@@ -20,7 +21,7 @@ export class GuestInformationComponent implements OnInit {
   studyLevels!: Array<StudyLevel>;
   civilStatus!: Array<CivilStatus>;
 
-  constructor(private sweetAlertService: SweetAlertService, private civilStatusService: CivilStatusServiceService, private studyLevelService: StudyLevelServiceService, private userService: UserServiceService, private router: Router) { }
+  constructor(private sweetAlertService: SweetAlertService, private civilStatusService: CivilStatusServiceService, private studyLevelService: StudyLevelServiceService, private userService: UserServiceService, private router: Router, private securityService: SecurityServiceService) { }
 
   ngOnInit(): void {
     this.loadSelects()
@@ -76,6 +77,7 @@ export class GuestInformationComponent implements OnInit {
     this.userService.createGuest(user_id, user)
       .subscribe(res => {
         this.sweetAlertService.successAlert('¡Felicidades ahora eres huésped!', 'Por motivos de seguridad, debes volver a iniciar sesión');
+        this.securityService.logout();
         this.router.navigate([`/sign-in`]);
       }, err => {
         this.sweetAlertService.errorAlert('Uups...ha ocurrido un error al almacenar tus datos', err['error']['message']);

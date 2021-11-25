@@ -5,6 +5,7 @@ import { Language } from 'src/app/models/language';
 import { HostLanguageResponse } from 'src/app/models/response/hostLanguage';
 import { User } from 'src/app/models/user';
 import { LanguageServiceService } from 'src/app/services/language/language-service.service';
+import { SecurityServiceService } from 'src/app/services/security/security-service.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { userRoles } from 'src/app/utils/constants/userRoleConstants';
 import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service';
@@ -19,7 +20,7 @@ export class HostInformationComponent implements OnInit {
   @Input('hostForm') hostForm!: any
   @Input() languages: Array<Language> = [];
   @Input() selectedLanguages: Array<string> = [];
-  constructor(private sweetAlertService: SweetAlertService, private languageService: LanguageServiceService, private userService: UserServiceService, private router: Router) { }
+  constructor(private sweetAlertService: SweetAlertService, private languageService: LanguageServiceService, private userService: UserServiceService, private router: Router, private securityService: SecurityServiceService) { }
 
   ngOnInit(): void {
     this.loadSelect();
@@ -88,6 +89,7 @@ export class HostInformationComponent implements OnInit {
     this.userService.createHost(user_id, languages)
       .subscribe(res => {
         this.sweetAlertService.successAlert('¡Felicidades ahora eres anfitrión!', 'Por motivos de seguridad, debes volver a iniciar sesión')
+        this.securityService.logout();
         this.router.navigate([`/sign-in`]);
       }, err => {
         this.sweetAlertService.errorAlert('Uups...ha ocurrido un error al almacenar tus datos', err['error']['message'])
