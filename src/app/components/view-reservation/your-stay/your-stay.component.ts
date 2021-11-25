@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 
 @Component({
   selector: 'app-your-stay',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class YourStayComponent implements OnInit {
 
   @Input() host = false;
+  @Input() yourStay: any = {};
   title = "";
 
   fecha1:Date = new Date('2022-01-28'); 

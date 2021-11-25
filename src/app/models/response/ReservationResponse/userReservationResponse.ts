@@ -1,15 +1,13 @@
-import { ReservationGuestResponse } from "./guestRespone";
 import { ReservationHostResponse } from "./hostResponse";
 import { ReservationLodgingResponse } from "./lodgingResponse";
 
-export interface ReservationResponse {
+export interface UserReservationResponse {
   id: number;
   actual_state: number;
   end_date: number;
-  guest: ReservationGuestResponse;
+  guest: number;
   host: ReservationHostResponse;
   lodging: ReservationLodgingResponse;
   night_value: number;
   start_date: Date;
-  persons_amount: number;
 }
