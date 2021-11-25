@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 
 @Component({
   selector: 'app-payment-method',

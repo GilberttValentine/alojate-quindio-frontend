@@ -16,10 +16,11 @@ import { SweetAlertService } from 'src/app/utils/sweetAlert/sweet-alert.service'
   styleUrls: ['./guest-information.component.css']
 })
 export class GuestInformationComponent implements OnInit {
-
   @Input('guestForm') guestForm!: any;
+  
   studyLevels!: Array<StudyLevel>;
   civilStatus!: Array<CivilStatus>;
+
   constructor(private sweetAlertService: SweetAlertService, private civilStatusService: CivilStatusServiceService, private studyLevelService: StudyLevelServiceService, private userService: UserServiceService, private router:Router) { }
 
   ngOnInit(): void {
