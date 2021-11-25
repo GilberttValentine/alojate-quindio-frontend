@@ -34,4 +34,29 @@ export class SecurityServiceService {
   logout() {
     localStorage.clear();
   }
+  
+  adminAuth(): boolean {
+    if (localStorage.getItem('role') === '1') return true
+    else return false
+  }
+
+  hostAuth(): boolean {
+    if (localStorage.getItem('role') === '2') return true
+    else return false
+  }
+
+  guestAuth(): boolean {
+    if (localStorage.getItem('role') === '3') return true
+    else return false
+  }
+
+  mixAuth(): boolean {
+    if (localStorage.getItem('role') === '4') return true
+    else return false
+  }
+
+  userAuth(): boolean {
+    if (localStorage.getItem('role') === '5') return true
+    else return false
+  }
 }

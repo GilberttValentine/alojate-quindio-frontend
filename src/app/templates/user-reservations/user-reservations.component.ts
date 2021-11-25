@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 import { ReservationServiceService } from 'src/app/services/reservation/reservation-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-reservations',
@@ -9,20 +11,24 @@ import { ReservationServiceService } from 'src/app/services/reservation/reservat
 })
 export class UserReservationsComponent implements OnInit {
 
+  reservations = [] as any;
   user_id!: number;
-  filters = {} as any;  
+  filters = {} as any;
   status = undefined as any;
   code = undefined as any;
-  lastDays = undefined as any;  
+  lastDays = undefined as any;
 
   total = 0;
   actualPage = 1;
   previousPage = 1;
+  
+  disabledNext = false;
+  disabledBack = false;
 
   totalPages = "";
   pagesAvailable: number[] = []
 
-  
+
   constructor(private router: Router, private route: ActivatedRoute, private reservationService: ReservationServiceService) { }
 
   ngOnInit(): void {
@@ -68,34 +74,32 @@ export class UserReservationsComponent implements OnInit {
 
     const reservations = await this.getAllReservations();
 
-    console.log(reservations)
     let { results, total }: any = reservations;
 
-    /**this.reservations = results.map((it: LodgingResponse) => {
-      it.comments.qualification = Math.floor(it.comments.qualification * 10) / 10;
+    this.reservations = results.map((it: ReservationResponse) => {
+      it.lodging.comments.qualification = Math.floor(it.lodging.comments.qualification * 10) / 10;
+      it.lodging.url_pictures = `${environment.CLOUDINARY_LODGING_URL}/${it.lodging.url_pictures.split(',')[0]}`
+      it.host.photo = `${environment.CLOUDINARY_PROFILE_URL}/${it.host.photo}`
+      
       return {
-        ...it,
-        pictures: it.url_pictures.split(',')
+        ...it
       }
-    });*/
+    });
 
-    this.total = total;
+    if (this.reservations.length != 0) {
+      this.total = total;
 
-    if (total <= 10) {
-      this.deactivateNextButton();
+      if (total <= 10) this.deactivateNextButton();
+
+      total = Number(Math.ceil(total / 10));
+
+      this.pagesAvailable = Array(total).fill(1).map((x, i) => i + 1)
+      this.totalPages = total <= 9 ? `0${total}` : total;
+
+      if (this.actualPage >= Number(this.totalPages)) this.deactivateNextButton()
+
+      if (this.actualPage === 1) this.deactivateBackButton();
     }
-
-    total = Number(((total / 10) - 0.5).toFixed(0));
-    total++;
-
-    this.pagesAvailable = Array(total).fill(1).map((x, i) => i + 1)
-    this.totalPages = total <= 9 ? `0${total}` : total;
-
-    if (this.actualPage === 1) {
-      this.deactivateBackButton();
-    }
-
-    console.log(this.filters);
   }
 
   async getAllReservations() {
@@ -112,23 +116,20 @@ export class UserReservationsComponent implements OnInit {
   }
 
   deactivateBackButton() {
-    const back = (document.getElementById('back') as HTMLButtonElement);
-    back!.disabled = true;
+    this.disabledBack = true;
   }
 
   activateBackButton() {
-    const back = (document.getElementById('back') as HTMLButtonElement);
-    back!.disabled = false;
+    this.disabledBack = false;
   }
 
   deactivateNextButton() {
-    const next = (document.getElementById('next') as HTMLButtonElement);
-    next!.disabled = true;
+    this.disabledNext = true;
   }
 
   activateNextButton() {
-    const next = (document.getElementById('next') as HTMLButtonElement);
-    next!.disabled = false;
+    this.disabledNext = false;
+
   }
 
   back() {
@@ -138,7 +139,9 @@ export class UserReservationsComponent implements OnInit {
     if (this.actualPage <= 1) this.deactivateBackButton();
     if (this.actualPage < Number(this.totalPages)) this.activateNextButton()
 
-    this.router.navigate(['/lodgings'], { queryParams: { ...this.filters, page: this.actualPage } });
+    this.router.navigate(['/reservations'], { queryParams: { ...this.filters, page: this.actualPage } }).then(() => {
+      window.location.reload();
+    });;
   }
 
   next() {
@@ -148,6 +151,8 @@ export class UserReservationsComponent implements OnInit {
     if (this.actualPage > 1) this.activateBackButton()
     if (this.actualPage >= Number(this.totalPages)) this.deactivateNextButton()
 
-    this.router.navigate(['/lodgings'], { queryParams: { ...this.filters, page: this.actualPage } });
+    this.router.navigate(['/reservations'], { queryParams: { ...this.filters, page: this.actualPage } }).then(() => {
+      window.location.reload();
+    });
   }
 }

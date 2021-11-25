@@ -1,7 +1,7 @@
 <div class="container">
   <div class="d-block">
     <div class="d-flex font-24 fw-bold align-items-center mb-5">
-      <div class="cancel-icon me-4">
+      <div class="cancel-icon me-4" (click)="return()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-chevron-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
@@ -12,17 +12,17 @@
     </div>
     <div class="d-flex justify-content-around flex-row flex-wrap">
       <div class="d-flex flex-column w-50 information-card">
-        <app-your-stay [host]="host"></app-your-stay>
+        <app-your-stay [host]="host" [yourStay]="yourStay"></app-your-stay>
         <hr>
-        <app-payment-method [host]="host"></app-payment-method>
+        <app-payment-method [host]="host" [payment]="paymentCard"></app-payment-method>
         <hr>
-        <app-reservation-guest-information *ngIf="host"></app-reservation-guest-information>
-        <app-reservation-host-information *ngIf="!host"></app-reservation-host-information>
+        <app-reservation-guest-information *ngIf="host" [guest]="guestCard"></app-reservation-guest-information>
+        <app-reservation-host-information *ngIf="!host" [host]="hostCard"></app-reservation-host-information>
         <hr>
-        <app-cancel-reservation></app-cancel-reservation>
+        <app-cancel-reservation *ngIf="cancel"></app-cancel-reservation>
       </div>
       <div>
-        <app-view-reservation-card></app-view-reservation-card>
+        <app-view-reservation-card [lodging]="lodgingCard"></app-view-reservation-card>
       </div>
     </div>
   </div>

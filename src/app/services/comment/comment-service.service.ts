@@ -30,4 +30,7 @@ export class CommentServiceService {
   listCommentByLodging(lodgingId: number, page: number): Observable<object> {
     return this.http.get<object>(`${environment.baseUrl}/lodgings/${lodgingId}/comments?page=${page}`)
   }
+  listCommentByLodgingNoPage(lodgingId: number): Observable<object> {
+    return this.http.get<object>(`${environment.baseUrl}/lodgings/${lodgingId}/comments`)
+  }
 }

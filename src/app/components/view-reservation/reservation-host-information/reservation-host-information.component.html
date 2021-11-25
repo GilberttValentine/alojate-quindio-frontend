@@ -1,14 +1,14 @@
 <div class="d-flex flex-row mb-2">
   <img class="user-img" draggable="false"
-    src="https://cdn.discordapp.com/attachments/574438784611909645/909205401084510218/182325284_1161200667626223_5999048449218695878_n.jpg">
+    [src]="host.photo">
   <div class="d-flex flex-column justify-content-around ms-4 font-12">
     <div>
       <div class="text-muted">Anfitrión</div>
-      <div>Juan Manuel Villanueva Aristizabal</div>
+      <div>{{host.name}}</div>
     </div>
     <div>
-      <div class="text-muted">Habla</div>
-      <div>Español, Ingles</div>
+      <div class="text-muted">Correo:</div>
+      <div>{{host.email}}</div>
     </div>
   </div>
 </div>

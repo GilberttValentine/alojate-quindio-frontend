@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ReservationResponse } from 'src/app/models/response/ReservationResponse/reservationResponse';
 
 @Component({
   selector: 'app-payment-method',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PaymentMethodComponent implements OnInit {
 
   @Input() host = false;
+  @Input() payment: any = {};
+  
   paymentDetail = "";
 
   constructor() { }

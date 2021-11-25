@@ -4,8 +4,20 @@
   border-radius: 20px;
 }
 
-.text-state {
+#pending {
+  color: #737ea7;
+}
+
+#in-course {
+  color: #ffd000;
+}
+
+#finished {
   color: #32D583;
+}
+
+#cancelled {
+  color: #f70000;
 }
 
 .lodging-img {

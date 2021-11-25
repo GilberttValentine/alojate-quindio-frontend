@@ -32,6 +32,10 @@ export class LodgingServiceService {
   getAllLodgingsHost(id: number, page?: any): Observable<LodgingResponse[]> {
     return this.http.post<LodgingResponse[]>(`${environment.baseUrl}/user/${id}/lodgings?page=${page}`, this.httpOptions)
   }
+  
+  getAllLodgingsNoPage(): Observable<LodgingResponse[]> {
+    return this.http.get<LodgingResponse[]>(`${environment.baseUrl}/lodgings`)
+  }
 
   getLodging(lodgingId: number): Observable<LodgingResponse> {
     return this.http.get<LodgingResponse>(`${environment.baseUrl}/lodgings/${lodgingId}`);
@@ -43,5 +47,9 @@ export class LodgingServiceService {
 
   activateLodging(userId: number, lodgingId: number): Observable<object> {
     return this.http.patch<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}/activate`, [], this.httpOptions)
+  }
+
+  editLodging(userId: number, lodgingId: number,body:CreateLodgingResponse){
+    return this.http.put<any>(`${environment.baseUrl}/users/${userId}/lodgings/${lodgingId}`, body, this.httpOptions)
   }
 }

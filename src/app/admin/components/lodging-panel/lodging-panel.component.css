@@ -1,0 +1,51 @@
+.form_parent_content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.form_second_content {
+  text-align: center;
+}
+.add-service {
+  font-size: 26px;
+  cursor: pointer;
+}
+.admin_grid_max_parent {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 2rem;
+}
+.info-cont {
+  width: 55%;
+}
+
+.btn {
+  height: 41px;
+}
+
+@media (max-width: 991px) {
+  .title-div {
+    width: 100% !important;
+  }
+  .button-div {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 990px) {
+  .info-cont {
+    width: 100% !important;
+  }
+  .form-info-cont {
+    justify-content: center !important;
+  }
+  .form-container {
+    width: 100%;
+  }
+  .admin_grid_max_parent {
+    display: grid;
+    margin: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+  }
+}

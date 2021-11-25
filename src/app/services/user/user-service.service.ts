@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { HostLanguageResponse } from 'src/app/models/response/hostLanguage';
+import { HostResponse } from 'src/app/admin/models/hostResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +54,7 @@ export class UserServiceService {
     return this.http.get<User>(`${environment.baseUrl}/users/${userId}`)
   }
 
-  findAllUsers(userId: number): Observable<object> {
-    return this.http.get<any>(`${environment.baseUrl}/users/${userId}/deactivate`)
+  findAllUsers(): Observable<object> {
+    return this.http.get<any>(`${environment.baseUrl}/users`)
   }
 }

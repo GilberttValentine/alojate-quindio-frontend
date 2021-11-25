@@ -11,4 +11,5 @@ export interface ReservationResponse {
   lodging: ReservationLodgingResponse;
   night_value: number;
   start_date: Date;
+  persons_amount: number;
 }

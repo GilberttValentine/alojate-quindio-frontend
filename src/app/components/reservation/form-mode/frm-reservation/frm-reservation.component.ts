@@ -18,6 +18,7 @@ export class FrmReservationComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm()
+    console.log(this.reservation)
   }
 
   createForm() {
