@@ -29,6 +29,10 @@ export class LodgingServiceService {
     return this.http.post<LodgingResponse[]>(`${environment.baseUrl}/lodgings?page=${page}`, ({ filters: filters }), this.httpOptions)
   }
 
+  getAllLodgingsNoPage(): Observable<LodgingResponse[]> {
+    return this.http.get<LodgingResponse[]>(`${environment.baseUrl}/lodgings`)
+  }
+
   getLodging(lodgingId: number): Observable<LodgingResponse> {
     return this.http.get<LodgingResponse>(`${environment.baseUrl}/lodgings/${lodgingId}`);
   }

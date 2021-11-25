@@ -10,7 +10,7 @@ export class LodgingPanelUtil {
     constructor(private lodgingService: LodgingServiceService, private fb: FormBuilder,) { }
 
     async getAllLodgings(): Promise<object> {
-        return await this.lodgingService.getAllLodgings().toPromise();
+        return await this.lodgingService.getAllLodgingsNoPage().toPromise();
     }
 
     createLodging(userId: number, lodging: CreateLodgingResponse) {

@@ -2,5 +2,17 @@
   display: grid;
   grid-template-columns: 15% 75%;
   gap: 50px;
-  overflow-x: hidden ;
+  overflow-x: hidden;
+}
+.default_home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 350px;
+  padding: 20px;
+}
+.default_home div {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  text-align: center;
 }

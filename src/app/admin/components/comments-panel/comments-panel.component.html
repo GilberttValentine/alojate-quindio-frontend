@@ -1,0 +1,39 @@
+<form id="general-form-search" class="card card-body animate__animated animate__fadeInLeft  mt-5 func-search" [formGroup]="commentsForm"
+    (submit)="findCommentByLodging()">
+    <h3 class="mt-5"><strong>Buscar funcionario</strong></h3>
+    <div class="container-parent form-group mb-2">
+        <input type="text" formControlName="lodgingId" maxlength="20" id="search-code-input" placeholder="Id hospedaje"
+            class="form-control mt-5" required autofocus>
+    </div>
+    <button class="btn btn-success mb-5"> Buscar</button>
+</form>
+
+<form>
+    <table id="comment_table" class="table table-responsive animate__animated animate__fadeInLeft mt-5" hidden>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Huesped</th>
+                <th scope="col">Limpieza</th>
+                <th scope="col">Ubicacion</th>
+                <th scope="col">Id hospedaje</th>
+                <th scope="col">Description</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let comment of comments">
+            <tr>
+                <th scope="row">{{comment.id}}</th>
+                <td>{{comment.guest.name}}</td>
+                <td>{{comment.cleaning}}</td>
+                <td>{{comment.ubication}}</td>
+                <td>{{comment.lodging_id}}</td>
+                <td>{{comment.description}}</td>
+                <td> <button class="btn btn-danger"
+                        (click)="deleteComment(comment.guest.id,comment.lodging_id,comment.id)">
+                        Eliminar
+                    </button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>

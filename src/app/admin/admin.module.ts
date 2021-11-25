@@ -7,6 +7,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LodgingPanelComponent } from './components/lodging-panel/lodging-panel.component';
+import { CommentsPanelComponent } from './components/comments-panel/comments-panel.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { LodgingPanelComponent } from './components/lodging-panel/lodging-panel.
     AdminComponent,
     SideBarComponent,
     UserPanelComponent,
-    LodgingPanelComponent
+    LodgingPanelComponent,
+    CommentsPanelComponent
   ],
   imports: [
     CommonModule,

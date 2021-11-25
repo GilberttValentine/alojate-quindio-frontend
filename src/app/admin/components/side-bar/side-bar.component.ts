@@ -21,6 +21,9 @@ export class SideBarComponent implements OnInit {
       case 'lodging':
         this.currentForm.emit('lodging');
         break;
+      case 'comments':
+        this.currentForm.emit('comments');
+        break;
     }
   }
 

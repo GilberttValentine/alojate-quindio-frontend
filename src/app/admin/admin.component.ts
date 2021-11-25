@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  currentForm!: string
+  currentForm: string = 'empty'
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +15,6 @@ export class AdminComponent implements OnInit {
 
   setCurrentForm(e: any) {
     this.currentForm = e
+    console.log(this.currentForm)
   }
 }
